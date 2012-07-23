@@ -20,7 +20,16 @@
 		1C1FC7C715BDC785009393A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A415BDC785009393A1 /* UIKit.framework */; };
 		1C1FC7C815BDC785009393A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A615BDC785009393A1 /* Foundation.framework */; };
 		1C1FC7D015BDC785009393A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C1FC7CE15BDC785009393A1 /* InfoPlist.strings */; };
-		1C1FC7D315BDC785009393A1 /* Go_FishTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7D215BDC785009393A1 /* Go_FishTests.m */; };
+		1C1FC7E215BDC869009393A1 /* LDNGoFishGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7E115BDC869009393A1 /* LDNGoFishGameTests.m */; };
+		1C1FC7E515BDCA82009393A1 /* LDNGoFishGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7E415BDCA82009393A1 /* LDNGoFishGame.m */; };
+		1C1FC7E615BDCA82009393A1 /* LDNGoFishGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7E415BDCA82009393A1 /* LDNGoFishGame.m */; };
+		1C1FC7E915BDD245009393A1 /* LDNGoFishPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7E815BDD245009393A1 /* LDNGoFishPlayer.m */; };
+		1C1FC7EA15BDD245009393A1 /* LDNGoFishPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7E815BDD245009393A1 /* LDNGoFishPlayer.m */; };
+		1C1FC7ED15BDD728009393A1 /* LDNDeckOfCards.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7EC15BDD728009393A1 /* LDNDeckOfCards.m */; };
+		1C1FC7EE15BDD728009393A1 /* LDNDeckOfCards.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7EC15BDD728009393A1 /* LDNDeckOfCards.m */; };
+		1C1FC7F215BDD96D009393A1 /* LDNDeckOfCardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7F015BDD96D009393A1 /* LDNDeckOfCardsTests.m */; };
+		1C1FC7F715BDE17D009393A1 /* LDNPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */; };
+		1C1FC7F815BDE17D009393A1 /* LDNPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,22 +47,32 @@
 		1C1FC7A415BDC785009393A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1C1FC7A615BDC785009393A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1C1FC7A815BDC785009393A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1C1FC7AC15BDC785009393A1 /* Go Fish-Info.plist */ = {isa = PBXFileReference; path = "Go Fish-Info.plist"; sourceTree = "<group>"; };
+		1C1FC7AC15BDC785009393A1 /* Go Fish-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Go Fish-Info.plist"; sourceTree = "<group>"; };
 		1C1FC7AE15BDC785009393A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1C1FC7B015BDC785009393A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1C1FC7B215BDC785009393A1 /* Go Fish-Prefix.pch */ = {isa = PBXFileReference; path = "Go Fish-Prefix.pch"; sourceTree = "<group>"; };
-		1C1FC7B315BDC785009393A1 /* LDNAppDelegate.h */ = {isa = PBXFileReference; path = LDNAppDelegate.h; sourceTree = "<group>"; };
+		1C1FC7B215BDC785009393A1 /* Go Fish-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Go Fish-Prefix.pch"; sourceTree = "<group>"; };
+		1C1FC7B315BDC785009393A1 /* LDNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNAppDelegate.h; sourceTree = "<group>"; };
 		1C1FC7B415BDC785009393A1 /* LDNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNAppDelegate.m; sourceTree = "<group>"; };
 		1C1FC7B715BDC785009393A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		1C1FC7BA15BDC785009393A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		1C1FC7BC15BDC785009393A1 /* LDNViewController.h */ = {isa = PBXFileReference; path = LDNViewController.h; sourceTree = "<group>"; };
+		1C1FC7BC15BDC785009393A1 /* LDNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNViewController.h; sourceTree = "<group>"; };
 		1C1FC7BD15BDC785009393A1 /* LDNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNViewController.m; sourceTree = "<group>"; };
 		1C1FC7C415BDC785009393A1 /* Go FishTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Go FishTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C1FC7C515BDC785009393A1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		1C1FC7CD15BDC785009393A1 /* Go FishTests-Info.plist */ = {isa = PBXFileReference; path = "Go FishTests-Info.plist"; sourceTree = "<group>"; };
+		1C1FC7CD15BDC785009393A1 /* Go FishTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Go FishTests-Info.plist"; sourceTree = "<group>"; };
 		1C1FC7CF15BDC785009393A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1C1FC7D115BDC785009393A1 /* Go_FishTests.h */ = {isa = PBXFileReference; path = Go_FishTests.h; sourceTree = "<group>"; };
-		1C1FC7D215BDC785009393A1 /* Go_FishTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Go_FishTests.m; sourceTree = "<group>"; };
+		1C1FC7E015BDC869009393A1 /* LDNGoFishGameTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishGameTests.h; sourceTree = "<group>"; };
+		1C1FC7E115BDC869009393A1 /* LDNGoFishGameTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishGameTests.m; sourceTree = "<group>"; };
+		1C1FC7E315BDCA82009393A1 /* LDNGoFishGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishGame.h; sourceTree = "<group>"; };
+		1C1FC7E415BDCA82009393A1 /* LDNGoFishGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishGame.m; sourceTree = "<group>"; };
+		1C1FC7E715BDD245009393A1 /* LDNGoFishPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishPlayer.h; sourceTree = "<group>"; };
+		1C1FC7E815BDD245009393A1 /* LDNGoFishPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishPlayer.m; sourceTree = "<group>"; };
+		1C1FC7EB15BDD728009393A1 /* LDNDeckOfCards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNDeckOfCards.h; sourceTree = "<group>"; };
+		1C1FC7EC15BDD728009393A1 /* LDNDeckOfCards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNDeckOfCards.m; sourceTree = "<group>"; };
+		1C1FC7EF15BDD96D009393A1 /* LDNDeckOfCardsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNDeckOfCardsTests.h; sourceTree = "<group>"; };
+		1C1FC7F015BDD96D009393A1 /* LDNDeckOfCardsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNDeckOfCardsTests.m; sourceTree = "<group>"; };
+		1C1FC7F515BDE17D009393A1 /* LDNPlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNPlayingCard.h; sourceTree = "<group>"; };
+		1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNPlayingCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,13 +132,19 @@
 		1C1FC7AA15BDC785009393A1 /* Go Fish */ = {
 			isa = PBXGroup;
 			children = (
-				1C1FC7B315BDC785009393A1 /* LDNAppDelegate.h */,
-				1C1FC7B415BDC785009393A1 /* LDNAppDelegate.m */,
-				1C1FC7B615BDC785009393A1 /* MainStoryboard_iPhone.storyboard */,
-				1C1FC7B915BDC785009393A1 /* MainStoryboard_iPad.storyboard */,
+				1C1FC7F315BDDC14009393A1 /* Startup */,
+				1C1FC7F415BDDC1D009393A1 /* UI */,
 				1C1FC7BC15BDC785009393A1 /* LDNViewController.h */,
 				1C1FC7BD15BDC785009393A1 /* LDNViewController.m */,
 				1C1FC7AB15BDC785009393A1 /* Supporting Files */,
+				1C1FC7E315BDCA82009393A1 /* LDNGoFishGame.h */,
+				1C1FC7E415BDCA82009393A1 /* LDNGoFishGame.m */,
+				1C1FC7E715BDD245009393A1 /* LDNGoFishPlayer.h */,
+				1C1FC7E815BDD245009393A1 /* LDNGoFishPlayer.m */,
+				1C1FC7EB15BDD728009393A1 /* LDNDeckOfCards.h */,
+				1C1FC7EC15BDD728009393A1 /* LDNDeckOfCards.m */,
+				1C1FC7F515BDE17D009393A1 /* LDNPlayingCard.h */,
+				1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */,
 			);
 			path = "Go Fish";
 			sourceTree = "<group>";
@@ -138,9 +163,11 @@
 		1C1FC7CB15BDC785009393A1 /* Go FishTests */ = {
 			isa = PBXGroup;
 			children = (
-				1C1FC7D115BDC785009393A1 /* Go_FishTests.h */,
-				1C1FC7D215BDC785009393A1 /* Go_FishTests.m */,
 				1C1FC7CC15BDC785009393A1 /* Supporting Files */,
+				1C1FC7E015BDC869009393A1 /* LDNGoFishGameTests.h */,
+				1C1FC7E115BDC869009393A1 /* LDNGoFishGameTests.m */,
+				1C1FC7EF15BDD96D009393A1 /* LDNDeckOfCardsTests.h */,
+				1C1FC7F015BDD96D009393A1 /* LDNDeckOfCardsTests.m */,
 			);
 			path = "Go FishTests";
 			sourceTree = "<group>";
@@ -152,6 +179,24 @@
 				1C1FC7CE15BDC785009393A1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1C1FC7F315BDDC14009393A1 /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7B315BDC785009393A1 /* LDNAppDelegate.h */,
+				1C1FC7B415BDC785009393A1 /* LDNAppDelegate.m */,
+			);
+			name = Startup;
+			sourceTree = "<group>";
+		};
+		1C1FC7F415BDDC1D009393A1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7B615BDC785009393A1 /* MainStoryboard_iPhone.storyboard */,
+				1C1FC7B915BDC785009393A1 /* MainStoryboard_iPad.storyboard */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +311,10 @@
 				1C1FC7B115BDC785009393A1 /* main.m in Sources */,
 				1C1FC7B515BDC785009393A1 /* LDNAppDelegate.m in Sources */,
 				1C1FC7BE15BDC785009393A1 /* LDNViewController.m in Sources */,
+				1C1FC7E515BDCA82009393A1 /* LDNGoFishGame.m in Sources */,
+				1C1FC7E915BDD245009393A1 /* LDNGoFishPlayer.m in Sources */,
+				1C1FC7ED15BDD728009393A1 /* LDNDeckOfCards.m in Sources */,
+				1C1FC7F715BDE17D009393A1 /* LDNPlayingCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +322,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C1FC7D315BDC785009393A1 /* Go_FishTests.m in Sources */,
+				1C1FC7E215BDC869009393A1 /* LDNGoFishGameTests.m in Sources */,
+				1C1FC7E615BDCA82009393A1 /* LDNGoFishGame.m in Sources */,
+				1C1FC7EA15BDD245009393A1 /* LDNGoFishPlayer.m in Sources */,
+				1C1FC7EE15BDD728009393A1 /* LDNDeckOfCards.m in Sources */,
+				1C1FC7F215BDD96D009393A1 /* LDNDeckOfCardsTests.m in Sources */,
+				1C1FC7F815BDE17D009393A1 /* LDNPlayingCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
