@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C1FC7A515BDC785009393A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A415BDC785009393A1 /* UIKit.framework */; };
+		1C1FC7A715BDC785009393A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A615BDC785009393A1 /* Foundation.framework */; };
+		1C1FC7A915BDC785009393A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A815BDC785009393A1 /* CoreGraphics.framework */; };
+		1C1FC7AF15BDC785009393A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C1FC7AD15BDC785009393A1 /* InfoPlist.strings */; };
+		1C1FC7B115BDC785009393A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7B015BDC785009393A1 /* main.m */; };
+		1C1FC7B515BDC785009393A1 /* LDNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7B415BDC785009393A1 /* LDNAppDelegate.m */; };
+		1C1FC7B815BDC785009393A1 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1FC7B615BDC785009393A1 /* MainStoryboard_iPhone.storyboard */; };
+		1C1FC7BB15BDC785009393A1 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1FC7B915BDC785009393A1 /* MainStoryboard_iPad.storyboard */; };
+		1C1FC7BE15BDC785009393A1 /* LDNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7BD15BDC785009393A1 /* LDNViewController.m */; };
+		1C1FC7C615BDC785009393A1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7C515BDC785009393A1 /* SenTestingKit.framework */; };
+		1C1FC7C715BDC785009393A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A415BDC785009393A1 /* UIKit.framework */; };
+		1C1FC7C815BDC785009393A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A615BDC785009393A1 /* Foundation.framework */; };
+		1C1FC7D015BDC785009393A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C1FC7CE15BDC785009393A1 /* InfoPlist.strings */; };
+		1C1FC7D315BDC785009393A1 /* Go_FishTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7D215BDC785009393A1 /* Go_FishTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1C1FC7C915BDC785009393A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C1FC79715BDC785009393A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C1FC79F15BDC785009393A1;
+			remoteInfo = "Go Fish";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1C1FC7A015BDC785009393A1 /* Go Fish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Go Fish.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C1FC7A415BDC785009393A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1C1FC7A615BDC785009393A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1C1FC7A815BDC785009393A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1C1FC7AC15BDC785009393A1 /* Go Fish-Info.plist */ = {isa = PBXFileReference; path = "Go Fish-Info.plist"; sourceTree = "<group>"; };
+		1C1FC7AE15BDC785009393A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1C1FC7B015BDC785009393A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1C1FC7B215BDC785009393A1 /* Go Fish-Prefix.pch */ = {isa = PBXFileReference; path = "Go Fish-Prefix.pch"; sourceTree = "<group>"; };
+		1C1FC7B315BDC785009393A1 /* LDNAppDelegate.h */ = {isa = PBXFileReference; path = LDNAppDelegate.h; sourceTree = "<group>"; };
+		1C1FC7B415BDC785009393A1 /* LDNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNAppDelegate.m; sourceTree = "<group>"; };
+		1C1FC7B715BDC785009393A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		1C1FC7BA15BDC785009393A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		1C1FC7BC15BDC785009393A1 /* LDNViewController.h */ = {isa = PBXFileReference; path = LDNViewController.h; sourceTree = "<group>"; };
+		1C1FC7BD15BDC785009393A1 /* LDNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNViewController.m; sourceTree = "<group>"; };
+		1C1FC7C415BDC785009393A1 /* Go FishTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Go FishTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C1FC7C515BDC785009393A1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1C1FC7CD15BDC785009393A1 /* Go FishTests-Info.plist */ = {isa = PBXFileReference; path = "Go FishTests-Info.plist"; sourceTree = "<group>"; };
+		1C1FC7CF15BDC785009393A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1C1FC7D115BDC785009393A1 /* Go_FishTests.h */ = {isa = PBXFileReference; path = Go_FishTests.h; sourceTree = "<group>"; };
+		1C1FC7D215BDC785009393A1 /* Go_FishTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Go_FishTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C1FC79D15BDC785009393A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C1FC7A515BDC785009393A1 /* UIKit.framework in Frameworks */,
+				1C1FC7A715BDC785009393A1 /* Foundation.framework in Frameworks */,
+				1C1FC7A915BDC785009393A1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C1FC7C015BDC785009393A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C1FC7C615BDC785009393A1 /* SenTestingKit.framework in Frameworks */,
+				1C1FC7C715BDC785009393A1 /* UIKit.framework in Frameworks */,
+				1C1FC7C815BDC785009393A1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C1FC79515BDC785009393A1 = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7AA15BDC785009393A1 /* Go Fish */,
+				1C1FC7CB15BDC785009393A1 /* Go FishTests */,
+				1C1FC7A315BDC785009393A1 /* Frameworks */,
+				1C1FC7A115BDC785009393A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1C1FC7A115BDC785009393A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7A015BDC785009393A1 /* Go Fish.app */,
+				1C1FC7C415BDC785009393A1 /* Go FishTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C1FC7A315BDC785009393A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7A415BDC785009393A1 /* UIKit.framework */,
+				1C1FC7A615BDC785009393A1 /* Foundation.framework */,
+				1C1FC7A815BDC785009393A1 /* CoreGraphics.framework */,
+				1C1FC7C515BDC785009393A1 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C1FC7AA15BDC785009393A1 /* Go Fish */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7B315BDC785009393A1 /* LDNAppDelegate.h */,
+				1C1FC7B415BDC785009393A1 /* LDNAppDelegate.m */,
+				1C1FC7B615BDC785009393A1 /* MainStoryboard_iPhone.storyboard */,
+				1C1FC7B915BDC785009393A1 /* MainStoryboard_iPad.storyboard */,
+				1C1FC7BC15BDC785009393A1 /* LDNViewController.h */,
+				1C1FC7BD15BDC785009393A1 /* LDNViewController.m */,
+				1C1FC7AB15BDC785009393A1 /* Supporting Files */,
+			);
+			path = "Go Fish";
+			sourceTree = "<group>";
+		};
+		1C1FC7AB15BDC785009393A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7AC15BDC785009393A1 /* Go Fish-Info.plist */,
+				1C1FC7AD15BDC785009393A1 /* InfoPlist.strings */,
+				1C1FC7B015BDC785009393A1 /* main.m */,
+				1C1FC7B215BDC785009393A1 /* Go Fish-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1C1FC7CB15BDC785009393A1 /* Go FishTests */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7D115BDC785009393A1 /* Go_FishTests.h */,
+				1C1FC7D215BDC785009393A1 /* Go_FishTests.m */,
+				1C1FC7CC15BDC785009393A1 /* Supporting Files */,
+			);
+			path = "Go FishTests";
+			sourceTree = "<group>";
+		};
+		1C1FC7CC15BDC785009393A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7CD15BDC785009393A1 /* Go FishTests-Info.plist */,
+				1C1FC7CE15BDC785009393A1 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1C1FC79F15BDC785009393A1 /* Go Fish */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C1FC7D615BDC785009393A1 /* Build configuration list for PBXNativeTarget "Go Fish" */;
+			buildPhases = (
+				1C1FC79C15BDC785009393A1 /* Sources */,
+				1C1FC79D15BDC785009393A1 /* Frameworks */,
+				1C1FC79E15BDC785009393A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Go Fish";
+			productName = "Go Fish";
+			productReference = 1C1FC7A015BDC785009393A1 /* Go Fish.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1C1FC7C315BDC785009393A1 /* Go FishTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C1FC7D915BDC785009393A1 /* Build configuration list for PBXNativeTarget "Go FishTests" */;
+			buildPhases = (
+				1C1FC7BF15BDC785009393A1 /* Sources */,
+				1C1FC7C015BDC785009393A1 /* Frameworks */,
+				1C1FC7C115BDC785009393A1 /* Resources */,
+				1C1FC7C215BDC785009393A1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C1FC7CA15BDC785009393A1 /* PBXTargetDependency */,
+			);
+			name = "Go FishTests";
+			productName = "Go FishTests";
+			productReference = 1C1FC7C415BDC785009393A1 /* Go FishTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C1FC79715BDC785009393A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LDN;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Light Design";
+			};
+			buildConfigurationList = 1C1FC79A15BDC785009393A1 /* Build configuration list for PBXProject "Go Fish" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1C1FC79515BDC785009393A1;
+			productRefGroup = 1C1FC7A115BDC785009393A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C1FC79F15BDC785009393A1 /* Go Fish */,
+				1C1FC7C315BDC785009393A1 /* Go FishTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C1FC79E15BDC785009393A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C1FC7AF15BDC785009393A1 /* InfoPlist.strings in Resources */,
+				1C1FC7B815BDC785009393A1 /* MainStoryboard_iPhone.storyboard in Resources */,
+				1C1FC7BB15BDC785009393A1 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C1FC7C115BDC785009393A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C1FC7D015BDC785009393A1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C1FC7C215BDC785009393A1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C1FC79C15BDC785009393A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C1FC7B115BDC785009393A1 /* main.m in Sources */,
+				1C1FC7B515BDC785009393A1 /* LDNAppDelegate.m in Sources */,
+				1C1FC7BE15BDC785009393A1 /* LDNViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C1FC7BF15BDC785009393A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C1FC7D315BDC785009393A1 /* Go_FishTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C1FC7CA15BDC785009393A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C1FC79F15BDC785009393A1 /* Go Fish */;
+			targetProxy = 1C1FC7C915BDC785009393A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1C1FC7AD15BDC785009393A1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C1FC7AE15BDC785009393A1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1C1FC7B615BDC785009393A1 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C1FC7B715BDC785009393A1 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		1C1FC7B915BDC785009393A1 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C1FC7BA15BDC785009393A1 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		1C1FC7CE15BDC785009393A1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C1FC7CF15BDC785009393A1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1C1FC7D415BDC785009393A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1C1FC7D515BDC785009393A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1C1FC7D715BDC785009393A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
+				INFOPLIST_FILE = "Go Fish/Go Fish-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1C1FC7D815BDC785009393A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
+				INFOPLIST_FILE = "Go Fish/Go Fish-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1C1FC7DA15BDC785009393A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Go Fish.app/Go Fish";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
+				INFOPLIST_FILE = "Go FishTests/Go FishTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		1C1FC7DB15BDC785009393A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Go Fish.app/Go Fish";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
+				INFOPLIST_FILE = "Go FishTests/Go FishTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C1FC79A15BDC785009393A1 /* Build configuration list for PBXProject "Go Fish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C1FC7D415BDC785009393A1 /* Debug */,
+				1C1FC7D515BDC785009393A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C1FC7D615BDC785009393A1 /* Build configuration list for PBXNativeTarget "Go Fish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C1FC7D715BDC785009393A1 /* Debug */,
+				1C1FC7D815BDC785009393A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1C1FC7D915BDC785009393A1 /* Build configuration list for PBXNativeTarget "Go FishTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C1FC7DA15BDC785009393A1 /* Debug */,
+				1C1FC7DB15BDC785009393A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1C1FC79715BDC785009393A1 /* Project object */;
+}
