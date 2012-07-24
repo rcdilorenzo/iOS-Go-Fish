@@ -7,12 +7,18 @@
 //
 
 #import "LDNGoFishPlayer.h"
+#import "LDNDeckOfCards.h"
 
 @implementation LDNGoFishPlayer
 @synthesize name = _name;
+@synthesize cards = _cards;
 
 - (id)initWithName:(NSString *)aPlayerName {
-    _name = aPlayerName;
+    self = [super init];
+    if (self) {
+        _cards = [[NSMutableArray alloc] init];
+        _name = aPlayerName;
+    }
     return self;
 }
 

@@ -11,6 +11,7 @@
 @interface LDNGoFishPlayer : NSObject
 
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSMutableArray *cards;
 
 - (id)initWithName:(NSString *)aPlayerName;
 

@@ -25,4 +25,12 @@
     STAssertNotNil(deck, @"The game needs a deck.");
 }
 
+- (void)testGameSetup {
+    NSArray *playerNames = [NSArray arrayWithObjects:@"Bob", @"Jim", nil];
+    LDNGoFishGame *game = [[LDNGoFishGame alloc] initWithPlayers:playerNames];
+    STAssertEquals(game.players.count, (NSUInteger)2, @"The game should have 2 players.");
+    [game setup];
+    STAssertEquals([[game.players objectAtIndex:0] cards].count, (NSUInteger)5, @"Each player must be dealt 5 cards.");
+}
+
 @end

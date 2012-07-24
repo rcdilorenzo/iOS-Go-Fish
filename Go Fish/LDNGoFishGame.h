@@ -11,7 +11,10 @@
 
 @interface LDNGoFishGame : NSObject
 
-@property (nonatomic, strong, readonly) NSArray *players;
+@property (nonatomic, strong, readonly) NSMutableArray *players;
 @property (nonatomic, strong, readonly) LDNDeckOfCards *deck;
+
+- (id)initWithPlayers:(NSArray *)playerNames;
+- (void)setup;
 
 @end

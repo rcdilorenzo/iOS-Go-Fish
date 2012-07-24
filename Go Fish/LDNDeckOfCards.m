@@ -48,7 +48,8 @@
 }
 
 - (LDNPlayingCard *)draw {
-    LDNPlayingCard *topCard = [self.cards lastObject];
+    NSUInteger randomIndex = arc4random() % self.cards.count;
+    LDNPlayingCard *topCard = [self.cards objectAtIndex:randomIndex];
     [self.cards removeObject:topCard];
     return topCard;
 }

@@ -10,21 +10,35 @@
 #import "LDNGoFishPlayer.h"
 #import "LDNDeckOfCards.h"
 
+@interface LDNGoFishGame()
+@property (nonatomic, strong) NSMutableArray *players;
+@end
+
 @implementation LDNGoFishGame
 @synthesize players = _players, deck = _deck;
 
 - (id)init
 {
+    NSArray *playerNames = [NSMutableArray arrayWithObjects:@"John", @"Jay", @"Doug", @"Ken", nil];
+    return [self initWithPlayers:playerNames];
+}
+
+- (id)initWithPlayers:(NSArray *)playerNames {
     self = [super init];
-    if (self) {
-        _players = [NSArray arrayWithObjects:
-                    [[LDNGoFishPlayer alloc] initWithName:@"John"],
-                    [[LDNGoFishPlayer alloc] initWithName:@"Jay"],
-                    [[LDNGoFishPlayer alloc] initWithName:@"Doug"], 
-                    [[LDNGoFishPlayer alloc] initWithName:@"Ken"], nil];
-        _deck = [[LDNDeckOfCards alloc] init];
+    self.players = [[NSMutableArray alloc] init];
+    for (NSString *playerName in playerNames) {
+        [self.players addObject:[[LDNGoFishPlayer alloc] initWithName:playerName]];
     }
+    _deck = [[LDNDeckOfCards alloc] init];
     return self;
+}
+
+- (void)setup {
+    for (int i = 0; i < 5; i++) {
+        for (LDNGoFishPlayer *player in self.players) {
+            [player.cards addObject:self.deck.draw];
+        }
+    }
 }
 
 @end
