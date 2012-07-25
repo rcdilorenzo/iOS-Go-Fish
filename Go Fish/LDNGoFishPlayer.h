@@ -8,11 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+@class LDNPlayingCard;
+@class LDNDeckOfCards;
+@protocol GameInteraction;
+
 @interface LDNGoFishPlayer : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSMutableArray *cards;
+@property (nonatomic, strong) NSMutableArray *books;
+@property (nonatomic, weak) id <GameInteraction> game;
 
 - (id)initWithName:(NSString *)aPlayerName;
+- (NSArray *)askPlayerForCardsOfRank:(NSString *)aRank player:(LDNGoFishPlayer *)aPlayer;
+- (NSArray *)giveCardsOfRank:(NSString *)aRank;
+- (void)checkForBooks;
+- (LDNPlayingCard *)drawFromDeck:(LDNDeckOfCards *)deck;
+- (void)takeTurn;
+
+@end
+
+@protocol GameInteraction <NSObject>
+
+- (NSArray *)opponents:(LDNGoFishPlayer *)player;
 
 @end

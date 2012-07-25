@@ -8,18 +8,97 @@
 
 #import "LDNGoFishPlayer.h"
 #import "LDNDeckOfCards.h"
+#import "LDNPlayingCard.h"
+
+@interface LDNGoFishPlayer()
+@property (nonatomic, strong) NSString *choosenRank;
+@property (nonatomic, strong) LDNGoFishPlayer *choosenPlayer;
+@end
 
 @implementation LDNGoFishPlayer
-@synthesize name = _name;
-@synthesize cards = _cards;
+@synthesize name = _name, cards = _cards, books = _books, choosenRank = _choosenRank, choosenPlayer = _choosenPlayer;
+@synthesize game = _game;
 
 - (id)initWithName:(NSString *)aPlayerName {
     self = [super init];
     if (self) {
+        _choosenPlayer = [[LDNGoFishPlayer alloc] init];
+        _choosenRank = [[NSString alloc] init];
         _cards = [[NSMutableArray alloc] init];
+        _books = [[NSMutableArray alloc] init];
         _name = aPlayerName;
     }
     return self;
+}
+
+- (NSArray *)askPlayerForCardsOfRank:(NSString *)aRank
+                              player:(LDNGoFishPlayer *)aPlayer {
+    NSArray *cardsRequested = [aPlayer giveCardsOfRank:aRank];
+    if (cardsRequested.count != 0) {
+        for (LDNPlayingCard *card in cardsRequested) {
+            [self.cards addObject:card];
+        }
+    } else {
+        NSLog(@"Go Fish!");
+    }
+    return cardsRequested;
+}
+
+- (NSArray *)giveCardsOfRank:(NSString *)aRank {
+    NSArray *cardsOfSpecifiedRank = [self cardsOfRank:aRank];
+    [self.cards removeObjectsInArray:cardsOfSpecifiedRank];
+    return cardsOfSpecifiedRank;
+}
+
+- (NSArray *)cardsOfRank:(NSString *)aRank {
+    NSMutableArray *cardsOfRank = [[NSMutableArray alloc] init];
+    for (LDNPlayingCard *card in self.cards) {
+        if (card.rank == aRank) {
+            [cardsOfRank addObject:card];
+        }
+    }
+    return cardsOfRank;
+}
+
+- (LDNPlayingCard *)drawFromDeck:(LDNDeckOfCards *)deck {
+    NSUInteger randomIndex = arc4random() % deck.cards.count;
+    LDNPlayingCard *selectedCard = [deck.cards objectAtIndex:randomIndex];
+    [deck.cards removeObject:selectedCard];
+    [self.cards addObject:selectedCard];
+    [self checkForBooks];
+    return selectedCard;
+}
+
+- (void)checkForBooks {
+    NSArray *ranks = [NSArray arrayWithObjects:@"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"Jack", @"Queen", @"King", @"Ace", nil];
+    for (NSString *rank in ranks) {
+        if ([[self cardsOfRank:rank] count] == 4) {
+            [self.books addObject:[self cardsOfRank:rank]];
+            [self.cards removeObjectsInArray:[self cardsOfRank:rank]];
+        }
+    }
+}
+
+- (void)takeTurn {
+    [self requestCardFromSelectedOpponent:[self.game opponents:self] currentPlayer:self];
+    if (!self.choosenPlayer.name && self.choosenRank == @"") {
+        self.choosenPlayer = [[self.game opponents:self] objectAtIndex:0];
+        NSUInteger randomIndex = arc4random() % self.cards.count;
+        self.choosenRank = [self.cards objectAtIndex:randomIndex];
+    }
+    [self askPlayerForCardsOfRank:self.choosenRank player:self.choosenPlayer];
+    [self endTurn];
+}
+
+- (void)endTurn {
+    self.choosenRank = [[NSString alloc] init];
+    self.choosenPlayer = [[LDNGoFishPlayer alloc] init];
+}
+
+
+- (void)requestCardFromSelectedOpponent:(NSArray *)opponents
+                          currentPlayer:(LDNGoFishPlayer *)currentPlayer {
+    // empty for this parent class of LDNGoFishRobot
 }
 
 @end

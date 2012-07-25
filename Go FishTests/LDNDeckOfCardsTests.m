@@ -23,6 +23,8 @@
     LDNDeckOfCards *deck = [[LDNDeckOfCards alloc] init];
     LDNPlayingCard *aCard = [deck draw];
     STAssertEquals([aCard class], [LDNPlayingCard class], @"Drawn card from deck should be a card object.");
+    STAssertNotNil(aCard.rank, @"A card\'s rank should not be nil.");
+    STAssertNotNil(aCard.suit, @"A card\'s suit should not be nil.");
     STAssertEquals([deck numberOfCards], (NSUInteger)51, @"The deck should have 51 cards after a card is drawn.");
 }
 

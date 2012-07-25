@@ -10,11 +10,11 @@
 
 @interface LDNPlayingCard : NSObject
 
-@property (nonatomic, strong) id rank;
+@property (nonatomic, strong) NSString *rank;
 @property (nonatomic, strong) NSString *suit;
 @property (nonatomic) NSUInteger value;
 
-- (id)initWithRank:(id)rank suit:(NSString *)suit;
-- (id)initWithRank:(id)rank suit:(NSString *)suit value:(NSUInteger)value;
+- (id)initWithRank:(NSString *)rank suit:(NSString *)suit;
+- (id)initWithRank:(NSString *)rank suit:(NSString *)suit value:(NSUInteger)value;
 
 @end

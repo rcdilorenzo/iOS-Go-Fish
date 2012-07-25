@@ -13,7 +13,7 @@
 @synthesize suit = _suit;
 @synthesize value = _value;
 
-- (id)initWithRank:(id)rank suit:(NSString *)suit {
+- (id)initWithRank:(NSString *)rank suit:(NSString *)suit {
     self = [super init];
     if (self) {
         _rank = rank;
@@ -22,7 +22,7 @@
     return self;
 }
 
-- (id)initWithRank:(id)rank suit:(NSString *)suit value:(NSUInteger)value {
+- (id)initWithRank:(NSString *)rank suit:(NSString *)suit value:(NSUInteger)value {
     self = [super init];
     if (self) {
         _rank = rank;

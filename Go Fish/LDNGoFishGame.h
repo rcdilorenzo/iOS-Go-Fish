@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LDNGoFishPlayer.h"
+
 @class LDNDeckOfCards;
 
-@interface LDNGoFishGame : NSObject
+@interface LDNGoFishGame : NSObject <GameInteraction>
 
 @property (nonatomic, strong, readonly) NSMutableArray *players;
 @property (nonatomic, strong, readonly) LDNDeckOfCards *deck;

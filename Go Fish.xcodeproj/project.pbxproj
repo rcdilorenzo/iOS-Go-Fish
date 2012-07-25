@@ -30,6 +30,9 @@
 		1C1FC7F215BDD96D009393A1 /* LDNDeckOfCardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7F015BDD96D009393A1 /* LDNDeckOfCardsTests.m */; };
 		1C1FC7F715BDE17D009393A1 /* LDNPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */; };
 		1C1FC7F815BDE17D009393A1 /* LDNPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */; };
+		1C46585415BF389D002791ED /* LDNGoFishRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46585315BF389D002791ED /* LDNGoFishRobot.m */; };
+		1CF6138415BED26B00014D78 /* LDNPlayinCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */; };
+		1CF6138815BED7F300014D78 /* LDNGoFishPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,12 @@
 		1C1FC7F015BDD96D009393A1 /* LDNDeckOfCardsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNDeckOfCardsTests.m; sourceTree = "<group>"; };
 		1C1FC7F515BDE17D009393A1 /* LDNPlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNPlayingCard.h; sourceTree = "<group>"; };
 		1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNPlayingCard.m; sourceTree = "<group>"; };
+		1C46585215BF389D002791ED /* LDNGoFishRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishRobot.h; sourceTree = "<group>"; };
+		1C46585315BF389D002791ED /* LDNGoFishRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishRobot.m; sourceTree = "<group>"; };
+		1CF6138215BED26B00014D78 /* LDNPlayinCardTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNPlayinCardTests.h; sourceTree = "<group>"; };
+		1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNPlayinCardTests.m; sourceTree = "<group>"; };
+		1CF6138615BED7F300014D78 /* LDNGoFishPlayerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishPlayerTests.h; sourceTree = "<group>"; };
+		1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishPlayerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,14 +146,9 @@
 				1C1FC7BC15BDC785009393A1 /* LDNViewController.h */,
 				1C1FC7BD15BDC785009393A1 /* LDNViewController.m */,
 				1C1FC7AB15BDC785009393A1 /* Supporting Files */,
-				1C1FC7E315BDCA82009393A1 /* LDNGoFishGame.h */,
-				1C1FC7E415BDCA82009393A1 /* LDNGoFishGame.m */,
-				1C1FC7E715BDD245009393A1 /* LDNGoFishPlayer.h */,
-				1C1FC7E815BDD245009393A1 /* LDNGoFishPlayer.m */,
-				1C1FC7EB15BDD728009393A1 /* LDNDeckOfCards.h */,
-				1C1FC7EC15BDD728009393A1 /* LDNDeckOfCards.m */,
-				1C1FC7F515BDE17D009393A1 /* LDNPlayingCard.h */,
-				1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */,
+				1CF6138915BED9A500014D78 /* Game */,
+				1CF6138A15BED9B000014D78 /* Player */,
+				1CF6138B15BED9BB00014D78 /* Cards */,
 			);
 			path = "Go Fish";
 			sourceTree = "<group>";
@@ -168,6 +172,10 @@
 				1C1FC7E115BDC869009393A1 /* LDNGoFishGameTests.m */,
 				1C1FC7EF15BDD96D009393A1 /* LDNDeckOfCardsTests.h */,
 				1C1FC7F015BDD96D009393A1 /* LDNDeckOfCardsTests.m */,
+				1CF6138215BED26B00014D78 /* LDNPlayinCardTests.h */,
+				1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */,
+				1CF6138615BED7F300014D78 /* LDNGoFishPlayerTests.h */,
+				1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */,
 			);
 			path = "Go FishTests";
 			sourceTree = "<group>";
@@ -197,6 +205,37 @@
 				1C1FC7B915BDC785009393A1 /* MainStoryboard_iPad.storyboard */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		1CF6138915BED9A500014D78 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7E315BDCA82009393A1 /* LDNGoFishGame.h */,
+				1C1FC7E415BDCA82009393A1 /* LDNGoFishGame.m */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		1CF6138A15BED9B000014D78 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7E715BDD245009393A1 /* LDNGoFishPlayer.h */,
+				1C1FC7E815BDD245009393A1 /* LDNGoFishPlayer.m */,
+				1C46585215BF389D002791ED /* LDNGoFishRobot.h */,
+				1C46585315BF389D002791ED /* LDNGoFishRobot.m */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		1CF6138B15BED9BB00014D78 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FC7EB15BDD728009393A1 /* LDNDeckOfCards.h */,
+				1C1FC7EC15BDD728009393A1 /* LDNDeckOfCards.m */,
+				1C1FC7F515BDE17D009393A1 /* LDNPlayingCard.h */,
+				1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */,
+			);
+			name = Cards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +354,7 @@
 				1C1FC7E915BDD245009393A1 /* LDNGoFishPlayer.m in Sources */,
 				1C1FC7ED15BDD728009393A1 /* LDNDeckOfCards.m in Sources */,
 				1C1FC7F715BDE17D009393A1 /* LDNPlayingCard.m in Sources */,
+				1C46585415BF389D002791ED /* LDNGoFishRobot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +368,8 @@
 				1C1FC7EE15BDD728009393A1 /* LDNDeckOfCards.m in Sources */,
 				1C1FC7F215BDD96D009393A1 /* LDNDeckOfCardsTests.m in Sources */,
 				1C1FC7F815BDE17D009393A1 /* LDNPlayingCard.m in Sources */,
+				1CF6138415BED26B00014D78 /* LDNPlayinCardTests.m in Sources */,
+				1CF6138815BED7F300014D78 /* LDNGoFishPlayerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +541,7 @@
 				1C1FC7D815BDC785009393A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C1FC7D915BDC785009393A1 /* Build configuration list for PBXNativeTarget "Go FishTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +550,7 @@
 				1C1FC7DB15BDC785009393A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
