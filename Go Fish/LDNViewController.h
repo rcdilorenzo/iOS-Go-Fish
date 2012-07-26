@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LDNGoFishGame.h"
 
 @interface LDNViewController : UIViewController
+@property (strong, nonatomic) LDNGoFishGame *game;
 
 @end

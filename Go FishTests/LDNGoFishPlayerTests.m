@@ -9,70 +9,86 @@
 #import "LDNGoFishPlayerTests.h"
 #import "LDNPlayingCard.h"
 #import "LDNGoFishPlayer.h"
+#import "LDNGoFishGame.h"
+
+@interface LDNGoFishGame (Testing)
+@property (nonatomic, strong) LDNDeckOfCards *deck;
+@end
+
+@interface LDNGoFishPlayerTests()
+@property (nonatomic, strong) LDNGoFishGame *game;
+@property (nonatomic, strong) LDNGoFishPlayer *playerOne;
+@property (nonatomic, strong) LDNGoFishPlayer *playerTwo;
+@end
 
 @implementation LDNGoFishPlayerTests
+@synthesize playerOne = _playerOne, playerTwo = _playerTwo, game = _game;
+
+- (void)setUp {
+    [super setUp];
+    self.game = [[LDNGoFishGame alloc] init];
+    [self.game setupWithPlayers:[NSArray arrayWithObjects:@"Daniel", @"Belshazzar", nil]];
+    self.playerOne = [self.game.players objectAtIndex:0];
+    self.playerTwo = [self.game.players lastObject]; 
+}
 
 - (void)testAskingPlayerForCards {
-    LDNGoFishPlayer *playerOne = [[LDNGoFishPlayer alloc] initWithName:@"Daniel"];
-    LDNGoFishPlayer *playerTwo = [[LDNGoFishPlayer alloc] initWithName:@"Belshazzar"];
-    playerOne.cards = [[NSMutableArray alloc] initWithObjects:
+    self.playerOne.cards = [[NSMutableArray alloc] initWithObjects:
                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"],
                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Clubs"], nil];
-    playerTwo.cards = [[NSMutableArray alloc] initWithObjects:
+    self.playerTwo.cards = [[NSMutableArray alloc] initWithObjects:
                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Diamonds"],
                        [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
-    [playerOne askPlayerForCardsOfRank:@"3" player:playerTwo];
-    STAssertEquals([[playerOne.cards lastObject] rank], @"3", @"Returned card should have a rank of 3.");
-    STAssertEquals([[playerOne.cards lastObject] suit], @"Diamonds", @"Returned card should have a suit of diamonds.");
+    [self.playerOne askPlayerForCardsOfRank:@"3" player:self.playerTwo];
+    STAssertEquals([[self.playerOne.cards lastObject] rank], @"3", @"Returned card should have a rank of 3.");
+    STAssertEquals([[self.playerOne.cards lastObject] suit], @"Diamonds", @"Returned card should have a suit of diamonds.");
 }
 
 - (void)testAskingPlayerForMultipleCards {
-    LDNGoFishPlayer *playerOne = [[LDNGoFishPlayer alloc] initWithName:@"Steve"];
-    LDNGoFishPlayer *playerTwo = [[LDNGoFishPlayer alloc] initWithName:@"Bill"];
-    playerOne.cards = [[NSMutableArray alloc] initWithObjects:
+    self.playerOne.cards = [[NSMutableArray alloc] initWithObjects:
                        [[LDNPlayingCard alloc] initWithRank:@"Jack" suit:@"Hearts"],
                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Clubs"], nil];
-    playerTwo.cards = [[NSMutableArray alloc] initWithObjects:
+    self.playerTwo.cards = [[NSMutableArray alloc] initWithObjects:
                        [[LDNPlayingCard alloc] initWithRank:@"Jack" suit:@"Diamonds"],
                        [[LDNPlayingCard alloc] initWithRank:@"Jack" suit:@"Clubs"],
                        [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
-    [playerOne askPlayerForCardsOfRank:@"Jack" player:playerTwo];
-    STAssertEquals([[playerOne.cards objectAtIndex:2] rank], @"Jack", @"Returned card should have a rank of Jack.");
-    STAssertEquals([[playerOne.cards objectAtIndex:2] suit], @"Diamonds", @"Returned card should have a suit of diamonds.");
-    STAssertEquals([[playerOne.cards objectAtIndex:3] rank], @"Jack", @"2nd returned card should have a rank of Jack.");
-    STAssertEquals([[playerOne.cards objectAtIndex:3] suit], @"Clubs", @"2nd returned card should have a suit of clubs.");
+    [self.playerOne askPlayerForCardsOfRank:@"Jack" player:self.playerTwo];
+    STAssertEquals([[self.playerOne.cards objectAtIndex:2] rank], @"Jack", @"Returned card should have a rank of Jack.");
+    STAssertEquals([[self.playerOne.cards objectAtIndex:2] suit], @"Diamonds", @"Returned card should have a suit of diamonds.");
+    STAssertEquals([[self.playerOne.cards objectAtIndex:3] rank], @"Jack", @"2nd returned card should have a rank of Jack.");
+    STAssertEquals([[self.playerOne.cards objectAtIndex:3] suit], @"Clubs", @"2nd returned card should have a suit of clubs.");
 }
 
 - (void)testAskingPlayerForCardsOfRankWithoutSuccess {
-    LDNGoFishPlayer *playerOne = [[LDNGoFishPlayer alloc] initWithName:@"David"];
-    LDNGoFishPlayer *playerTwo = [[LDNGoFishPlayer alloc] initWithName:@"Saul"];
-    playerOne.cards = [[NSMutableArray alloc] initWithObjects:
+    self.playerOne.cards = [[NSMutableArray alloc] initWithObjects:
                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"],
                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Clubs"], nil];
-    playerTwo.cards = [[NSMutableArray alloc] initWithObjects:
+    self.playerTwo.cards = [[NSMutableArray alloc] initWithObjects:
                        [[LDNPlayingCard alloc] initWithRank:@"Queen" suit:@"Diamonds"],
                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Hearts"],
                        [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
-    [playerOne askPlayerForCardsOfRank:@"3" player:playerTwo];
-    STAssertEquals(playerOne.cards.count, (NSUInteger)2, @"Returned card should not exist.");
+    [self.playerOne askPlayerForCardsOfRank:@"3" player:self.playerTwo];
+    STAssertEquals(self.playerOne.cards.count, (NSUInteger)3, @"Returned card should not exist but a card from deck should be drawn.");
 }
 
 - (void)testBooksShouldBeCreatedIfFourOfRankInHand {
-    LDNGoFishPlayer *playerOne = [[LDNGoFishPlayer alloc] initWithName:@"David"];
-    LDNGoFishPlayer *playerTwo = [[LDNGoFishPlayer alloc] initWithName:@"Saul"];
-    playerOne.cards = [[NSMutableArray alloc] initWithObjects:
+    self.playerOne.cards = [[NSMutableArray alloc] initWithObjects:
                        [[LDNPlayingCard alloc] initWithRank:@"9" suit:@"Spades"],
                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"],
                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Clubs"],
                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Diamonds"], nil];
-    playerTwo.cards = [[NSMutableArray alloc] initWithObjects:
+    self.playerTwo.cards = [[NSMutableArray alloc] initWithObjects:
                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Spades"],
                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Hearts"],
                        [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
-    [playerOne askPlayerForCardsOfRank:@"3" player:playerTwo];
-    [playerOne checkForBooks];
-    STAssertEquals(playerOne.books.count, (NSUInteger)1, @"A book should have been created.");
-    STAssertEquals(playerOne.cards.count, (NSUInteger)1, @"The books should remove the four cards of the same rank in player one\'s hand.");
+    [self.playerOne askPlayerForCardsOfRank:@"3" player:self.playerTwo];
+    [self.playerOne checkForBooks];
+    STAssertEquals(self.playerOne.books.count, (NSUInteger)1, @"A book should have been created.");
+    STAssertEquals(self.playerOne.cards.count, (NSUInteger)1, @"The books should remove the four cards of the same rank in player one\'s hand.");
+}
+
+- (void)testPlayerTurn {
+    
 }
 
 @end

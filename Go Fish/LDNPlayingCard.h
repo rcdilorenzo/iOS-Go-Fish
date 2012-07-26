@@ -16,5 +16,6 @@
 
 - (id)initWithRank:(NSString *)rank suit:(NSString *)suit;
 - (id)initWithRank:(NSString *)rank suit:(NSString *)suit value:(NSUInteger)value;
-
+- (void)drawFromPosition:(CGPoint)location view:(UIView *)view size:(CGFloat)size;
+    
 @end

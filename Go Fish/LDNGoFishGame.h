@@ -16,7 +16,9 @@
 @property (nonatomic, strong, readonly) NSMutableArray *players;
 @property (nonatomic, strong, readonly) LDNDeckOfCards *deck;
 
-- (id)initWithPlayers:(NSArray *)playerNames;
+- (void)setupWithPlayers:(NSArray *)playerNames;
+- (void)setupWithoutPlayerNames;
+- (void)setupWithLivePlayer:(NSString *)playerName;
 - (void)setup;
 
 @end

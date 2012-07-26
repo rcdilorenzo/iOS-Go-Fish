@@ -13,19 +13,24 @@
 
 @interface LDNGoFishGame()
 @property (nonatomic, strong) NSMutableArray *players;
+@property (nonatomic, strong) LDNDeckOfCards *deck;
 @end
 
 @implementation LDNGoFishGame
 @synthesize players = _players, deck = _deck;
 
-- (id)init
+- (void)setupWithoutPlayerNames
 {
     NSArray *playerNames = [NSMutableArray arrayWithObjects:@"John", @"Jay", @"Doug", @"Ken", nil];
-    return [self initWithPlayers:playerNames];
+    [self setupWithPlayers:playerNames];
 }
 
-- (id)initWithPlayers:(NSArray *)playerNames {
-    self = [super init];
+- (void)setupWithLivePlayer:(NSString *)playerName {
+    NSArray *playerNames = [NSMutableArray arrayWithObjects:playerName, @"Rack", @"Shack", @"Benny", nil];
+    [self setupWithPlayers:playerNames];
+}
+
+- (void)setupWithPlayers:(NSArray *)playerNames {
     self.players = [[NSMutableArray alloc] init];
     NSUInteger count = 1;
     for (NSString *playerName in playerNames) {
@@ -34,11 +39,11 @@
         } else {
             [self.players addObject:[[LDNGoFishPlayer alloc] initWithName:playerName]];
         }
-        [[self.players lastObject] setDelegate:self];
-        count++;
+        NSLog(@"last object: %@", [self.players lastObject]);
+        [[self.players lastObject] setGame:self];
+        count = 2;
     }
-    _deck = [[LDNDeckOfCards alloc] init];
-    return self;
+    self.deck = [[LDNDeckOfCards alloc] init];
 }
 
 - (void)setup {
@@ -53,6 +58,20 @@
     NSMutableArray *opponents = self.players;
     [opponents removeObject:player];
     return opponents;
+}
+
+- (LDNPlayingCard *)drawFromGamesDeck {
+    return [self.deck draw];
+}
+
+- (BOOL)end {
+    for (LDNGoFishPlayer *player in self.players) {
+        if (self.deck.cards.count != 0 || player.cards.count != 0) {
+            return NO;
+        } else {
+            return YES;
+        }
+    }
 }
 
 @end

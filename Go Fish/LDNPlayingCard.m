@@ -32,4 +32,16 @@
     return self;
 }
 
+- (NSString *)description {
+    NSString *description = [NSString stringWithFormat:@"%@ of %@", self.rank, self.suit];
+    return description;
+}
+
+- (void)drawFromPosition:(CGPoint)location view:(UIView *)view size:(CGFloat)size {
+    UIImage *cardImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@.png", [[self.suit substringToIndex:1] lowercaseString], [[self.rank substringToIndex:1] lowercaseString]]];
+    UIImageView *cardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(location.x, location.y, cardImage.size.width*size, cardImage.size.height*size)];
+    [cardImageView setImage:cardImage];
+    [view addSubview:cardImageView];
+}
+
 @end

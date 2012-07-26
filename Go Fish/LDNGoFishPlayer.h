@@ -31,5 +31,8 @@
 @protocol GameInteraction <NSObject>
 
 - (NSArray *)opponents:(LDNGoFishPlayer *)player;
+- (LDNPlayingCard *)drawFromGamesDeck;
+- (BOOL)end;
+
 
 @end

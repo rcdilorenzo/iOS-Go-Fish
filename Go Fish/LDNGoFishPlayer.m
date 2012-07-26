@@ -39,7 +39,10 @@
             [self.cards addObject:card];
         }
     } else {
-        NSLog(@"Go Fish!");
+        // Go Fish!
+        if ([self.game end] == NO) {
+            [self.cards addObject:[self.game drawFromGamesDeck]];
+        }
     }
     return cardsRequested;
 }
@@ -53,7 +56,7 @@
 - (NSArray *)cardsOfRank:(NSString *)aRank {
     NSMutableArray *cardsOfRank = [[NSMutableArray alloc] init];
     for (LDNPlayingCard *card in self.cards) {
-        if (card.rank == aRank) {
+        if ([card.rank isEqualToString:aRank]) {
             [cardsOfRank addObject:card];
         }
     }
