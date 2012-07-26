@@ -19,17 +19,19 @@
 @property (nonatomic, strong) LDNGoFishGame *game;
 @property (nonatomic, strong) LDNGoFishPlayer *playerOne;
 @property (nonatomic, strong) LDNGoFishPlayer *playerTwo;
+@property (nonatomic, strong) LDNGoFishPlayer *playerThree;
 @end
 
 @implementation LDNGoFishPlayerTests
-@synthesize playerOne = _playerOne, playerTwo = _playerTwo, game = _game;
+@synthesize playerOne = _playerOne, playerTwo = _playerTwo, playerThree = _playerThree, game = _game;
 
 - (void)setUp {
     [super setUp];
     self.game = [[LDNGoFishGame alloc] init];
-    [self.game setupWithPlayers:[NSArray arrayWithObjects:@"Daniel", @"Belshazzar", nil]];
+    [self.game setupWithPlayers:[NSArray arrayWithObjects:@"Daniel", @"Belshazzar", @"Bob", nil]];
     self.playerOne = [self.game.players objectAtIndex:0];
-    self.playerTwo = [self.game.players lastObject]; 
+    self.playerTwo = [self.game.players objectAtIndex:1];
+    self.playerThree = [self.game.players lastObject];
 }
 
 - (void)testAskingPlayerForCards {
@@ -88,7 +90,18 @@
 }
 
 - (void)testPlayerTurn {
-    
+    self.playerTwo.cards = [[NSMutableArray alloc] initWithObjects:
+                            [[LDNPlayingCard alloc] initWithRank:@"9" suit:@"Spades"],
+                            [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"],
+                            [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Clubs"],
+                            [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Diamonds"], nil];
+    self.playerThree.cards = [[NSMutableArray alloc] initWithObjects:
+                            [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Spades"],
+                            [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Hearts"],
+                            [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
+    [self.playerTwo takeTurn];
+    STAssertEquals(self.playerTwo.books.count, (NSUInteger)1, @"A book should have been created.");
+    STAssertEquals(self.playerThree.cards.count, (NSUInteger)1, @"The books should remove the four cards of the same rank in player one\'s hand.");
 }
 
 @end

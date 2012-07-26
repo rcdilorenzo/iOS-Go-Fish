@@ -49,8 +49,10 @@
     self.playerTwoLabel.text = [[self.game.players objectAtIndex:1] name];
     self.playerThreeLabel.text = [[self.game.players objectAtIndex:2] name];
     self.playerFourLabel.text = [[self.game.players objectAtIndex:3] name];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     [self updateCards];
-    
 }
 
 - (void)removeAllSubviewsFrom:(UIView *)view {
@@ -60,35 +62,52 @@
     }
 }
 
-- (void)updateCards {
+- (void)updateLivePlayerCards {
     [self removeAllSubviewsFrom:self.livePlayerCardsView];
-    [self removeAllSubviewsFrom:self.playerTwoCardsView];
-    [self removeAllSubviewsFrom:self.playerThreeCardsView];
-    [self removeAllSubviewsFrom:self.playerFourCardsView];
     NSMutableArray *livePlayerCards = [[self.game.players objectAtIndex:0] cards];
-    CGFloat xOffset = (self.livePlayerCardsView.frame.size.width/2) - ((([livePlayerCards count]*10)+42)/2);
-    CGPoint position = CGPointMake(xOffset, 20);
+    CGFloat xOffset = (704/2) - ((([livePlayerCards count]*40)+18)/2);
+    CGPoint position = CGPointMake(xOffset, 10);
+    
     for (LDNPlayingCard *card in [[self.game.players objectAtIndex:0] cards]) {
         [card drawFromPosition:position view:self.livePlayerCardsView size:0.8];
         position.x += 40;
     }
-    position = CGPointMake(30, 0);
+}
+
+- (void)updatePlayerTwoCards {
+    [self removeAllSubviewsFrom:self.playerTwoCardsView];
+    CGPoint position = CGPointMake(30, 0);
     for (LDNPlayingCard *card in [[self.game.players objectAtIndex:1] cards]) {
         [card drawFromPosition:position view:self.playerTwoCardsView size:0.8];
         position.y += 40;
     }
+}
+
+- (void)updatePlayerThreeCards {
+    [self removeAllSubviewsFrom:self.playerThreeCardsView];
     NSMutableArray *playerThreeCards = [[self.game.players objectAtIndex:2] cards];
-    xOffset = (self.playerThreeCardsView.frame.size.width/2) - ((([playerThreeCards count]*20)+42)/2);
-    position = CGPointMake(xOffset, 20);
+    CGFloat xOffset = (581/2) - ((([playerThreeCards count]*40)+18)/2);
+    CGPoint position = CGPointMake(xOffset, 10);
     for (LDNPlayingCard *card in [[self.game.players objectAtIndex:2] cards]) {
         [card drawFromPosition:position view:self.playerThreeCardsView size:0.8];
         position.x += 40;
     }
-    position = CGPointMake(30, 0);
+}
+
+- (void)updatePlayerFourCards {
+    [self removeAllSubviewsFrom:self.playerFourCardsView];
+    CGPoint position = CGPointMake(30, 0);
     for (LDNPlayingCard *card in [[self.game.players objectAtIndex:3] cards]) {
         [card drawFromPosition:position view:self.playerFourCardsView size:0.8];
         position.y += 40;
     }
+}
+
+- (void)updateCards {
+    [self updateLivePlayerCards];
+    [self updatePlayerTwoCards];
+    [self updatePlayerThreeCards];
+    [self updatePlayerFourCards];
 }
 
 - (void)viewDidUnload

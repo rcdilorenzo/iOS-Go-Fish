@@ -16,7 +16,6 @@
 		1C1FC7B815BDC785009393A1 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1FC7B615BDC785009393A1 /* MainStoryboard_iPhone.storyboard */; };
 		1C1FC7BB15BDC785009393A1 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1FC7B915BDC785009393A1 /* MainStoryboard_iPad.storyboard */; };
 		1C1FC7BE15BDC785009393A1 /* LDNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7BD15BDC785009393A1 /* LDNViewController.m */; };
-		1C1FC7C615BDC785009393A1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7C515BDC785009393A1 /* SenTestingKit.framework */; };
 		1C1FC7C715BDC785009393A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A415BDC785009393A1 /* UIKit.framework */; };
 		1C1FC7C815BDC785009393A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A615BDC785009393A1 /* Foundation.framework */; };
 		1C1FC7D015BDC785009393A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C1FC7CE15BDC785009393A1 /* InfoPlist.strings */; };
@@ -90,6 +89,8 @@
 		1C25772415C054100069F3D0 /* LDNStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25772315C054100069F3D0 /* LDNStartupViewController.m */; };
 		1C25772515C054100069F3D0 /* LDNStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25772315C054100069F3D0 /* LDNStartupViewController.m */; };
 		1C46585415BF389D002791ED /* LDNGoFishRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46585315BF389D002791ED /* LDNGoFishRobot.m */; };
+		1CA3959415C1B7230036283E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA3959215C1B7040036283E /* SenTestingKit.framework */; };
+		1CD20C0615C19934004DB60E /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1CD20C0515C19934004DB60E /* background.jpeg */; };
 		1CF6138415BED26B00014D78 /* LDNPlayinCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */; };
 		1CF6138815BED7F300014D78 /* LDNGoFishPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */; };
 /* End PBXBuildFile section */
@@ -120,7 +121,6 @@
 		1C1FC7BC15BDC785009393A1 /* LDNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDNViewController.h; sourceTree = "<group>"; };
 		1C1FC7BD15BDC785009393A1 /* LDNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDNViewController.m; sourceTree = "<group>"; };
 		1C1FC7C415BDC785009393A1 /* Go FishTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Go FishTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C1FC7C515BDC785009393A1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1C1FC7CD15BDC785009393A1 /* Go FishTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Go FishTests-Info.plist"; sourceTree = "<group>"; };
 		1C1FC7CF15BDC785009393A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1C1FC7E015BDC869009393A1 /* LDNGoFishGameTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishGameTests.h; sourceTree = "<group>"; };
@@ -196,6 +196,8 @@
 		1C25772315C054100069F3D0 /* LDNStartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNStartupViewController.m; sourceTree = "<group>"; };
 		1C46585215BF389D002791ED /* LDNGoFishRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishRobot.h; sourceTree = "<group>"; };
 		1C46585315BF389D002791ED /* LDNGoFishRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishRobot.m; sourceTree = "<group>"; };
+		1CA3959215C1B7040036283E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1CD20C0515C19934004DB60E /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 		1CF6138215BED26B00014D78 /* LDNPlayinCardTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNPlayinCardTests.h; sourceTree = "<group>"; };
 		1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNPlayinCardTests.m; sourceTree = "<group>"; };
 		1CF6138615BED7F300014D78 /* LDNGoFishPlayerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishPlayerTests.h; sourceTree = "<group>"; };
@@ -217,7 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C1FC7C615BDC785009393A1 /* SenTestingKit.framework in Frameworks */,
+				1CA3959415C1B7230036283E /* SenTestingKit.framework in Frameworks */,
 				1C1FC7C715BDC785009393A1 /* UIKit.framework in Frameworks */,
 				1C1FC7C815BDC785009393A1 /* Foundation.framework in Frameworks */,
 			);
@@ -251,7 +253,7 @@
 				1C1FC7A415BDC785009393A1 /* UIKit.framework */,
 				1C1FC7A615BDC785009393A1 /* Foundation.framework */,
 				1C1FC7A815BDC785009393A1 /* CoreGraphics.framework */,
-				1C1FC7C515BDC785009393A1 /* SenTestingKit.framework */,
+				1CA3959215C1B7040036283E /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -259,6 +261,7 @@
 		1C1FC7AA15BDC785009393A1 /* Go Fish */ = {
 			isa = PBXGroup;
 			children = (
+				1CD20C0515C19934004DB60E /* background.jpeg */,
 				1C25771915C041410069F3D0 /* Card Images */,
 				1C1FC7F315BDDC14009393A1 /* Startup */,
 				1C1FC7F415BDDC1D009393A1 /* UI */,
@@ -555,6 +558,7 @@
 				1C25771515C041380069F3D0 /* sj.png in Resources */,
 				1C25771615C041380069F3D0 /* sk.png in Resources */,
 				1C25771715C041380069F3D0 /* sq.png in Resources */,
+				1CD20C0615C19934004DB60E /* background.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +717,10 @@
 		1C1FC7D715BDC785009393A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
 				INFOPLIST_FILE = "Go Fish/Go Fish-Info.plist";
@@ -724,6 +732,10 @@
 		1C1FC7D815BDC785009393A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
 				INFOPLIST_FILE = "Go Fish/Go Fish-Info.plist";
