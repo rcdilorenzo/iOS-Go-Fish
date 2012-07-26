@@ -35,9 +35,9 @@
     NSUInteger count = 1;
     for (NSString *playerName in playerNames) {
         if (count == 1) {
-            [self.players addObject:[[LDNGoFishRobot alloc] initWithName:playerName]];
-        } else {
             [self.players addObject:[[LDNGoFishPlayer alloc] initWithName:playerName]];
+        } else {
+            [self.players addObject:[[LDNGoFishRobot alloc] initWithName:playerName]];
         }
         NSLog(@"last object: %@", [self.players lastObject]);
         [[self.players lastObject] setGame:self];

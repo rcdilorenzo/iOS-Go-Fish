@@ -19,7 +19,7 @@
     [game setupWithoutPlayerNames];
     STAssertNotNil(game, @"LDNGoFishGame does not exist.");
     STAssertEquals(game.players.count, (NSUInteger)4, @"There should be 4 players");
-    STAssertTrue([[game.players lastObject] isKindOfClass:[LDNGoFishPlayer class]], @"Last Player should be of class LDNGoFishPlayer.");
+    STAssertTrue([[game.players lastObject] isKindOfClass:[LDNGoFishRobot class]], @"Last Player should be of class LDNGoFishPlayer.");
     for (LDNGoFishPlayer *player in game.players) {
         STAssertNotNil(player.name, @"Player needs to have a name.");
     }
