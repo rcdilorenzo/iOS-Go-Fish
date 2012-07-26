@@ -62,7 +62,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:.5];
     [cardImageView setAlpha:1.0];
-    cardImageView.transform = CGAffineTransformMakeTranslation(0, -10);
+//    [cardImageView setTransform:CGAffineTransformMakeTranslation(0, -10)];
     [UIView commitAnimations];
 }
 
