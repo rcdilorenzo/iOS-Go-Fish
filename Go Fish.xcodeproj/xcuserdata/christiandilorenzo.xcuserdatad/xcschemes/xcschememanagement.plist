@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Go Fish-cal.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Go Fish.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>1C1FC7C315BDC785009393A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9c12694d2e3ca6d07182dfd8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

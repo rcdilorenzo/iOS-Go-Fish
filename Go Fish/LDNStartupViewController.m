@@ -8,14 +8,17 @@
 
 #import "LDNStartupViewController.h"
 #import "LDNViewController.h"
+#import "CustomGradientButton.h"
 
 @interface LDNStartupViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *playerNameField;
+@property (weak, nonatomic) IBOutlet CustomGradientButton *startButton;
 
 @end
 
 @implementation LDNStartupViewController
 @synthesize playerNameField;
+@synthesize startButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +38,7 @@
 - (void)viewDidUnload
 {
     [self setPlayerNameField:nil];
+    [self setStartButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -49,11 +53,22 @@
 }
 - (IBAction)startGame:(id)sender {
     LDNViewController *ldnVC = [self.storyboard instantiateViewControllerWithIdentifier:@"gameController"];
-    if (playerNameField.text != @"" && playerNameField.text != nil) {
+    if (playerNameField.text != @"" && playerNameField.text.length != 0) {
         ldnVC.game = [[LDNGoFishGame alloc] init];
         [ldnVC.game setupWithLivePlayer:playerNameField.text]; 
         [self presentModalViewController:ldnVC animated:YES];
+    } else {
+        [self.startButton setNormalState:self];
+        UIAlertView *invalidPlayerName = [[UIAlertView alloc] initWithTitle:@"Invalid Player Name" message:@"Please re-enter player name." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [invalidPlayerName show];
+        [self.playerNameField setPlaceholder:@"Re-Enter Name"];
     }
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self startGame:textField];
+    return YES;
+}
+
 
 @end

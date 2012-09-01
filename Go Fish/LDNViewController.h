@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "LDNGoFishGame.h"
 
-@interface LDNViewController : UIViewController
+@interface LDNViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (strong, nonatomic) LDNGoFishGame *game;
+@property (weak, nonatomic) IBOutlet UIPickerView *turnPicker;
 
 @end

@@ -14,10 +14,10 @@
 @interface LDNGoFishGame()
 @property (nonatomic, strong) NSMutableArray *players;
 @property (nonatomic, strong) LDNDeckOfCards *deck;
+@property (nonatomic, strong) id currentPlayer;
 @end
 
 @implementation LDNGoFishGame
-@synthesize players = _players, deck = _deck;
 
 - (void)setupWithoutPlayerNames
 {
@@ -36,10 +36,10 @@
     for (NSString *playerName in playerNames) {
         if (count == 1) {
             [self.players addObject:[[LDNGoFishPlayer alloc] initWithName:playerName]];
+            self.currentPlayer = [self.players objectAtIndex:0];
         } else {
             [self.players addObject:[[LDNGoFishRobot alloc] initWithName:playerName]];
         }
-        NSLog(@"last object: %@", [self.players lastObject]);
         [[self.players lastObject] setGame:self];
         count = 2;
     }
@@ -55,7 +55,7 @@
 }
 
 - (NSArray *)opponents:(LDNGoFishPlayer *)player {
-    NSMutableArray *opponents = self.players;
+    NSMutableArray *opponents = [NSMutableArray arrayWithArray:self.players];
     [opponents removeObject:player];
     return opponents;
 }
@@ -66,12 +66,20 @@
 
 - (BOOL)end {
     for (LDNGoFishPlayer *player in self.players) {
-        if (self.deck.cards.count != 0 || player.cards.count != 0) {
+        if (self.deck.cards.count != 0 && player.cards.count != 0) {
             return NO;
         } else {
             return YES;
         }
     }
+}
+
+- (void)setCurrentPlayerWith:(id)player {
+    self.currentPlayer = player;
+}
+
+- (LDNGoFishPlayer *)getCurrentPlayerFromGame {
+    return self.currentPlayer;
 }
 
 

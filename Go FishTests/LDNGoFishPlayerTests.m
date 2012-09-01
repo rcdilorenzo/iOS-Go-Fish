@@ -15,6 +15,12 @@
 @property (nonatomic, strong) LDNDeckOfCards *deck;
 @end
 
+@interface LDNGoFishPlayer (Testing1)
+@property (nonatomic, strong) NSString *choosenRank;
+@property (nonatomic, strong) LDNGoFishPlayer *choosenPlayer;
+
+@end
+
 @interface LDNGoFishPlayerTests()
 @property (nonatomic, strong) LDNGoFishGame *game;
 @property (nonatomic, strong) LDNGoFishPlayer *playerOne;
@@ -70,6 +76,7 @@
                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Hearts"],
                        [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
     [self.playerOne askPlayerForCardsOfRank:@"3" player:self.playerTwo];
+    STAssertEquals([self.playerOne.game getCurrentPlayerFromGame], self.playerTwo, @"Game should set current player to be the second player if the request from the first player fails.");
     STAssertEquals(self.playerOne.cards.count, (NSUInteger)3, @"Returned card should not exist but a card from deck should be drawn.");
 }
 
@@ -90,6 +97,7 @@
 }
 
 - (void)testPlayerTurn {
+    [self.game.players removeObject:self.playerOne];
     self.playerTwo.cards = [[NSMutableArray alloc] initWithObjects:
                             [[LDNPlayingCard alloc] initWithRank:@"9" suit:@"Spades"],
                             [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"],
@@ -101,7 +109,9 @@
                             [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
     [self.playerTwo takeTurn];
     STAssertEquals(self.playerTwo.books.count, (NSUInteger)1, @"A book should have been created.");
-    STAssertEquals(self.playerThree.cards.count, (NSUInteger)1, @"The books should remove the four cards of the same rank in player one\'s hand.");
+    STAssertEquals(self.playerTwo.cards.count, (NSUInteger)1, @"The books should remove the four cards of the same rank in player one\'s hand.");
+    LDNPlayingCard *lastCard = [self.playerTwo.cards lastObject];
+    STAssertTrue([lastCard.rank isEqualToString:@"9"], @"Player should only have a 9 left in his hand.");
 }
 
 @end

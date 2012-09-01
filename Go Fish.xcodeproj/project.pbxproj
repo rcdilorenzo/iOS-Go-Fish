@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03301f739909bb01259b059a /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1CD20C0515C19934004DB60E /* background.jpeg */; };
+		047b754bc89e312f415b9254 /* h7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C815C041350069F3D0 /* h7.png */; };
+		04cfb6cb97feb2bf3d500667 /* jr.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D115C041360069F3D0 /* jr.png */; };
+		09c0e9fab79d101cb2344b55 /* LDNGoFishPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7E815BDD245009393A1 /* LDNGoFishPlayer.m */; };
+		16dc20bdf07341e1e366a46b /* s7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D715C041360069F3D0 /* s7.png */; };
+		1C1212D315C1D2FF005EF4BC /* backs_blue_rotated.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1212D215C1D2FF005EF4BC /* backs_blue_rotated.png */; };
 		1C1FC7A515BDC785009393A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A415BDC785009393A1 /* UIKit.framework */; };
 		1C1FC7A715BDC785009393A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A615BDC785009393A1 /* Foundation.framework */; };
 		1C1FC7A915BDC785009393A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A815BDC785009393A1 /* CoreGraphics.framework */; };
@@ -90,9 +96,85 @@
 		1C25772515C054100069F3D0 /* LDNStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25772315C054100069F3D0 /* LDNStartupViewController.m */; };
 		1C46585415BF389D002791ED /* LDNGoFishRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46585315BF389D002791ED /* LDNGoFishRobot.m */; };
 		1CA3959415C1B7230036283E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA3959215C1B7040036283E /* SenTestingKit.framework */; };
+		1CA9C2D815C380EE0044E5C5 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */; };
+		1CA9C2D915C380EE0044E5C5 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */; };
+		1CBBE69615C36C980031D7E9 /* LDNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7BD15BDC785009393A1 /* LDNViewController.m */; };
+		1CBBE69715C36D6E0031D7E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBBE69415C36C320031D7E9 /* QuartzCore.framework */; };
+		1CBBE69815C36D7E0031D7E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBBE69415C36C320031D7E9 /* QuartzCore.framework */; };
 		1CD20C0615C19934004DB60E /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1CD20C0515C19934004DB60E /* background.jpeg */; };
 		1CF6138415BED26B00014D78 /* LDNPlayinCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */; };
 		1CF6138815BED7F300014D78 /* LDNGoFishPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */; };
+		1ae6aa94ba1c7f551ecb6d50 /* sj.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576DC15C041380069F3D0 /* sj.png */; };
+		1b215c765c2cee1b8691ec25 /* LDNStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25772315C054100069F3D0 /* LDNStartupViewController.m */; };
+		2063d0f082dd1d6211ae906a /* dq.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C115C041350069F3D0 /* dq.png */; };
+		20e39cc6e659ac8571df13ac /* d4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576B715C041340069F3D0 /* d4.png */; };
+		210554f998a7755a640203f8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C1FC7AD15BDC785009393A1 /* InfoPlist.strings */; };
+		25fb9ad35d2dfb8a244640ce /* ca.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576B115C041340069F3D0 /* ca.png */; };
+		2b2b0688d65e3f6f8401a232 /* h3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C415C041350069F3D0 /* h3.png */; };
+		2e28a1225cf0b2c0f301479f /* s8.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D815C041360069F3D0 /* s8.png */; };
+		3000d2bc97900a7b999e2618 /* h5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C615C041350069F3D0 /* h5.png */; };
+		322fd8b3144bf63b7562bb64 /* c8.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576AE15C041340069F3D0 /* c8.png */; };
+		3530d7e089b4dba498c4556e /* da.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576BE15C041340069F3D0 /* da.png */; };
+		374902643b773b3300cfa5b6 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1FC7B615BDC785009393A1 /* MainStoryboard_iPhone.storyboard */; };
+		37d5fcedf7546fb6f4d2697c /* sq.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576DE15C041380069F3D0 /* sq.png */; };
+		39419e0e141b9dce512d3329 /* c10.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576B015C041340069F3D0 /* c10.png */; };
+		3c112a64771d2ca72134ecc1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7B015BDC785009393A1 /* main.m */; };
+		3e22bb1fc7671340a43921bf /* h10.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576CB15C041350069F3D0 /* h10.png */; };
+		4105afc85131319d457253d4 /* h6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C715C041350069F3D0 /* h6.png */; };
+		4f0c09acd2e7435ca85fe272 /* d3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576B615C041340069F3D0 /* d3.png */; };
+		4fe384b93574475b92b70946 /* backs_blue_rotated.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1212D215C1D2FF005EF4BC /* backs_blue_rotated.png */; };
+		5818e2655513d925cea28ae5 /* c4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576AA15C041340069F3D0 /* c4.png */; };
+		5f7a3bb575c6693ab07cf1b1 /* hq.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576CF15C041350069F3D0 /* hq.png */; };
+		5f9441da4f6a3f00dda823cb /* c3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576A915C041330069F3D0 /* c3.png */; };
+		61349662219c50dad05e46db /* d2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576B515C041340069F3D0 /* d2.png */; };
+		639b5289667e8f2171ae0af4 /* c2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576A815C041330069F3D0 /* c2.png */; };
+		66c8f525eae5675293d196e9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A415BDC785009393A1 /* UIKit.framework */; };
+		6abcf1641fb72b21d1a76ce8 /* c5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576AB15C041340069F3D0 /* c5.png */; };
+		6b2b4d5b210c4cfc8d65a4a5 /* ck.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576B315C041340069F3D0 /* ck.png */; };
+		6bcc381838b4c37d23b7c878 /* d6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576B915C041340069F3D0 /* d6.png */; };
+		6c1e2f88bf094fc3a2235efd /* LDNGoFishRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46585315BF389D002791ED /* LDNGoFishRobot.m */; };
+		7d13af20a9ebf6c4631cfefd /* LDNGoFishGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7E415BDCA82009393A1 /* LDNGoFishGame.m */; };
+		82f2be7ae9b2a8a952595de2 /* s10.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576DA15C041370069F3D0 /* s10.png */; };
+		8729dd44325e9e64d86bbd7d /* s4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D415C041360069F3D0 /* s4.png */; };
+		88bbe58d9ae842be5b556efd /* LDNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7B415BDC785009393A1 /* LDNAppDelegate.m */; };
+		8f8a4afdc5da9d5398976616 /* d9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576BC15C041340069F3D0 /* d9.png */; };
+		93a33ee778ee1437c2be3741 /* h8.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C915C041350069F3D0 /* h8.png */; };
+		95ee3b69da73241a5ed5d6a3 /* LDNPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */; };
+		9a5c77706fa0745439c49c60 /* c6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576AC15C041340069F3D0 /* c6.png */; };
+		9e5da4c75f962559f858e2a5 /* sk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576DD15C041380069F3D0 /* sk.png */; };
+		a0bdb34cf7b5f7eb9122ff9a /* backs_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576A615C041330069F3D0 /* backs_blue.png */; };
+		a22d13ca131a7a1ae7d0ccb8 /* dk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C015C041350069F3D0 /* dk.png */; };
+		a28b9432dcbb5722aad1ebdb /* calabash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09ee0f7a2a8443e5a32d138b /* calabash.framework */; };
+		a2cadae7e13380b0eae1db96 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = e9a7b125588893ff8055094f /* CFNetwork.framework */; };
+		a2cb6336fe0b0771cd8fac92 /* c9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576AF15C041340069F3D0 /* c9.png */; };
+		a37b8c99fa4e82ea629fec2f /* ec.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C215C041350069F3D0 /* ec.png */; };
+		a4f471c701a515cc7a477981 /* ha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576CC15C041350069F3D0 /* ha.png */; };
+		a64967d04476d2c8c83eda70 /* cq.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576B415C041340069F3D0 /* cq.png */; };
+		a831b021b43cb41688b263e9 /* s3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D315C041360069F3D0 /* s3.png */; };
+		aa242cc4f0dd499b7b2b1c47 /* s2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D215C041360069F3D0 /* s2.png */; };
+		b4a0af59ece71a01d3e808a9 /* dj.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576BF15C041350069F3D0 /* dj.png */; };
+		b710473cc48db2ff2e653b99 /* LDNDeckOfCards.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7EC15BDD728009393A1 /* LDNDeckOfCards.m */; };
+		ba68f73bd885d14dab4a7bcf /* d5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576B815C041340069F3D0 /* d5.png */; };
+		ba81c59b025fa87e22285fe9 /* jb.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D015C041360069F3D0 /* jb.png */; };
+		bf225ce1d5e253d713c2335f /* hk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576CE15C041350069F3D0 /* hk.png */; };
+		bf95c563be09538d63352c5f /* h4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C515C041350069F3D0 /* h4.png */; };
+		c075dd16c5bd2aefe751137d /* c7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576AD15C041340069F3D0 /* c7.png */; };
+		c36b0dfb0d3fb78919bec46b /* s9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D915C041370069F3D0 /* s9.png */; };
+		c948a8e581c8fc6e18abd652 /* d7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576BA15C041340069F3D0 /* d7.png */; };
+		cd585b9d307d29d86e51cbe7 /* d10.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576BD15C041340069F3D0 /* d10.png */; };
+		d19c1605be530d1a19bd722f /* LDNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7BD15BDC785009393A1 /* LDNViewController.m */; };
+		d3bdc0aa59d97652c10e52d5 /* h9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576CA15C041350069F3D0 /* h9.png */; };
+		da432ccbb23534c94c4d3173 /* sa.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576DB15C041370069F3D0 /* sa.png */; };
+		dc47216d3622e9358bc1d57d /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A615BDC785009393A1 /* Foundation.framework */; };
+		e2b02814fb324b7db2cc04ab /* s5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D515C041360069F3D0 /* s5.png */; };
+		ea17ba2feadca0a45c7e6a78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A815BDC785009393A1 /* CoreGraphics.framework */; };
+		ec20752808f12e6adc48048e /* cj.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576B215C041340069F3D0 /* cj.png */; };
+		f18fb36057085f4220b4ec54 /* backs_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576A715C041330069F3D0 /* backs_red.png */; };
+		f6f306c7f7769bb0722d69b1 /* h2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C315C041350069F3D0 /* h2.png */; };
+		f7a31ff51f831971da109e93 /* d8.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576BB15C041340069F3D0 /* d8.png */; };
+		fa989d0c8d601affa852b9a2 /* hj.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576CD15C041350069F3D0 /* hj.png */; };
+		fb0fa5843f0b292b0e7885fc /* s6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D615C041360069F3D0 /* s6.png */; };
+		ffb5593b9da02b332f48671f /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1FC7B915BDC785009393A1 /* MainStoryboard_iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +188,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09ee0f7a2a8443e5a32d138b /* calabash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = calabash.framework; sourceTree = "<group>"; };
+		1C1212D215C1D2FF005EF4BC /* backs_blue_rotated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backs_blue_rotated.png; sourceTree = "<group>"; };
 		1C1FC7A015BDC785009393A1 /* Go Fish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Go Fish.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C1FC7A415BDC785009393A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1C1FC7A615BDC785009393A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -197,11 +281,16 @@
 		1C46585215BF389D002791ED /* LDNGoFishRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishRobot.h; sourceTree = "<group>"; };
 		1C46585315BF389D002791ED /* LDNGoFishRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishRobot.m; sourceTree = "<group>"; };
 		1CA3959215C1B7040036283E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1CA9C2D615C380EE0044E5C5 /* CustomGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGradientButton.h; sourceTree = "<group>"; };
+		1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGradientButton.m; sourceTree = "<group>"; };
+		1CBBE69415C36C320031D7E9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1CD20C0515C19934004DB60E /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
+		1CE2C79915C249DC0045DD32 /* Go Fish-cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Go Fish-cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CF6138215BED26B00014D78 /* LDNPlayinCardTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNPlayinCardTests.h; sourceTree = "<group>"; };
 		1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNPlayinCardTests.m; sourceTree = "<group>"; };
 		1CF6138615BED7F300014D78 /* LDNGoFishPlayerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishPlayerTests.h; sourceTree = "<group>"; };
 		1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishPlayerTests.m; sourceTree = "<group>"; };
+		e9a7b125588893ff8055094f /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CBBE69815C36D7E0031D7E9 /* QuartzCore.framework in Frameworks */,
 				1C1FC7A515BDC785009393A1 /* UIKit.framework in Frameworks */,
 				1C1FC7A715BDC785009393A1 /* Foundation.framework in Frameworks */,
 				1C1FC7A915BDC785009393A1 /* CoreGraphics.framework in Frameworks */,
@@ -222,6 +312,19 @@
 				1CA3959415C1B7230036283E /* SenTestingKit.framework in Frameworks */,
 				1C1FC7C715BDC785009393A1 /* UIKit.framework in Frameworks */,
 				1C1FC7C815BDC785009393A1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93ccda071f85e6db34220389 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CBBE69715C36D6E0031D7E9 /* QuartzCore.framework in Frameworks */,
+				66c8f525eae5675293d196e9 /* UIKit.framework in Frameworks */,
+				dc47216d3622e9358bc1d57d /* Foundation.framework in Frameworks */,
+				ea17ba2feadca0a45c7e6a78 /* CoreGraphics.framework in Frameworks */,
+				a2cadae7e13380b0eae1db96 /* CFNetwork.framework in Frameworks */,
+				a28b9432dcbb5722aad1ebdb /* calabash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +346,7 @@
 			children = (
 				1C1FC7A015BDC785009393A1 /* Go Fish.app */,
 				1C1FC7C415BDC785009393A1 /* Go FishTests.octest */,
+				1CE2C79915C249DC0045DD32 /* Go Fish-cal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,10 +354,13 @@
 		1C1FC7A315BDC785009393A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1C1FC7A415BDC785009393A1 /* UIKit.framework */,
 				1C1FC7A615BDC785009393A1 /* Foundation.framework */,
+				1C1FC7A415BDC785009393A1 /* UIKit.framework */,
+				1CBBE69415C36C320031D7E9 /* QuartzCore.framework */,
 				1C1FC7A815BDC785009393A1 /* CoreGraphics.framework */,
 				1CA3959215C1B7040036283E /* SenTestingKit.framework */,
+				e9a7b125588893ff8055094f /* CFNetwork.framework */,
+				09ee0f7a2a8443e5a32d138b /* calabash.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,6 +376,8 @@
 				1C1FC7BD15BDC785009393A1 /* LDNViewController.m */,
 				1C25772215C054100069F3D0 /* LDNStartupViewController.h */,
 				1C25772315C054100069F3D0 /* LDNStartupViewController.m */,
+				1CA9C2D615C380EE0044E5C5 /* CustomGradientButton.h */,
+				1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */,
 				1C1FC7AB15BDC785009393A1 /* Supporting Files */,
 				1CF6138915BED9A500014D78 /* Game */,
 				1CF6138A15BED9B000014D78 /* Player */,
@@ -334,6 +443,7 @@
 		1C25771915C041410069F3D0 /* Card Images */ = {
 			isa = PBXGroup;
 			children = (
+				1C1212D215C1D2FF005EF4BC /* backs_blue_rotated.png */,
 				1C2576A615C041330069F3D0 /* backs_blue.png */,
 				1C2576A715C041330069F3D0 /* backs_red.png */,
 				1C2576A815C041330069F3D0 /* c2.png */,
@@ -465,6 +575,23 @@
 			productReference = 1C1FC7C415BDC785009393A1 /* Go FishTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		9c12694d2e3ca6d07182dfd8 /* Go Fish-cal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8ffb0dcf2a0c4426ff2fc189 /* Build configuration list for PBXNativeTarget "Go Fish-cal" */;
+			buildPhases = (
+				f67ac12aca8d29ae184c7c07 /* Sources */,
+				93ccda071f85e6db34220389 /* Frameworks */,
+				050501fca3476a9f714bc1e1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Go Fish-cal";
+			productName = "Go Fish-cal";
+			productReference = 1CE2C79915C249DC0045DD32 /* Go Fish-cal.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -489,11 +616,81 @@
 			targets = (
 				1C1FC79F15BDC785009393A1 /* Go Fish */,
 				1C1FC7C315BDC785009393A1 /* Go FishTests */,
+				9c12694d2e3ca6d07182dfd8 /* Go Fish-cal */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		050501fca3476a9f714bc1e1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				210554f998a7755a640203f8 /* InfoPlist.strings in Resources */,
+				374902643b773b3300cfa5b6 /* MainStoryboard_iPhone.storyboard in Resources */,
+				ffb5593b9da02b332f48671f /* MainStoryboard_iPad.storyboard in Resources */,
+				a0bdb34cf7b5f7eb9122ff9a /* backs_blue.png in Resources */,
+				f18fb36057085f4220b4ec54 /* backs_red.png in Resources */,
+				639b5289667e8f2171ae0af4 /* c2.png in Resources */,
+				5f9441da4f6a3f00dda823cb /* c3.png in Resources */,
+				5818e2655513d925cea28ae5 /* c4.png in Resources */,
+				6abcf1641fb72b21d1a76ce8 /* c5.png in Resources */,
+				9a5c77706fa0745439c49c60 /* c6.png in Resources */,
+				c075dd16c5bd2aefe751137d /* c7.png in Resources */,
+				322fd8b3144bf63b7562bb64 /* c8.png in Resources */,
+				a2cb6336fe0b0771cd8fac92 /* c9.png in Resources */,
+				39419e0e141b9dce512d3329 /* c10.png in Resources */,
+				25fb9ad35d2dfb8a244640ce /* ca.png in Resources */,
+				ec20752808f12e6adc48048e /* cj.png in Resources */,
+				6b2b4d5b210c4cfc8d65a4a5 /* ck.png in Resources */,
+				a64967d04476d2c8c83eda70 /* cq.png in Resources */,
+				61349662219c50dad05e46db /* d2.png in Resources */,
+				4f0c09acd2e7435ca85fe272 /* d3.png in Resources */,
+				20e39cc6e659ac8571df13ac /* d4.png in Resources */,
+				ba68f73bd885d14dab4a7bcf /* d5.png in Resources */,
+				6bcc381838b4c37d23b7c878 /* d6.png in Resources */,
+				c948a8e581c8fc6e18abd652 /* d7.png in Resources */,
+				f7a31ff51f831971da109e93 /* d8.png in Resources */,
+				8f8a4afdc5da9d5398976616 /* d9.png in Resources */,
+				cd585b9d307d29d86e51cbe7 /* d10.png in Resources */,
+				3530d7e089b4dba498c4556e /* da.png in Resources */,
+				b4a0af59ece71a01d3e808a9 /* dj.png in Resources */,
+				a22d13ca131a7a1ae7d0ccb8 /* dk.png in Resources */,
+				2063d0f082dd1d6211ae906a /* dq.png in Resources */,
+				a37b8c99fa4e82ea629fec2f /* ec.png in Resources */,
+				f6f306c7f7769bb0722d69b1 /* h2.png in Resources */,
+				2b2b0688d65e3f6f8401a232 /* h3.png in Resources */,
+				bf95c563be09538d63352c5f /* h4.png in Resources */,
+				3000d2bc97900a7b999e2618 /* h5.png in Resources */,
+				4105afc85131319d457253d4 /* h6.png in Resources */,
+				047b754bc89e312f415b9254 /* h7.png in Resources */,
+				93a33ee778ee1437c2be3741 /* h8.png in Resources */,
+				d3bdc0aa59d97652c10e52d5 /* h9.png in Resources */,
+				3e22bb1fc7671340a43921bf /* h10.png in Resources */,
+				a4f471c701a515cc7a477981 /* ha.png in Resources */,
+				fa989d0c8d601affa852b9a2 /* hj.png in Resources */,
+				bf225ce1d5e253d713c2335f /* hk.png in Resources */,
+				5f7a3bb575c6693ab07cf1b1 /* hq.png in Resources */,
+				ba81c59b025fa87e22285fe9 /* jb.png in Resources */,
+				04cfb6cb97feb2bf3d500667 /* jr.png in Resources */,
+				aa242cc4f0dd499b7b2b1c47 /* s2.png in Resources */,
+				a831b021b43cb41688b263e9 /* s3.png in Resources */,
+				8729dd44325e9e64d86bbd7d /* s4.png in Resources */,
+				e2b02814fb324b7db2cc04ab /* s5.png in Resources */,
+				fb0fa5843f0b292b0e7885fc /* s6.png in Resources */,
+				16dc20bdf07341e1e366a46b /* s7.png in Resources */,
+				2e28a1225cf0b2c0f301479f /* s8.png in Resources */,
+				c36b0dfb0d3fb78919bec46b /* s9.png in Resources */,
+				82f2be7ae9b2a8a952595de2 /* s10.png in Resources */,
+				da432ccbb23534c94c4d3173 /* sa.png in Resources */,
+				1ae6aa94ba1c7f551ecb6d50 /* sj.png in Resources */,
+				9e5da4c75f962559f858e2a5 /* sk.png in Resources */,
+				37d5fcedf7546fb6f4d2697c /* sq.png in Resources */,
+				03301f739909bb01259b059a /* background.jpeg in Resources */,
+				4fe384b93574475b92b70946 /* backs_blue_rotated.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1C1FC79E15BDC785009393A1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -559,6 +756,7 @@
 				1C25771615C041380069F3D0 /* sk.png in Resources */,
 				1C25771715C041380069F3D0 /* sq.png in Resources */,
 				1CD20C0615C19934004DB60E /* background.jpeg in Resources */,
+				1C1212D315C1D2FF005EF4BC /* backs_blue_rotated.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +800,7 @@
 				1C1FC7F715BDE17D009393A1 /* LDNPlayingCard.m in Sources */,
 				1C46585415BF389D002791ED /* LDNGoFishRobot.m in Sources */,
 				1C25772415C054100069F3D0 /* LDNStartupViewController.m in Sources */,
+				1CA9C2D815C380EE0044E5C5 /* CustomGradientButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +808,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CBBE69615C36C980031D7E9 /* LDNViewController.m in Sources */,
 				1C1FC7E215BDC869009393A1 /* LDNGoFishGameTests.m in Sources */,
 				1C1FC7E615BDCA82009393A1 /* LDNGoFishGame.m in Sources */,
 				1C1FC7EA15BDD245009393A1 /* LDNGoFishPlayer.m in Sources */,
@@ -618,6 +818,23 @@
 				1CF6138415BED26B00014D78 /* LDNPlayinCardTests.m in Sources */,
 				1CF6138815BED7F300014D78 /* LDNGoFishPlayerTests.m in Sources */,
 				1C25772515C054100069F3D0 /* LDNStartupViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		f67ac12aca8d29ae184c7c07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3c112a64771d2ca72134ecc1 /* main.m in Sources */,
+				88bbe58d9ae842be5b556efd /* LDNAppDelegate.m in Sources */,
+				d19c1605be530d1a19bd722f /* LDNViewController.m in Sources */,
+				7d13af20a9ebf6c4631cfefd /* LDNGoFishGame.m in Sources */,
+				09c0e9fab79d101cb2344b55 /* LDNGoFishPlayer.m in Sources */,
+				b710473cc48db2ff2e653b99 /* LDNDeckOfCards.m in Sources */,
+				95ee3b69da73241a5ed5d6a3 /* LDNPlayingCard.m in Sources */,
+				6c1e2f88bf094fc3a2235efd /* LDNGoFishRobot.m in Sources */,
+				1b215c765c2cee1b8691ec25 /* LDNStartupViewController.m in Sources */,
+				1CA9C2D915C380EE0044E5C5 /* CustomGradientButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +884,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		12faff4d1ce261a3bc2feb19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
+				INFOPLIST_FILE = "Go Fish/Go Fish-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(SRCROOT)/calabash.framework/calabash\"",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		1C1FC7D415BDC785009393A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -720,6 +959,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
@@ -735,6 +975,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
@@ -751,10 +992,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
 				INFOPLIST_FILE = "Go FishTests/Go FishTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Volumes/OCMock 2.0.1/iOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -768,15 +1014,42 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
 				INFOPLIST_FILE = "Go FishTests/Go FishTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Volumes/OCMock 2.0.1/iOS\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
+		};
+		549d02d54a1c10bc42ac09e3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
+				INFOPLIST_FILE = "Go Fish/Go Fish-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(SRCROOT)/calabash.framework/calabash\"",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -804,6 +1077,15 @@
 			buildConfigurations = (
 				1C1FC7DA15BDC785009393A1 /* Debug */,
 				1C1FC7DB15BDC785009393A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8ffb0dcf2a0c4426ff2fc189 /* Build configuration list for PBXNativeTarget "Go Fish-cal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				549d02d54a1c10bc42ac09e3 /* Debug */,
+				12faff4d1ce261a3bc2feb19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -10,18 +10,13 @@
 #import "LDNGoFishPlayer.h"
 #import "LDNPlayingCard.h"
 
-@interface LDNGoFishPlayer()
-@property (nonatomic, strong) NSString *choosenRank;
-@property (nonatomic, strong) LDNGoFishPlayer *choosenPlayer;
-@end
-
 @implementation LDNGoFishRobot
 
 - (id)initWithName:(NSString *)aPlayerName {
     return self = [super initWithName:aPlayerName];
 }
 
-- (void)requestCardFromSelectedOpponent:(NSArray *)opponents
+- (BOOL)createDecisionFromOpponents:(NSArray *)opponents
                           currentPlayer:(LDNGoFishPlayer *)currentPlayer {
     NSUInteger randomIndex = arc4random() % opponents.count;
     self.choosenPlayer = [opponents objectAtIndex:randomIndex];
@@ -39,8 +34,7 @@
         }
     }
     self.choosenRank = modeOfRanks;
-    NSLog(@"My Cards %@", self.cards);
-    NSLog(@"%@ chose to ask %@ for any %@\'s...", self.name, self.choosenPlayer, self.choosenRank);
+    return YES;
 }
 
 @end

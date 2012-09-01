@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSMutableArray *cards;
 @property (nonatomic, strong) NSMutableArray *books;
 @property (nonatomic, weak) id <GameInteraction> game;
+@property (nonatomic, strong) NSString *choosenRank;
+@property (nonatomic, strong) LDNGoFishPlayer *choosenPlayer;
 
 - (id)initWithName:(NSString *)aPlayerName;
 - (NSArray *)askPlayerForCardsOfRank:(NSString *)aRank player:(LDNGoFishPlayer *)aPlayer;
@@ -29,9 +31,10 @@
 @end
 
 @protocol GameInteraction <NSObject>
-
 - (NSArray *)opponents:(LDNGoFishPlayer *)player;
 - (LDNPlayingCard *)drawFromGamesDeck;
+- (void)setCurrentPlayerWith:(id)player;
+- (LDNGoFishPlayer *)getCurrentPlayerFromGame;
 - (BOOL)end;
 
 

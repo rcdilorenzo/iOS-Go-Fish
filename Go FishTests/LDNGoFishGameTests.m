@@ -10,6 +10,7 @@
 #import "LDNGoFishGame.h"
 #import "LDNGoFishPlayer.h"
 #import "LDNDeckOfCards.h"
+#import "LDNPlayingCard.h"
 #import "LDNGoFishRobot.h"
 
 @implementation LDNGoFishGameTests
@@ -36,36 +37,34 @@
     STAssertEquals([[game.players objectAtIndex:0] cards].count, (NSUInteger)5, @"Each player must be dealt 5 cards.");
     STAssertEquals(game.deck.numberOfCards, (NSUInteger)42, @"Deck of cards should have 42 cards after dealing 5 cards to two players.");
     NSLog(@"Player 1 is a %@", [[game.players objectAtIndex:0] class]);
+    STAssertEquals(game.currentPlayer, [game.players objectAtIndex:0], @"Current player should be set to the first player.");
 }
 
-//- (void)testEndConditions {
-//    LDNGoFishGame *game = [[LDNGoFishGame alloc] initWithPlayers:[NSArray arrayWithObjects:@"John", @"Jay", @"Daniel", @"Ken", nil]];
-//    [game setup];
-//    STAssertNotNil([game end], @"The should not have ended yet.");
-//    NSUInteger count = 1;
-//    while (![game end]) {
-//        for (LDNGoFishPlayer *player in game.players) {
-//            [player takeTurn];
-//        }
-//        count++;
-//        if (count == 8) {
-//            [game.players objectAtIndex:0].cards = [[NSMutableArray alloc] init];
-//        }
-//    }
-//    STAssertEquals(count, (NSUInteger)8, @"Game should end when a player has no cards.");
-//    
-//    [game setup];
-//    count = 1;
-//    while (![game end]) {
-//        for (LDNGoFishPlayer *player in game.players) {
-//            [player takeTurn];
-//        }
-//        count++;
-//        if (count == 8) {
-//            game.deck.cards = [[NSMutableArray alloc] init];
-//        }
-//    }
-//}
+- (void)testEndConditions {
+    NSArray *playerNames = [NSArray arrayWithObjects:@"John", @"Jay", @"Daniel", @"Ken", nil];
+    LDNGoFishGame *game = [[LDNGoFishGame alloc] init];
+    [game setupWithPlayers:playerNames];
+    [game setup];
+    STAssertEquals([game end], NO, @"The game should not have ended yet.");
+    NSUInteger count = 1;
+    while ([game end] == NO) {
+        count++;
+        if (count == 8) {
+            LDNGoFishPlayer *playerOne = [game.players objectAtIndex:0];
+            playerOne.cards = [[NSMutableArray alloc] init];
+        }
+    }
+    STAssertEquals(count, (NSUInteger)8, @"Game should end when a player has no cards.");
+    
+    [game setup];
+    count = 1;
+    while ([game end] == NO) {
+        count++;
+        if (count == 8) {
+            game.deck.cards = [[NSMutableArray alloc] init];
+        }
+    }
+}
 
 //NSUInteger (^calculatedWinnerIndex) (LDNGoFishGame *game) = ^NSUInteger (LDNGoFishGame *game){
 //    

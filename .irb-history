@@ -1,0 +1,46 @@
+record_begin
+record_end "start_game"
+playback "start_game"
+playback "start_game"
+exit
+query("button index:0")
+tap "Start"
+macro %Q[fill in "Name" with "Christian"]
+fill in "Name" with "Christian"
+tap "Name"
+fill in "Christian"
+enter "Christian"
+query("Name setText:@"Christian"")
+keyboard_enter_text "Christian"
+tap "Start"
+exit
+query("view")
+query("Startup")
+exit
+self.game
+self
+self.inspect
+self.view
+view
+"view"
+query(self)
+query("self")
+query("view")
+query("viewcontroller")
+query("viewController")
+query("view super")
+query("imageView")
+query("imageView").width
+query("imageView").frame
+query("imageView", :frame)
+query("imageView", :frame, :width)
+query("imageView", :frame, :size)
+query("imageView", :frame, :size, :width)
+query("imageView view")
+query("imageView image")
+query("image")
+query("view image")
+query("imageView", :image)
+query("imageView {accessibilityLabel LIKE '*.png'}")
+query("imageView {accessibilityLabel '*.png'}")
+exit

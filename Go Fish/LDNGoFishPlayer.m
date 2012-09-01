@@ -10,11 +10,6 @@
 #import "LDNDeckOfCards.h"
 #import "LDNPlayingCard.h"
 
-@interface LDNGoFishPlayer()
-@property (nonatomic, strong) NSString *choosenRank;
-@property (nonatomic, strong) LDNGoFishPlayer *choosenPlayer;
-@end
-
 @implementation LDNGoFishPlayer
 @synthesize name = _name, cards = _cards, books = _books, choosenRank = _choosenRank, choosenPlayer = _choosenPlayer;
 @synthesize game = _game;
@@ -37,13 +32,17 @@
     if (cardsRequested.count != 0) {
         for (LDNPlayingCard *card in cardsRequested) {
             [self.cards addObject:card];
+            [self.game setCurrentPlayerWith:self];
         }
     } else {
         // Go Fish!
         if ([self.game end] == NO) {
             [self.cards addObject:[self.game drawFromGamesDeck]];
+            [self.game setCurrentPlayerWith:aPlayer];
         }
     }
+    NSLog(@"Cards Returned: %@", cardsRequested);
+    NSLog(@"Cards: %@", self.cards);
     return cardsRequested;
 }
 
@@ -83,14 +82,15 @@
 }
 
 - (void)takeTurn {
-    [self requestCardFromSelectedOpponent:[self.game opponents:self] currentPlayer:self];
-    if (!self.choosenPlayer.name && self.choosenRank == @"") {
-        self.choosenPlayer = [[self.game opponents:self] objectAtIndex:0];
-        NSUInteger randomIndex = arc4random() % self.cards.count;
-        self.choosenRank = [self.cards objectAtIndex:randomIndex];
-    }
+    [self createDecisionFromOpponents:[self.game opponents:self] currentPlayer:self];
+    //if (!decisionCreated) {
+    //    self.choosenPlayer = [[self.game opponents:self] objectAtIndex:0];
+    //    NSUInteger randomIndex = arc4random() % self.cards.count;
+    //    self.choosenRank = [self.cards objectAtIndex:randomIndex];
+    //}
     [self askPlayerForCardsOfRank:self.choosenRank player:self.choosenPlayer];
-    [self endTurn];
+    NSLog(@"%@ chose to ask %@ for any %@\'s...", self.name, self.choosenPlayer.name, self.choosenRank);
+    [self checkForBooks];
 }
 
 - (void)endTurn {
@@ -99,9 +99,10 @@
 }
 
 
-- (void)requestCardFromSelectedOpponent:(NSArray *)opponents
+- (BOOL)createDecisionFromOpponents:(NSArray *)opponents
                           currentPlayer:(LDNGoFishPlayer *)currentPlayer {
     // empty for this parent class of LDNGoFishRobot
+    return NO;
 }
 
 @end

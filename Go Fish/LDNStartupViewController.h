@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LDNStartupViewController : UIViewController
+@interface LDNStartupViewController : UIViewController <UITextFieldDelegate>
 
 @end
