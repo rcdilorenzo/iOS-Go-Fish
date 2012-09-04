@@ -10,6 +10,7 @@
 #import "LDNPlayingCard.h"
 #import "LDNGoFishPlayer.h"
 #import "LDNGoFishGame.h"
+#import "NSArray+Extensions.h"
 
 @interface LDNGoFishGame (Testing)
 @property (nonatomic, strong) LDNDeckOfCards *deck;
@@ -29,12 +30,12 @@
 @end
 
 @implementation LDNGoFishPlayerTests
-@synthesize playerOne = _playerOne, playerTwo = _playerTwo, playerThree = _playerThree, game = _game;
 
 - (void)setUp {
     [super setUp];
     self.game = [[LDNGoFishGame alloc] init];
     [self.game setupWithPlayers:[NSArray arrayWithObjects:@"Daniel", @"Belshazzar", @"Bob", nil]];
+    [self.game setup];
     self.playerOne = [self.game.players objectAtIndex:0];
     self.playerTwo = [self.game.players objectAtIndex:1];
     self.playerThree = [self.game.players lastObject];
@@ -48,6 +49,8 @@
                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Diamonds"],
                        [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
     [self.playerOne askPlayerForCardsOfRank:@"3" player:self.playerTwo];
+    STAssertTrue([self.game.gameMessages containsString:@"Daniel requests 3's from Belshazzar"], @"Game messages should reflect the requests of the players.");
+    STAssertTrue([self.game.gameMessages containsString:@"Belshazzar gives 1 card(s) of the rank 3"], @"Game messages should reflect what the opponent returns to the request");
     STAssertEquals([[self.playerOne.cards lastObject] rank], @"3", @"Returned card should have a rank of 3.");
     STAssertEquals([[self.playerOne.cards lastObject] suit], @"Diamonds", @"Returned card should have a suit of diamonds.");
 }
@@ -76,6 +79,7 @@
                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Hearts"],
                        [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
     [self.playerOne askPlayerForCardsOfRank:@"3" player:self.playerTwo];
+    STAssertTrue([self.game.gameMessages containsString:@"Go Fish!"], @"Game messages should say 'Go Fish!' if no cards are returned.");
     STAssertEquals([self.playerOne.game getCurrentPlayerFromGame], self.playerTwo, @"Game should set current player to be the second player if the request from the first player fails.");
     STAssertEquals(self.playerOne.cards.count, (NSUInteger)3, @"Returned card should not exist but a card from deck should be drawn.");
 }
@@ -92,6 +96,7 @@
                        [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
     [self.playerOne askPlayerForCardsOfRank:@"3" player:self.playerTwo];
     [self.playerOne checkForBooks];
+    STAssertTrue([self.game.gameMessages containsString:@"New Book of 3\'s!"], @"Game messages should contain a new book message when a new book is created");
     STAssertEquals(self.playerOne.books.count, (NSUInteger)1, @"A book should have been created.");
     STAssertEquals(self.playerOne.cards.count, (NSUInteger)1, @"The books should remove the four cards of the same rank in player one\'s hand.");
 }

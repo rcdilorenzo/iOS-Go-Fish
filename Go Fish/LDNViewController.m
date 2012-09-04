@@ -25,12 +25,11 @@
 @property (strong, nonatomic) NSMutableDictionary *livePlayerDecision;
 @property (weak, nonatomic) IBOutlet UIPickerView *livePlayerPicker;
 @property (strong, nonatomic) NSTimer *gamePlayTimer;
+@property (weak, nonatomic) IBOutlet UIView *gameMessageView;
 
 @end
 
 @implementation LDNViewController
-@synthesize livePlayerPicker = _livePlayerPicker;
-@synthesize livePlayerTurnView = _livePlayerTurnView;
 
 - (id)init {
     self = [super init];
@@ -40,27 +39,53 @@
     return self;
 }
 
+#pragma-mark
+#pragma-mark System Callbacks
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.game setup];
     self.livePlayerDecision = [[NSMutableDictionary alloc] initWithCapacity:2];
     [self setDefaultLivePlayerDecision];
+    [self updatePlayerNamesAndScores];
     [self.livePlayerTurnView setAlpha:0];
-    [self.livePlayerName setFont:[UIFont fontWithName:@"American Typewriter" size:26]];
-    self.livePlayerName.text = [[self.game.players objectAtIndex:0] name];
-    [self.playerTwoLabel setFont:[UIFont fontWithName:@"American Typewriter" size:26]];
-    self.playerTwoLabel.text = [[self.game.players objectAtIndex:1] name];
-    [self.playerThreeLabel setFont:[UIFont fontWithName:@"American Typewriter" size:26]];
-    self.playerThreeLabel.text = [[self.game.players objectAtIndex:2] name];
-    [self.playerFourLabel setFont:[UIFont fontWithName:@"American Typewriter" size:26]];
-    self.playerFourLabel.text = [[self.game.players objectAtIndex:3] name];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self updateCards];
+    [self updateUI];
 }
 
+- (void)viewDidUnload
+{
+    [self setLivePlayerCardsView:nil];
+    [self setLivePlayerName:nil];
+    [self setPlayerThreeLabel:nil];
+    [self setPlayerThreeCardsView:nil];
+    [self setPlayerTwoLabel:nil];
+    [self setPlayerTwoCardsView:nil];
+    [self setPlayerFourLabel:nil];
+    [self setPlayerFourCardsView:nil];
+    [self setNavigationBar:nil];
+    [self setTurnPicker:nil];
+    [self setLivePlayerTurnView:nil];
+    [self setLivePlayerPicker:nil];
+    [self setGameMessageView:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    self.gameMessageView.frame = CGRectMake(self.gameMessageView.frame.origin.x, self.gameMessageView.frame.origin.y, self.gameMessageView.frame.size.width, 25*self.game.gameMessages.count+35);
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
+}
+
+#pragma-mark
+#pragma-mark Game Events
 - (void)setDefaultLivePlayerDecision {
     [self.livePlayerDecision setValue:[self.game.players objectAtIndex:1] forKey:@"player"];
     [self.livePlayerDecision setValue:[[[[self.game.players objectAtIndex:0] cards] objectAtIndex:0] rank] forKey:@"rank"];
@@ -70,33 +95,29 @@
     [UIView animateWithDuration:0.5
                      animations:^{
                          [sender setAlpha:0.0];
+                         self.navigationBar.topItem.title = [NSString stringWithFormat:@"Go Fish: %u Cards Remaining", [self.game.deck numberOfCards]];
                      }
                      completion:^(BOOL finished){
-                         NSLog(@"Animation Complete...");
                          [self takePlayerTurn:nil];
                      }];
 }
 
 - (void)takePlayerTurn:(id)sender {
-    NSLog(@"takePlayerTurn");
+    [self.gamePlayTimer invalidate];
     if (self.game.end == YES) {
         NSLog(@"Game Ended");
+        [self endGame];
         return;
     }
     if (self.game.currentPlayer == [self.game.players objectAtIndex:0]) {
-        [self.gamePlayTimer invalidate];
-        NSLog(@"live player turn");
         [self.livePlayerPicker reloadComponent:1];
         [UIView animateWithDuration:0.5 animations:^{[self.livePlayerTurnView setAlpha:1.0];}];
-        [self updateCards];
     } else {
-        NSLog(@"robot player turn");
-        [self.gamePlayTimer invalidate];
         [self.game.currentPlayer takeTurn];
-        self.gamePlayTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(takePlayerTurn:) userInfo:nil repeats:YES];
-        [self updateCards];
-        
+        self.gamePlayTimer = [NSTimer scheduledTimerWithTimeInterval:5.5 target:self selector:@selector(takePlayerTurn:) userInfo:nil repeats:YES];
     }
+    [self updateUI];
+    self.navigationBar.topItem.title = [NSString stringWithFormat:@"Go Fish: %u Cards Remaining", [self.game.deck numberOfCards]];
 }
 
 - (IBAction)takeLivePlayerTurn:(id)sender {
@@ -108,7 +129,55 @@
                      completion:^(BOOL finished) {[self takePlayerTurn:nil];}];
 }
 
+- (void)endGame {
+    [self.livePlayerCardsView removeFromSuperview];
+    [self.playerTwoCardsView removeFromSuperview];
+    [self.playerThreeCardsView removeFromSuperview];
+    [self.playerFourCardsView removeFromSuperview];
+    
+    [self.livePlayerName removeFromSuperview];
+    [self.playerTwoLabel removeFromSuperview];
+    [self.playerThreeLabel removeFromSuperview];
+    [self.playerFourLabel removeFromSuperview];
+    self.navigationBar.topItem.title = @"Go Fish: Game Ended";
+}
 
+#pragma-mark
+#pragma-mark Game Messages
+- (void)writeGameMessages:(NSMutableArray *)messages {
+    NSMutableArray *messageLabels = [[NSMutableArray alloc] init];
+    
+    // Adjust frame based on the amount of messages
+    self.gameMessageView.frame = CGRectMake(self.gameMessageView.frame.origin.x, self.gameMessageView.frame.origin.y, self.gameMessageView.frame.size.width, 25*messages.count+35);
+    
+    for (int i=1; i<=messages.count; i++) {
+        CGRect frame = CGRectMake(20, 25*i-5, self.gameMessageView.frame.size.width-40, 20);
+        [messageLabels addObject:[self drawGameMessage:[messages objectAtIndex:i-1] frame:frame]];
+        NSLog(@"%@", NSStringFromCGRect(frame));
+    }
+    [UIView animateWithDuration:1.0 animations:^{self.gameMessageView.alpha = 1.0;} completion:^(BOOL finished){
+        [UIView animateWithDuration:1.5 delay:3.5 options:UIViewAnimationCurveEaseOut animations:^{self.gameMessageView.alpha = 0;} completion:^(BOOL finished){
+            for (int i=0; i<messageLabels.count; i++) {
+                [[messageLabels objectAtIndex:i] removeFromSuperview];
+            }
+            [self.game clearGameMessages];
+        }];
+    }];
+}
+
+- (UILabel *)drawGameMessage:(NSString *)message frame:(CGRect)frame {
+    UILabel *gameMessage = [[UILabel alloc] initWithFrame:frame];
+    gameMessage.adjustsFontSizeToFitWidth = YES;
+    gameMessage.text = message;
+    gameMessage.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:20];
+    gameMessage.backgroundColor = [UIColor clearColor];
+    gameMessage.textColor = [UIColor colorWithRed:0.00f green:0.35f blue:0.02f alpha:1.00f];
+    [self.gameMessageView addSubview:gameMessage];
+    return gameMessage;
+}
+
+#pragma-mark
+#pragma-mark Update Cards
 - (void)removeAllSubviewsFrom:(UIView *)view {
     NSArray *subviews = [view subviews];
     for (UIView *subview in subviews) {
@@ -132,8 +201,9 @@
     [self removeAllSubviewsFrom:self.playerTwoCardsView];
     CGPoint position = CGPointMake(30, 0);
     for (LDNPlayingCard *card in [[self.game.players objectAtIndex:1] cards]) {
-        [card drawFromPosition:position view:self.playerTwoCardsView size:0.8];
-        position.y += 40;
+        // [card drawFromPosition:position view:self.playerTwoCardsView size:0.8];
+        [card drawCardBackFromPosition:position view:self.playerTwoCardsView size:0.8];
+        position.y += 30;
     }
 }
 
@@ -143,7 +213,8 @@
     // CGFloat xOffset = (581/2) - ((([playerThreeCards count]*40)+18)/2);
     CGPoint position = CGPointMake(0, 10);
     for (LDNPlayingCard *card in [[self.game.players objectAtIndex:2] cards]) {
-        [card drawFromPosition:position view:self.playerThreeCardsView size:0.8];
+        // [card drawFromPosition:position view:self.playerThreeCardsView size:0.8];
+        [card drawCardBackFromPosition:position view:self.playerThreeCardsView size:0.8];
         position.x += 40;
     }
 }
@@ -152,21 +223,33 @@
     [self removeAllSubviewsFrom:self.playerFourCardsView];
     CGPoint position = CGPointMake(30, 0);
     for (LDNPlayingCard *card in [[self.game.players objectAtIndex:3] cards]) {
-        [card drawFromPosition:position view:self.playerFourCardsView size:0.8];
-        position.y += 40;
+        // [card drawFromPosition:position view:self.playerFourCardsView size:0.8];
+        [card drawCardBackFromPosition:position view:self.playerFourCardsView size:0.8];
+        position.y += 30;
     }
 }
 
-- (void)updateCards {
-    NSLog(@"Updating Cards...");
+- (void)updatePlayerNamesAndScores {
+    self.livePlayerName.text = [NSString stringWithFormat:@"%@ - %u Books", [[self.game.players objectAtIndex:0] name], [[self.game.players objectAtIndex:0] books].count];
+    self.playerTwoLabel.text = [NSString stringWithFormat:@"%@ - %u", [[self.game.players objectAtIndex:1] name], [[self.game.players objectAtIndex:0] books].count];
+    self.playerThreeLabel.text = [NSString stringWithFormat:@"%@ - %u Books", [[self.game.players objectAtIndex:2] name], [[self.game.players objectAtIndex:0] books].count];
+    self.playerFourLabel.text = [NSString stringWithFormat:@"%@ - %u", [[self.game.players objectAtIndex:3] name], [[self.game.players objectAtIndex:0] books].count];
+}
+
+- (void)updateUI {
+    if (self.game.gameMessages.count != 0) {
+        NSLog(@"%@", self.game.gameMessages);
+        [self writeGameMessages:self.game.gameMessages];
+    }
+    [self updatePlayerNamesAndScores];
     [self updateLivePlayerCards];
-    NSLog(@"Live Player Cards updated...");
     [self updatePlayerTwoCards];
     [self updatePlayerThreeCards];
     [self updatePlayerFourCards];
 }
 
-
+#pragma-mark
+#pragma-mark Picker View
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 2;
 }
@@ -194,7 +277,6 @@
     } else if (component == 1) {
         [self.livePlayerDecision setObject:[[[[self.game.players objectAtIndex:0] cards] objectAtIndex:row] rank] forKey:@"rank"];
     }
-    NSLog(@"%@", self.livePlayerDecision);
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
@@ -204,34 +286,6 @@
         return 100;
     }
     return 200;
-}
-
-- (void)viewDidUnload
-{
-    [self setLivePlayerCardsView:nil];
-    [self setLivePlayerName:nil];
-    [self setPlayerThreeLabel:nil];
-    [self setPlayerThreeCardsView:nil];
-    [self setPlayerTwoLabel:nil];
-    [self setPlayerTwoCardsView:nil];
-    [self setPlayerFourLabel:nil];
-    [self setPlayerFourCardsView:nil];
-    [self setNavigationBar:nil];
-    [self setTurnPicker:nil];
-    [self setLivePlayerTurnView:nil];
-    [self setLivePlayerPicker:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    [self updateCards];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
 }
 
 @end

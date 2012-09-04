@@ -66,4 +66,17 @@
     [UIView commitAnimations];
 }
 
+- (void)drawCardBackFromPosition:(CGPoint)location view:(UIView *)view size:(CGFloat)size {
+    UIImage *cardImage = [UIImage imageNamed:@"backs_green.png"];
+    UIImageView *cardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(location.x, location.y+10, cardImage.size.width*size, cardImage.size.height*size)];
+    [cardImageView setImage:cardImage];
+    [cardImageView setAlpha:0];
+    [view addSubview:cardImageView];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:.5];
+    [cardImageView setAlpha:1.0];
+//    [cardImageView setTransform:CGAffineTransformMakeTranslation(0, -10)];
+}
+
 @end

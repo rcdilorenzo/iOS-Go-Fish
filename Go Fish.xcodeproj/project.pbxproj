@@ -12,6 +12,7 @@
 		04cfb6cb97feb2bf3d500667 /* jr.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D115C041360069F3D0 /* jr.png */; };
 		09c0e9fab79d101cb2344b55 /* LDNGoFishPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7E815BDD245009393A1 /* LDNGoFishPlayer.m */; };
 		16dc20bdf07341e1e366a46b /* s7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576D715C041360069F3D0 /* s7.png */; };
+		1C07503B15F2BF01003D45CC /* card-table.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C07503A15F2BF01003D45CC /* card-table.png */; };
 		1C1212D315C1D2FF005EF4BC /* backs_blue_rotated.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1212D215C1D2FF005EF4BC /* backs_blue_rotated.png */; };
 		1C1FC7A515BDC785009393A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A415BDC785009393A1 /* UIKit.framework */; };
 		1C1FC7A715BDC785009393A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1FC7A615BDC785009393A1 /* Foundation.framework */; };
@@ -94,6 +95,24 @@
 		1C25771715C041380069F3D0 /* sq.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576DE15C041380069F3D0 /* sq.png */; };
 		1C25772415C054100069F3D0 /* LDNStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25772315C054100069F3D0 /* LDNStartupViewController.m */; };
 		1C25772515C054100069F3D0 /* LDNStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25772315C054100069F3D0 /* LDNStartupViewController.m */; };
+		1C36004915F62574000E59B4 /* NSArray+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C36004815F62574000E59B4 /* NSArray+Extensions.m */; };
+		1C36004A15F62574000E59B4 /* NSArray+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C36004815F62574000E59B4 /* NSArray+Extensions.m */; };
+		1C36004E15F62781000E59B4 /* NSArrayExtensionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C36004D15F62781000E59B4 /* NSArrayExtensionsTests.m */; };
+		1C36005015F64118000E59B4 /* backs_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36004F15F64118000E59B4 /* backs_green.png */; };
+		1C36005115F64118000E59B4 /* backs_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36004F15F64118000E59B4 /* backs_green.png */; };
+		1C36007D15F65A0B000E59B4 /* Go Fish Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007415F65A0A000E59B4 /* Go Fish Icon-72.png */; };
+		1C36007E15F65A0B000E59B4 /* Go Fish Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007515F65A0A000E59B4 /* Go Fish Icon-72@2x.png */; };
+		1C36007F15F65A0B000E59B4 /* Go Fish Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007615F65A0A000E59B4 /* Go Fish Icon-Small-50.png */; };
+		1C36008015F65A0B000E59B4 /* Go Fish Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007715F65A0A000E59B4 /* Go Fish Icon-Small-50@2x.png */; };
+		1C36008115F65A0B000E59B4 /* Go Fish Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007815F65A0A000E59B4 /* Go Fish Icon-Small.png */; };
+		1C36008215F65A0B000E59B4 /* Go Fish Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007915F65A0A000E59B4 /* Go Fish Icon-Small@2x.png */; };
+		1C36008315F65A0B000E59B4 /* Go Fish Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007A15F65A0A000E59B4 /* Go Fish Icon.png */; };
+		1C36008415F65A0B000E59B4 /* Go Fish Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007B15F65A0B000E59B4 /* Go Fish Icon@2x.png */; };
+		1C36008515F65A0B000E59B4 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007C15F65A0B000E59B4 /* iTunesArtwork */; };
+		1C36008615F65A14000E59B4 /* Go Fish Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007A15F65A0A000E59B4 /* Go Fish Icon.png */; };
+		1C36008715F65A17000E59B4 /* Go Fish Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007B15F65A0B000E59B4 /* Go Fish Icon@2x.png */; };
+		1C36008815F65A1D000E59B4 /* Go Fish Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007415F65A0A000E59B4 /* Go Fish Icon-72.png */; };
+		1C36008915F65A20000E59B4 /* Go Fish Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007515F65A0A000E59B4 /* Go Fish Icon-72@2x.png */; };
 		1C46585415BF389D002791ED /* LDNGoFishRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46585315BF389D002791ED /* LDNGoFishRobot.m */; };
 		1CA3959415C1B7230036283E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA3959215C1B7040036283E /* SenTestingKit.framework */; };
 		1CA9C2D815C380EE0044E5C5 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */; };
@@ -101,6 +120,8 @@
 		1CBBE69615C36C980031D7E9 /* LDNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7BD15BDC785009393A1 /* LDNViewController.m */; };
 		1CBBE69715C36D6E0031D7E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBBE69415C36C320031D7E9 /* QuartzCore.framework */; };
 		1CBBE69815C36D7E0031D7E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBBE69415C36C320031D7E9 /* QuartzCore.framework */; };
+		1CC1FB4315F66618009587A0 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CC1FB4215F66618009587A0 /* Default-Landscape~ipad.png */; };
+		1CC1FB4715F66629009587A0 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CC1FB4615F66629009587A0 /* Default-Portrait~ipad.png */; };
 		1CD20C0615C19934004DB60E /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1CD20C0515C19934004DB60E /* background.jpeg */; };
 		1CF6138415BED26B00014D78 /* LDNPlayinCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */; };
 		1CF6138815BED7F300014D78 /* LDNGoFishPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */; };
@@ -189,6 +210,7 @@
 
 /* Begin PBXFileReference section */
 		09ee0f7a2a8443e5a32d138b /* calabash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = calabash.framework; sourceTree = "<group>"; };
+		1C07503A15F2BF01003D45CC /* card-table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "card-table.png"; sourceTree = "<group>"; };
 		1C1212D215C1D2FF005EF4BC /* backs_blue_rotated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backs_blue_rotated.png; sourceTree = "<group>"; };
 		1C1FC7A015BDC785009393A1 /* Go Fish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Go Fish.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C1FC7A415BDC785009393A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -278,12 +300,28 @@
 		1C2576DE15C041380069F3D0 /* sq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sq.png; sourceTree = "<group>"; };
 		1C25772215C054100069F3D0 /* LDNStartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNStartupViewController.h; sourceTree = "<group>"; };
 		1C25772315C054100069F3D0 /* LDNStartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNStartupViewController.m; sourceTree = "<group>"; };
+		1C36004715F62574000E59B4 /* NSArray+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extensions.h"; sourceTree = "<group>"; };
+		1C36004815F62574000E59B4 /* NSArray+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extensions.m"; sourceTree = "<group>"; };
+		1C36004C15F62781000E59B4 /* NSArrayExtensionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayExtensionsTests.h; sourceTree = "<group>"; };
+		1C36004D15F62781000E59B4 /* NSArrayExtensionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayExtensionsTests.m; sourceTree = "<group>"; };
+		1C36004F15F64118000E59B4 /* backs_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backs_green.png; sourceTree = "<group>"; };
+		1C36007415F65A0A000E59B4 /* Go Fish Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-72.png"; sourceTree = "<group>"; };
+		1C36007515F65A0A000E59B4 /* Go Fish Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-72@2x.png"; sourceTree = "<group>"; };
+		1C36007615F65A0A000E59B4 /* Go Fish Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small-50.png"; sourceTree = "<group>"; };
+		1C36007715F65A0A000E59B4 /* Go Fish Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		1C36007815F65A0A000E59B4 /* Go Fish Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small.png"; sourceTree = "<group>"; };
+		1C36007915F65A0A000E59B4 /* Go Fish Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small@2x.png"; sourceTree = "<group>"; };
+		1C36007A15F65A0A000E59B4 /* Go Fish Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon.png"; sourceTree = "<group>"; };
+		1C36007B15F65A0B000E59B4 /* Go Fish Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon@2x.png"; sourceTree = "<group>"; };
+		1C36007C15F65A0B000E59B4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		1C46585215BF389D002791ED /* LDNGoFishRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishRobot.h; sourceTree = "<group>"; };
 		1C46585315BF389D002791ED /* LDNGoFishRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishRobot.m; sourceTree = "<group>"; };
 		1CA3959215C1B7040036283E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1CA9C2D615C380EE0044E5C5 /* CustomGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGradientButton.h; sourceTree = "<group>"; };
 		1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGradientButton.m; sourceTree = "<group>"; };
 		1CBBE69415C36C320031D7E9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1CC1FB4215F66618009587A0 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		1CC1FB4615F66629009587A0 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		1CD20C0515C19934004DB60E /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 		1CE2C79915C249DC0045DD32 /* Go Fish-cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Go Fish-cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CF6138215BED26B00014D78 /* LDNPlayinCardTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNPlayinCardTests.h; sourceTree = "<group>"; };
@@ -334,6 +372,17 @@
 		1C1FC79515BDC785009393A1 = {
 			isa = PBXGroup;
 			children = (
+				1CC1FB4615F66629009587A0 /* Default-Portrait~ipad.png */,
+				1CC1FB4215F66618009587A0 /* Default-Landscape~ipad.png */,
+				1C36007415F65A0A000E59B4 /* Go Fish Icon-72.png */,
+				1C36007515F65A0A000E59B4 /* Go Fish Icon-72@2x.png */,
+				1C36007615F65A0A000E59B4 /* Go Fish Icon-Small-50.png */,
+				1C36007715F65A0A000E59B4 /* Go Fish Icon-Small-50@2x.png */,
+				1C36007815F65A0A000E59B4 /* Go Fish Icon-Small.png */,
+				1C36007915F65A0A000E59B4 /* Go Fish Icon-Small@2x.png */,
+				1C36007A15F65A0A000E59B4 /* Go Fish Icon.png */,
+				1C36007B15F65A0B000E59B4 /* Go Fish Icon@2x.png */,
+				1C36007C15F65A0B000E59B4 /* iTunesArtwork */,
 				1C1FC7AA15BDC785009393A1 /* Go Fish */,
 				1C1FC7CB15BDC785009393A1 /* Go FishTests */,
 				1C1FC7A315BDC785009393A1 /* Frameworks */,
@@ -368,6 +417,7 @@
 		1C1FC7AA15BDC785009393A1 /* Go Fish */ = {
 			isa = PBXGroup;
 			children = (
+				1C07503A15F2BF01003D45CC /* card-table.png */,
 				1CD20C0515C19934004DB60E /* background.jpeg */,
 				1C25771915C041410069F3D0 /* Card Images */,
 				1C1FC7F315BDDC14009393A1 /* Startup */,
@@ -382,6 +432,7 @@
 				1CF6138915BED9A500014D78 /* Game */,
 				1CF6138A15BED9B000014D78 /* Player */,
 				1CF6138B15BED9BB00014D78 /* Cards */,
+				1C36004615F6252C000E59B4 /* Class Categories/Extensions */,
 			);
 			path = "Go Fish";
 			sourceTree = "<group>";
@@ -409,6 +460,8 @@
 				1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */,
 				1CF6138615BED7F300014D78 /* LDNGoFishPlayerTests.h */,
 				1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */,
+				1C36004C15F62781000E59B4 /* NSArrayExtensionsTests.h */,
+				1C36004D15F62781000E59B4 /* NSArrayExtensionsTests.m */,
 			);
 			path = "Go FishTests";
 			sourceTree = "<group>";
@@ -443,6 +496,7 @@
 		1C25771915C041410069F3D0 /* Card Images */ = {
 			isa = PBXGroup;
 			children = (
+				1C36004F15F64118000E59B4 /* backs_green.png */,
 				1C1212D215C1D2FF005EF4BC /* backs_blue_rotated.png */,
 				1C2576A615C041330069F3D0 /* backs_blue.png */,
 				1C2576A715C041330069F3D0 /* backs_red.png */,
@@ -503,6 +557,15 @@
 				1C2576DE15C041380069F3D0 /* sq.png */,
 			);
 			name = "Card Images";
+			sourceTree = "<group>";
+		};
+		1C36004615F6252C000E59B4 /* Class Categories/Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1C36004715F62574000E59B4 /* NSArray+Extensions.h */,
+				1C36004815F62574000E59B4 /* NSArray+Extensions.m */,
+			);
+			name = "Class Categories/Extensions";
 			sourceTree = "<group>";
 		};
 		1CF6138915BED9A500014D78 /* Game */ = {
@@ -688,6 +751,7 @@
 				37d5fcedf7546fb6f4d2697c /* sq.png in Resources */,
 				03301f739909bb01259b059a /* background.jpeg in Resources */,
 				4fe384b93574475b92b70946 /* backs_blue_rotated.png in Resources */,
+				1C36005115F64118000E59B4 /* backs_green.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,6 +821,14 @@
 				1C25771715C041380069F3D0 /* sq.png in Resources */,
 				1CD20C0615C19934004DB60E /* background.jpeg in Resources */,
 				1C1212D315C1D2FF005EF4BC /* backs_blue_rotated.png in Resources */,
+				1C07503B15F2BF01003D45CC /* card-table.png in Resources */,
+				1C36005015F64118000E59B4 /* backs_green.png in Resources */,
+				1C36008615F65A14000E59B4 /* Go Fish Icon.png in Resources */,
+				1C36008715F65A17000E59B4 /* Go Fish Icon@2x.png in Resources */,
+				1C36008815F65A1D000E59B4 /* Go Fish Icon-72.png in Resources */,
+				1C36008915F65A20000E59B4 /* Go Fish Icon-72@2x.png in Resources */,
+				1CC1FB4315F66618009587A0 /* Default-Landscape~ipad.png in Resources */,
+				1CC1FB4715F66629009587A0 /* Default-Portrait~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,6 +837,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C1FC7D015BDC785009393A1 /* InfoPlist.strings in Resources */,
+				1C36007D15F65A0B000E59B4 /* Go Fish Icon-72.png in Resources */,
+				1C36007E15F65A0B000E59B4 /* Go Fish Icon-72@2x.png in Resources */,
+				1C36007F15F65A0B000E59B4 /* Go Fish Icon-Small-50.png in Resources */,
+				1C36008015F65A0B000E59B4 /* Go Fish Icon-Small-50@2x.png in Resources */,
+				1C36008115F65A0B000E59B4 /* Go Fish Icon-Small.png in Resources */,
+				1C36008215F65A0B000E59B4 /* Go Fish Icon-Small@2x.png in Resources */,
+				1C36008315F65A0B000E59B4 /* Go Fish Icon.png in Resources */,
+				1C36008415F65A0B000E59B4 /* Go Fish Icon@2x.png in Resources */,
+				1C36008515F65A0B000E59B4 /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,6 +882,7 @@
 				1C46585415BF389D002791ED /* LDNGoFishRobot.m in Sources */,
 				1C25772415C054100069F3D0 /* LDNStartupViewController.m in Sources */,
 				1CA9C2D815C380EE0044E5C5 /* CustomGradientButton.m in Sources */,
+				1C36004915F62574000E59B4 /* NSArray+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,6 +900,7 @@
 				1CF6138415BED26B00014D78 /* LDNPlayinCardTests.m in Sources */,
 				1CF6138815BED7F300014D78 /* LDNGoFishPlayerTests.m in Sources */,
 				1C25772515C054100069F3D0 /* LDNStartupViewController.m in Sources */,
+				1C36004E15F62781000E59B4 /* NSArrayExtensionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +918,7 @@
 				6c1e2f88bf094fc3a2235efd /* LDNGoFishRobot.m in Sources */,
 				1b215c765c2cee1b8691ec25 /* LDNStartupViewController.m in Sources */,
 				1CA9C2D915C380EE0044E5C5 /* CustomGradientButton.m in Sources */,
+				1C36004A15F62574000E59B4 /* NSArray+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

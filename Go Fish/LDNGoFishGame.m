@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSMutableArray *players;
 @property (nonatomic, strong) LDNDeckOfCards *deck;
 @property (nonatomic, strong) id currentPlayer;
+@property (nonatomic, strong) NSMutableArray* gameMessages;
 @end
 
 @implementation LDNGoFishGame
@@ -47,6 +48,7 @@
 }
 
 - (void)setup {
+    self.gameMessages = [[NSMutableArray alloc] init];
     for (int i = 0; i < 5; i++) {
         for (LDNGoFishPlayer *player in self.players) {
             [player drawFromDeck:self.deck];
@@ -72,6 +74,7 @@
             return YES;
         }
     }
+    return NO;
 }
 
 - (void)setCurrentPlayerWith:(id)player {
@@ -82,6 +85,13 @@
     return self.currentPlayer;
 }
 
+- (void)addGameMessage:(NSString *)message {
+    [self.gameMessages addObject:message];
+    NSLog(@"%@", self.gameMessages);
+}
 
+- (void)clearGameMessages {
+    self.gameMessages = [[NSMutableArray alloc] init];
+}
 
 @end

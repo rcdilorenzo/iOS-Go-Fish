@@ -59,7 +59,7 @@
         [self presentModalViewController:ldnVC animated:YES];
     } else {
         [self.startButton setNormalState:self];
-        UIAlertView *invalidPlayerName = [[UIAlertView alloc] initWithTitle:@"Invalid Player Name" message:@"Please re-enter player name." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *invalidPlayerName = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No player name entered." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [invalidPlayerName show];
         [self.playerNameField setPlaceholder:@"Re-Enter Name"];
     }

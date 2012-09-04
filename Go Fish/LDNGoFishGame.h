@@ -8,18 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "LDNGoFishPlayer.h"
-
-@class LDNDeckOfCards;
+#import "LDNDeckOfCards.h"
 
 @interface LDNGoFishGame : NSObject <GameInteraction>
 
 @property (nonatomic, strong, readonly) NSMutableArray *players;
 @property (nonatomic, strong, readonly) LDNDeckOfCards *deck;
 @property (nonatomic, strong, readonly) id currentPlayer;
+@property (nonatomic, strong, readonly) NSMutableArray* gameMessages;
 
 - (void)setupWithPlayers:(NSArray *)playerNames;
 - (void)setupWithoutPlayerNames;
 - (void)setupWithLivePlayer:(NSString *)playerName;
 - (void)setup;
+- (void)clearGameMessages;
 
 @end

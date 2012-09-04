@@ -11,8 +11,6 @@
 #import "LDNPlayingCard.h"
 
 @implementation LDNGoFishPlayer
-@synthesize name = _name, cards = _cards, books = _books, choosenRank = _choosenRank, choosenPlayer = _choosenPlayer;
-@synthesize game = _game;
 
 - (id)initWithName:(NSString *)aPlayerName {
     self = [super init];
@@ -28,14 +26,16 @@
 
 - (NSArray *)askPlayerForCardsOfRank:(NSString *)aRank
                               player:(LDNGoFishPlayer *)aPlayer {
+    [self.game addGameMessage:[NSString stringWithFormat:@"%@ requests %@\'s from %@", self.name, aRank, aPlayer.name]];
     NSArray *cardsRequested = [aPlayer giveCardsOfRank:aRank];
     if (cardsRequested.count != 0) {
+        [self.game addGameMessage:[NSString stringWithFormat:@"%@ gives %u card(s) of the rank %@", aPlayer.name, cardsRequested.count, aRank]];
         for (LDNPlayingCard *card in cardsRequested) {
             [self.cards addObject:card];
             [self.game setCurrentPlayerWith:self];
         }
     } else {
-        // Go Fish!
+        [self.game addGameMessage:@"Go Fish!"];
         if ([self.game end] == NO) {
             [self.cards addObject:[self.game drawFromGamesDeck]];
             [self.game setCurrentPlayerWith:aPlayer];
@@ -75,6 +75,7 @@
     NSArray *ranks = [NSArray arrayWithObjects:@"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"Jack", @"Queen", @"King", @"Ace", nil];
     for (NSString *rank in ranks) {
         if ([[self cardsOfRank:rank] count] == 4) {
+            [self.game addGameMessage:[NSString stringWithFormat:@"New Book of %@\'s!", rank]];
             [self.books addObject:[self cardsOfRank:rank]];
             [self.cards removeObjectsInArray:[self cardsOfRank:rank]];
         }
@@ -89,7 +90,6 @@
     //    self.choosenRank = [self.cards objectAtIndex:randomIndex];
     //}
     [self askPlayerForCardsOfRank:self.choosenRank player:self.choosenPlayer];
-    NSLog(@"%@ chose to ask %@ for any %@\'s...", self.name, self.choosenPlayer.name, self.choosenRank);
     [self checkForBooks];
 }
 

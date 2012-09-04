@@ -35,6 +35,7 @@
 - (LDNPlayingCard *)drawFromGamesDeck;
 - (void)setCurrentPlayerWith:(id)player;
 - (LDNGoFishPlayer *)getCurrentPlayerFromGame;
+- (void)addGameMessage:(NSString *)message;
 - (BOOL)end;
 
 
