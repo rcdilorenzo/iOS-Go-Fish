@@ -10,6 +10,7 @@
 #import "LDNViewController.h"
 #import "CustomGradientButton.h"
 #import "CardAnimationViewController.h"
+#import "LDNMessageManager.h"
 
 @interface LDNStartupViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *playerNameField;

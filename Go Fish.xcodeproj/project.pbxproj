@@ -127,6 +127,7 @@
 		1CF6138415BED26B00014D78 /* LDNPlayingCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138315BED26B00014D78 /* LDNPlayingCardTests.m */; };
 		1CF6138815BED7F300014D78 /* LDNGoFishPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */; };
 		1CFAFD8015FA51D90041EF66 /* LDNCardImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAFD7F15FA51D90041EF66 /* LDNCardImage.m */; };
+		1CFAFD8615FBC0E80041EF66 /* LDNMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAFD8515FBC0E70041EF66 /* LDNMessageManager.m */; };
 		1ae6aa94ba1c7f551ecb6d50 /* sj.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576DC15C041380069F3D0 /* sj.png */; };
 		1b215c765c2cee1b8691ec25 /* LDNStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25772315C054100069F3D0 /* LDNStartupViewController.m */; };
 		2063d0f082dd1d6211ae906a /* dq.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C115C041350069F3D0 /* dq.png */; };
@@ -334,6 +335,8 @@
 		1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishPlayerTests.m; sourceTree = "<group>"; };
 		1CFAFD7E15FA51D90041EF66 /* LDNCardImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNCardImage.h; sourceTree = "<group>"; };
 		1CFAFD7F15FA51D90041EF66 /* LDNCardImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNCardImage.m; sourceTree = "<group>"; };
+		1CFAFD8415FBC0E70041EF66 /* LDNMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDNMessageManager.h; path = ../LDNMessageManager.h; sourceTree = "<group>"; };
+		1CFAFD8515FBC0E70041EF66 /* LDNMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDNMessageManager.m; path = ../LDNMessageManager.m; sourceTree = "<group>"; };
 		e9a7b125588893ff8055094f /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -420,6 +423,8 @@
 				1C1FC7F415BDDC1D009393A1 /* UI */,
 				1C1FC7BC15BDC785009393A1 /* LDNViewController.h */,
 				1C1FC7BD15BDC785009393A1 /* LDNViewController.m */,
+				1CFAFD8415FBC0E70041EF66 /* LDNMessageManager.h */,
+				1CFAFD8515FBC0E70041EF66 /* LDNMessageManager.m */,
 				1CC1FB5C15F9734A009587A0 /* Deck of Cards Animation */,
 				1C25772215C054100069F3D0 /* LDNStartupViewController.h */,
 				1C25772315C054100069F3D0 /* LDNStartupViewController.m */,
@@ -911,6 +916,7 @@
 				1C36004915F62574000E59B4 /* NSArray+Extensions.m in Sources */,
 				1CC1FB5F15F97955009587A0 /* CardAnimationViewController.m in Sources */,
 				1CFAFD8015FA51D90041EF66 /* LDNCardImage.m in Sources */,
+				1CFAFD8615FBC0E80041EF66 /* LDNMessageManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -120,11 +120,9 @@
     NSArray *expectedReturnedCards = [NSArray arrayWithObjects:[[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"], [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Clubs"],[[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Diamonds"], nil];
     STAssertEquals(returnedCards.count, expectedReturnedCards.count, @"The number of cards returned should be 3");
     for (int count=0; count < expectedReturnedCards.count; count++) {
-        STAssertEquals([[returnedCards objectAtIndex:count] rank], [[expectedReturnedCards objectAtIndex:count] rank], @"Ranks returned should equal 3");
+        STAssertEquals([[returnedCards objectAtIndex:count] rank], [[expectedReturnedCards objectAtIndex:count] rank], @"Ranks returned should equal 3t");
         STAssertEquals([[returnedCards objectAtIndex:count] suit], [[expectedReturnedCards objectAtIndex:count] suit], @"Suits returned should equal the expected suit");
     }
 }
-
-#pragma TODO test all public methods
 
 @end

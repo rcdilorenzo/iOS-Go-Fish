@@ -244,6 +244,7 @@
         <class className="LDNStartupViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LDNStartupViewController.h"/>
             <relationships>
+                <relationship kind="action" name="startGame:"/>
                 <relationship kind="outlet" name="playerNameField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="startButton" candidateClass="CustomGradientButton"/>
             </relationships>
@@ -251,6 +252,8 @@
         <class className="LDNViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LDNViewController.h"/>
             <relationships>
+                <relationship kind="action" name="startGame:"/>
+                <relationship kind="action" name="takeLivePlayerTurn:"/>
                 <relationship kind="outlet" name="gameMessageView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="livePlayerCardsView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="livePlayerName" candidateClass="UILabel"/>

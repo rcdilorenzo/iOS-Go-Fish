@@ -41,8 +41,6 @@
             [self.game setCurrentPlayerWith:aPlayer];
         }
     }
-    NSLog(@"Cards Returned: %@", cardsRequested);
-    NSLog(@"Cards: %@", self.cards);
     return cardsRequested;
 }
 

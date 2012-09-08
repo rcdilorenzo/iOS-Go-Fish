@@ -74,6 +74,15 @@
                      completion:^(BOOL finished){
                          [self takePlayerTurn:nil];
                      }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGameMessage:) name:@"Updated Messages" object:nil];
+}
+
+- (void)newGameMessage:(id)gameMessages {
+    if ([[gameMessages object] count] > 1) {
+        NSLog(@"Messages: %@", [gameMessages object]);
+        [self writeGameMessages:[gameMessages object]];
+        [self.game clearGameMessages];
+    }
 }
 
 - (void)takePlayerTurn:(id)sender {
@@ -214,10 +223,6 @@
 }
 
 - (void)updateUI {
-    if (self.game.gameMessages.count != 0) {
-        NSLog(@"%@", self.game.gameMessages);
-        [self writeGameMessages:self.game.gameMessages];
-    }
     [self updatePlayerNamesAndScores];
     [self updateLivePlayerCards];
     [self updatePlayerTwoCards];

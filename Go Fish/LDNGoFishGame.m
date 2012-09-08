@@ -91,7 +91,7 @@
 
 - (void)addGameMessage:(NSString *)message {
     [self.gameMessages addObject:message];
-    NSLog(@"%@", self.gameMessages);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Updated Messages" object:self.gameMessages];
 }
 
 - (void)clearGameMessages {
