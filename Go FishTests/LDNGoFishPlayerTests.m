@@ -33,9 +33,8 @@
 
 - (void)setUp {
     [super setUp];
-    self.game = [[LDNGoFishGame alloc] init];
-    [self.game setupWithPlayers:[NSArray arrayWithObjects:@"Daniel", @"Belshazzar", @"Bob", nil]];
-    [self.game setup];
+    self.game = [[LDNGoFishGame alloc] initWithPlayers:[NSArray arrayWithObjects:@"Daniel", @"Belshazzar", @"Bob", nil]];
+    [self.game deal];
     self.playerOne = [self.game.players objectAtIndex:0];
     self.playerTwo = [self.game.players objectAtIndex:1];
     self.playerThree = [self.game.players lastObject];
@@ -84,7 +83,7 @@
     STAssertEquals(self.playerOne.cards.count, (NSUInteger)3, @"Returned card should not exist but a card from deck should be drawn.");
 }
 
-- (void)testBooksShouldBeCreatedIfFourOfRankInHand {
+- (void)createCards {
     self.playerOne.cards = [[NSMutableArray alloc] initWithObjects:
                        [[LDNPlayingCard alloc] initWithRank:@"9" suit:@"Spades"],
                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"],
@@ -94,6 +93,10 @@
                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Spades"],
                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Hearts"],
                        [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
+}
+
+- (void)testBooksShouldBeCreatedIfFourOfRankInHand {
+    [self createCards];
     [self.playerOne askPlayerForCardsOfRank:@"3" player:self.playerTwo];
     [self.playerOne checkForBooks];
     STAssertTrue([self.game.gameMessages containsString:@"New Book of 3\'s!"], @"Game messages should contain a new book message when a new book is created");
@@ -102,21 +105,26 @@
 }
 
 - (void)testPlayerTurn {
-    [self.game.players removeObject:self.playerOne];
-    self.playerTwo.cards = [[NSMutableArray alloc] initWithObjects:
-                            [[LDNPlayingCard alloc] initWithRank:@"9" suit:@"Spades"],
-                            [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"],
-                            [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Clubs"],
-                            [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Diamonds"], nil];
-    self.playerThree.cards = [[NSMutableArray alloc] initWithObjects:
-                            [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Spades"],
-                            [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Hearts"],
-                            [[LDNPlayingCard alloc] initWithRank:@"7" suit:@"Spades"], nil];
+    [self.game.players removeObject:self.playerThree];
+    [self createCards];
     [self.playerTwo takeTurn];
     STAssertEquals(self.playerTwo.books.count, (NSUInteger)1, @"A book should have been created.");
-    STAssertEquals(self.playerTwo.cards.count, (NSUInteger)1, @"The books should remove the four cards of the same rank in player one\'s hand.");
+    STAssertEquals(self.playerTwo.cards.count, (NSUInteger)2, @"The books should remove the four cards of the same rank in player one\'s hand.");
     LDNPlayingCard *lastCard = [self.playerTwo.cards lastObject];
-    STAssertTrue([lastCard.rank isEqualToString:@"9"], @"Player should only have a 9 left in his hand.");
+    STAssertTrue([lastCard.rank isEqualToString:@"7"], @"Player should only have a 9 left in his hand.");
 }
+
+- (void)testGivingCardsOfRank {
+    [self createCards];
+    NSArray *returnedCards = [self.playerOne giveCardsOfRank:@"3"];
+    NSArray *expectedReturnedCards = [NSArray arrayWithObjects:[[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"], [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Clubs"],[[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Diamonds"], nil];
+    STAssertEquals(returnedCards.count, expectedReturnedCards.count, @"The number of cards returned should be 3");
+    for (int count=0; count < expectedReturnedCards.count; count++) {
+        STAssertEquals([[returnedCards objectAtIndex:count] rank], [[expectedReturnedCards objectAtIndex:count] rank], @"Ranks returned should equal 3");
+        STAssertEquals([[returnedCards objectAtIndex:count] suit], [[expectedReturnedCards objectAtIndex:count] suit], @"Suits returned should equal the expected suit");
+    }
+}
+
+#pragma TODO test all public methods
 
 @end

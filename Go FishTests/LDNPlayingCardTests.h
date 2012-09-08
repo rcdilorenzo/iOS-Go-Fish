@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface LDNPlayinCardTests : SenTestCase
+@interface LDNPlayingCardTests : SenTestCase
 
 @end

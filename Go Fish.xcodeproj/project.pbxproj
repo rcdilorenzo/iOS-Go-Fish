@@ -122,9 +122,11 @@
 		1CBBE69815C36D7E0031D7E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBBE69415C36C320031D7E9 /* QuartzCore.framework */; };
 		1CC1FB4315F66618009587A0 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CC1FB4215F66618009587A0 /* Default-Landscape~ipad.png */; };
 		1CC1FB4715F66629009587A0 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CC1FB4615F66629009587A0 /* Default-Portrait~ipad.png */; };
+		1CC1FB5F15F97955009587A0 /* CardAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC1FB5E15F97955009587A0 /* CardAnimationViewController.m */; };
 		1CD20C0615C19934004DB60E /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1CD20C0515C19934004DB60E /* background.jpeg */; };
-		1CF6138415BED26B00014D78 /* LDNPlayinCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */; };
+		1CF6138415BED26B00014D78 /* LDNPlayingCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138315BED26B00014D78 /* LDNPlayingCardTests.m */; };
 		1CF6138815BED7F300014D78 /* LDNGoFishPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */; };
+		1CFAFD8015FA51D90041EF66 /* LDNCardImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAFD7F15FA51D90041EF66 /* LDNCardImage.m */; };
 		1ae6aa94ba1c7f551ecb6d50 /* sj.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576DC15C041380069F3D0 /* sj.png */; };
 		1b215c765c2cee1b8691ec25 /* LDNStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25772315C054100069F3D0 /* LDNStartupViewController.m */; };
 		2063d0f082dd1d6211ae906a /* dq.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C115C041350069F3D0 /* dq.png */; };
@@ -305,29 +307,33 @@
 		1C36004C15F62781000E59B4 /* NSArrayExtensionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayExtensionsTests.h; sourceTree = "<group>"; };
 		1C36004D15F62781000E59B4 /* NSArrayExtensionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayExtensionsTests.m; sourceTree = "<group>"; };
 		1C36004F15F64118000E59B4 /* backs_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backs_green.png; sourceTree = "<group>"; };
-		1C36007415F65A0A000E59B4 /* Go Fish Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-72.png"; sourceTree = "<group>"; };
-		1C36007515F65A0A000E59B4 /* Go Fish Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-72@2x.png"; sourceTree = "<group>"; };
-		1C36007615F65A0A000E59B4 /* Go Fish Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small-50.png"; sourceTree = "<group>"; };
-		1C36007715F65A0A000E59B4 /* Go Fish Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small-50@2x.png"; sourceTree = "<group>"; };
-		1C36007815F65A0A000E59B4 /* Go Fish Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small.png"; sourceTree = "<group>"; };
-		1C36007915F65A0A000E59B4 /* Go Fish Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small@2x.png"; sourceTree = "<group>"; };
-		1C36007A15F65A0A000E59B4 /* Go Fish Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon.png"; sourceTree = "<group>"; };
-		1C36007B15F65A0B000E59B4 /* Go Fish Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon@2x.png"; sourceTree = "<group>"; };
-		1C36007C15F65A0B000E59B4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		1C36007415F65A0A000E59B4 /* Go Fish Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-72.png"; sourceTree = SOURCE_ROOT; };
+		1C36007515F65A0A000E59B4 /* Go Fish Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
+		1C36007615F65A0A000E59B4 /* Go Fish Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small-50.png"; sourceTree = SOURCE_ROOT; };
+		1C36007715F65A0A000E59B4 /* Go Fish Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small-50@2x.png"; sourceTree = SOURCE_ROOT; };
+		1C36007815F65A0A000E59B4 /* Go Fish Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small.png"; sourceTree = SOURCE_ROOT; };
+		1C36007915F65A0A000E59B4 /* Go Fish Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
+		1C36007A15F65A0A000E59B4 /* Go Fish Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon.png"; sourceTree = SOURCE_ROOT; };
+		1C36007B15F65A0B000E59B4 /* Go Fish Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Go Fish Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		1C36007C15F65A0B000E59B4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = ../iTunesArtwork; sourceTree = "<group>"; };
 		1C46585215BF389D002791ED /* LDNGoFishRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishRobot.h; sourceTree = "<group>"; };
 		1C46585315BF389D002791ED /* LDNGoFishRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishRobot.m; sourceTree = "<group>"; };
 		1CA3959215C1B7040036283E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1CA9C2D615C380EE0044E5C5 /* CustomGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGradientButton.h; sourceTree = "<group>"; };
 		1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGradientButton.m; sourceTree = "<group>"; };
 		1CBBE69415C36C320031D7E9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		1CC1FB4215F66618009587A0 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		1CC1FB4615F66629009587A0 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		1CC1FB4215F66618009587A0 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		1CC1FB4615F66629009587A0 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		1CC1FB5D15F97955009587A0 /* CardAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardAnimationViewController.h; sourceTree = "<group>"; };
+		1CC1FB5E15F97955009587A0 /* CardAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardAnimationViewController.m; sourceTree = "<group>"; };
 		1CD20C0515C19934004DB60E /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 		1CE2C79915C249DC0045DD32 /* Go Fish-cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Go Fish-cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CF6138215BED26B00014D78 /* LDNPlayinCardTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNPlayinCardTests.h; sourceTree = "<group>"; };
-		1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNPlayinCardTests.m; sourceTree = "<group>"; };
+		1CF6138215BED26B00014D78 /* LDNPlayingCardTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNPlayingCardTests.h; sourceTree = "<group>"; };
+		1CF6138315BED26B00014D78 /* LDNPlayingCardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDNPlayingCardTests.m; path = "Go FishTests/LDNPlayingCardTests.m"; sourceTree = SOURCE_ROOT; };
 		1CF6138615BED7F300014D78 /* LDNGoFishPlayerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishPlayerTests.h; sourceTree = "<group>"; };
 		1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishPlayerTests.m; sourceTree = "<group>"; };
+		1CFAFD7E15FA51D90041EF66 /* LDNCardImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNCardImage.h; sourceTree = "<group>"; };
+		1CFAFD7F15FA51D90041EF66 /* LDNCardImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNCardImage.m; sourceTree = "<group>"; };
 		e9a7b125588893ff8055094f /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -372,17 +378,6 @@
 		1C1FC79515BDC785009393A1 = {
 			isa = PBXGroup;
 			children = (
-				1CC1FB4615F66629009587A0 /* Default-Portrait~ipad.png */,
-				1CC1FB4215F66618009587A0 /* Default-Landscape~ipad.png */,
-				1C36007415F65A0A000E59B4 /* Go Fish Icon-72.png */,
-				1C36007515F65A0A000E59B4 /* Go Fish Icon-72@2x.png */,
-				1C36007615F65A0A000E59B4 /* Go Fish Icon-Small-50.png */,
-				1C36007715F65A0A000E59B4 /* Go Fish Icon-Small-50@2x.png */,
-				1C36007815F65A0A000E59B4 /* Go Fish Icon-Small.png */,
-				1C36007915F65A0A000E59B4 /* Go Fish Icon-Small@2x.png */,
-				1C36007A15F65A0A000E59B4 /* Go Fish Icon.png */,
-				1C36007B15F65A0B000E59B4 /* Go Fish Icon@2x.png */,
-				1C36007C15F65A0B000E59B4 /* iTunesArtwork */,
 				1C1FC7AA15BDC785009393A1 /* Go Fish */,
 				1C1FC7CB15BDC785009393A1 /* Go FishTests */,
 				1C1FC7A315BDC785009393A1 /* Frameworks */,
@@ -417,6 +412,7 @@
 		1C1FC7AA15BDC785009393A1 /* Go Fish */ = {
 			isa = PBXGroup;
 			children = (
+				1CC1FB4815F66AB9009587A0 /* Icons */,
 				1C07503A15F2BF01003D45CC /* card-table.png */,
 				1CD20C0515C19934004DB60E /* background.jpeg */,
 				1C25771915C041410069F3D0 /* Card Images */,
@@ -424,6 +420,7 @@
 				1C1FC7F415BDDC1D009393A1 /* UI */,
 				1C1FC7BC15BDC785009393A1 /* LDNViewController.h */,
 				1C1FC7BD15BDC785009393A1 /* LDNViewController.m */,
+				1CC1FB5C15F9734A009587A0 /* Deck of Cards Animation */,
 				1C25772215C054100069F3D0 /* LDNStartupViewController.h */,
 				1C25772315C054100069F3D0 /* LDNStartupViewController.m */,
 				1CA9C2D615C380EE0044E5C5 /* CustomGradientButton.h */,
@@ -456,8 +453,8 @@
 				1C1FC7E115BDC869009393A1 /* LDNGoFishGameTests.m */,
 				1C1FC7EF15BDD96D009393A1 /* LDNDeckOfCardsTests.h */,
 				1C1FC7F015BDD96D009393A1 /* LDNDeckOfCardsTests.m */,
-				1CF6138215BED26B00014D78 /* LDNPlayinCardTests.h */,
-				1CF6138315BED26B00014D78 /* LDNPlayinCardTests.m */,
+				1CF6138215BED26B00014D78 /* LDNPlayingCardTests.h */,
+				1CF6138315BED26B00014D78 /* LDNPlayingCardTests.m */,
 				1CF6138615BED7F300014D78 /* LDNGoFishPlayerTests.h */,
 				1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */,
 				1C36004C15F62781000E59B4 /* NSArrayExtensionsTests.h */,
@@ -568,6 +565,33 @@
 			name = "Class Categories/Extensions";
 			sourceTree = "<group>";
 		};
+		1CC1FB4815F66AB9009587A0 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				1CC1FB4615F66629009587A0 /* Default-Portrait~ipad.png */,
+				1CC1FB4215F66618009587A0 /* Default-Landscape~ipad.png */,
+				1C36007415F65A0A000E59B4 /* Go Fish Icon-72.png */,
+				1C36007515F65A0A000E59B4 /* Go Fish Icon-72@2x.png */,
+				1C36007615F65A0A000E59B4 /* Go Fish Icon-Small-50.png */,
+				1C36007715F65A0A000E59B4 /* Go Fish Icon-Small-50@2x.png */,
+				1C36007815F65A0A000E59B4 /* Go Fish Icon-Small.png */,
+				1C36007915F65A0A000E59B4 /* Go Fish Icon-Small@2x.png */,
+				1C36007A15F65A0A000E59B4 /* Go Fish Icon.png */,
+				1C36007B15F65A0B000E59B4 /* Go Fish Icon@2x.png */,
+				1C36007C15F65A0B000E59B4 /* iTunesArtwork */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		1CC1FB5C15F9734A009587A0 /* Deck of Cards Animation */ = {
+			isa = PBXGroup;
+			children = (
+				1CC1FB5D15F97955009587A0 /* CardAnimationViewController.h */,
+				1CC1FB5E15F97955009587A0 /* CardAnimationViewController.m */,
+			);
+			name = "Deck of Cards Animation";
+			sourceTree = "<group>";
+		};
 		1CF6138915BED9A500014D78 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +615,8 @@
 		1CF6138B15BED9BB00014D78 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				1CFAFD7E15FA51D90041EF66 /* LDNCardImage.h */,
+				1CFAFD7F15FA51D90041EF66 /* LDNCardImage.m */,
 				1C1FC7EB15BDD728009393A1 /* LDNDeckOfCards.h */,
 				1C1FC7EC15BDD728009393A1 /* LDNDeckOfCards.m */,
 				1C1FC7F515BDE17D009393A1 /* LDNPlayingCard.h */,
@@ -883,6 +909,8 @@
 				1C25772415C054100069F3D0 /* LDNStartupViewController.m in Sources */,
 				1CA9C2D815C380EE0044E5C5 /* CustomGradientButton.m in Sources */,
 				1C36004915F62574000E59B4 /* NSArray+Extensions.m in Sources */,
+				1CC1FB5F15F97955009587A0 /* CardAnimationViewController.m in Sources */,
+				1CFAFD8015FA51D90041EF66 /* LDNCardImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -897,7 +925,7 @@
 				1C1FC7EE15BDD728009393A1 /* LDNDeckOfCards.m in Sources */,
 				1C1FC7F215BDD96D009393A1 /* LDNDeckOfCardsTests.m in Sources */,
 				1C1FC7F815BDE17D009393A1 /* LDNPlayingCard.m in Sources */,
-				1CF6138415BED26B00014D78 /* LDNPlayinCardTests.m in Sources */,
+				1CF6138415BED26B00014D78 /* LDNPlayingCardTests.m in Sources */,
 				1CF6138815BED7F300014D78 /* LDNGoFishPlayerTests.m in Sources */,
 				1C25772515C054100069F3D0 /* LDNStartupViewController.m in Sources */,
 				1C36004E15F62781000E59B4 /* NSArrayExtensionsTests.m in Sources */,

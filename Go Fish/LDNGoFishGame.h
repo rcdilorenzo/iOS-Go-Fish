@@ -14,13 +14,14 @@
 
 @property (nonatomic, strong, readonly) NSMutableArray *players;
 @property (nonatomic, strong, readonly) LDNDeckOfCards *deck;
-@property (nonatomic, strong, readonly) id currentPlayer;
+@property (nonatomic, strong) id currentPlayer;
 @property (nonatomic, strong, readonly) NSMutableArray* gameMessages;
+@property (nonatomic, strong) id winner;
 
-- (void)setupWithPlayers:(NSArray *)playerNames;
-- (void)setupWithoutPlayerNames;
-- (void)setupWithLivePlayer:(NSString *)playerName;
-- (void)setup;
+- (id)initWithPlayers:(NSArray *)playerNames;
+- (id)initWithoutPlayerNames;
+- (id)initWithLivePlayer:(NSString *)playerName;
+- (void)deal;
 - (void)clearGameMessages;
 
 @end

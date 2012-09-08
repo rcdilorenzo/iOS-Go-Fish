@@ -84,20 +84,9 @@
 
 - (void)takeTurn {
     [self createDecisionFromOpponents:[self.game opponents:self] currentPlayer:self];
-    //if (!decisionCreated) {
-    //    self.choosenPlayer = [[self.game opponents:self] objectAtIndex:0];
-    //    NSUInteger randomIndex = arc4random() % self.cards.count;
-    //    self.choosenRank = [self.cards objectAtIndex:randomIndex];
-    //}
     [self askPlayerForCardsOfRank:self.choosenRank player:self.choosenPlayer];
     [self checkForBooks];
 }
-
-- (void)endTurn {
-    self.choosenRank = [[NSString alloc] init];
-    self.choosenPlayer = [[LDNGoFishPlayer alloc] init];
-}
-
 
 - (BOOL)createDecisionFromOpponents:(NSArray *)opponents
                           currentPlayer:(LDNGoFishPlayer *)currentPlayer {

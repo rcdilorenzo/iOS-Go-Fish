@@ -9,6 +9,7 @@
 #import "LDNViewController.h"
 #import "LDNPlayingCard.h"
 #import "LDNGoFishGame.h"
+#import "LDNCardImage.h"
 
 @interface LDNViewController ()
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
@@ -31,20 +32,12 @@
 
 @implementation LDNViewController
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        _game = [[LDNGoFishGame alloc] init];
-    }
-    return self;
-}
-
 #pragma-mark
 #pragma-mark System Callbacks
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.game setup];
+    [self.game deal];
     self.livePlayerDecision = [[NSMutableDictionary alloc] initWithCapacity:2];
     [self setDefaultLivePlayerDecision];
     [self updatePlayerNamesAndScores];
@@ -53,25 +46,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self updateUI];
-}
-
-- (void)viewDidUnload
-{
-    [self setLivePlayerCardsView:nil];
-    [self setLivePlayerName:nil];
-    [self setPlayerThreeLabel:nil];
-    [self setPlayerThreeCardsView:nil];
-    [self setPlayerTwoLabel:nil];
-    [self setPlayerTwoCardsView:nil];
-    [self setPlayerFourLabel:nil];
-    [self setPlayerFourCardsView:nil];
-    [self setNavigationBar:nil];
-    [self setTurnPicker:nil];
-    [self setLivePlayerTurnView:nil];
-    [self setLivePlayerPicker:nil];
-    [self setGameMessageView:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -153,7 +127,6 @@
     for (int i=1; i<=messages.count; i++) {
         CGRect frame = CGRectMake(20, 25*i-5, self.gameMessageView.frame.size.width-40, 20);
         [messageLabels addObject:[self drawGameMessage:[messages objectAtIndex:i-1] frame:frame]];
-        NSLog(@"%@", NSStringFromCGRect(frame));
     }
     [UIView animateWithDuration:1.0 animations:^{self.gameMessageView.alpha = 1.0;} completion:^(BOOL finished){
         [UIView animateWithDuration:1.5 delay:3.5 options:UIViewAnimationCurveEaseOut animations:^{self.gameMessageView.alpha = 0;} completion:^(BOOL finished){
@@ -192,7 +165,8 @@
     CGPoint position = CGPointMake(0, 10);
     
     for (LDNPlayingCard *card in [[self.game.players objectAtIndex:0] cards]) {
-        [card drawFromPosition:position view:self.livePlayerCardsView size:0.8];
+        LDNCardImage *cardImage = [[LDNCardImage alloc] initWithCard:card];
+        [cardImage drawFromPosition:position view:self.livePlayerCardsView size:0.8];
         position.x += 40;
     }
 }
@@ -202,7 +176,8 @@
     CGPoint position = CGPointMake(30, 0);
     for (LDNPlayingCard *card in [[self.game.players objectAtIndex:1] cards]) {
         // [card drawFromPosition:position view:self.playerTwoCardsView size:0.8];
-        [card drawCardBackFromPosition:position view:self.playerTwoCardsView size:0.8];
+        LDNCardImage *cardImage = [[LDNCardImage alloc] initWithCard:card];
+        [cardImage drawCardBackFromPosition:position view:self.playerTwoCardsView size:0.8];
         position.y += 30;
     }
 }
@@ -214,7 +189,8 @@
     CGPoint position = CGPointMake(0, 10);
     for (LDNPlayingCard *card in [[self.game.players objectAtIndex:2] cards]) {
         // [card drawFromPosition:position view:self.playerThreeCardsView size:0.8];
-        [card drawCardBackFromPosition:position view:self.playerThreeCardsView size:0.8];
+        LDNCardImage *cardImage = [[LDNCardImage alloc] initWithCard:card];
+        [cardImage drawCardBackFromPosition:position view:self.playerThreeCardsView size:0.8];
         position.x += 40;
     }
 }
@@ -224,16 +200,17 @@
     CGPoint position = CGPointMake(30, 0);
     for (LDNPlayingCard *card in [[self.game.players objectAtIndex:3] cards]) {
         // [card drawFromPosition:position view:self.playerFourCardsView size:0.8];
-        [card drawCardBackFromPosition:position view:self.playerFourCardsView size:0.8];
+        LDNCardImage *cardImage = [[LDNCardImage alloc] initWithCard:card];
+        [cardImage drawCardBackFromPosition:position view:self.playerFourCardsView size:0.8];
         position.y += 30;
     }
 }
 
 - (void)updatePlayerNamesAndScores {
     self.livePlayerName.text = [NSString stringWithFormat:@"%@ - %u Books", [[self.game.players objectAtIndex:0] name], [[self.game.players objectAtIndex:0] books].count];
-    self.playerTwoLabel.text = [NSString stringWithFormat:@"%@ - %u", [[self.game.players objectAtIndex:1] name], [[self.game.players objectAtIndex:0] books].count];
-    self.playerThreeLabel.text = [NSString stringWithFormat:@"%@ - %u Books", [[self.game.players objectAtIndex:2] name], [[self.game.players objectAtIndex:0] books].count];
-    self.playerFourLabel.text = [NSString stringWithFormat:@"%@ - %u", [[self.game.players objectAtIndex:3] name], [[self.game.players objectAtIndex:0] books].count];
+    self.playerTwoLabel.text = [NSString stringWithFormat:@"%@ - %u", [[self.game.players objectAtIndex:1] name], [[self.game.players objectAtIndex:1] books].count];
+    self.playerThreeLabel.text = [NSString stringWithFormat:@"%@ - %u Books", [[self.game.players objectAtIndex:2] name], [[self.game.players objectAtIndex:2] books].count];
+    self.playerFourLabel.text = [NSString stringWithFormat:@"%@ - %u", [[self.game.players objectAtIndex:3] name], [[self.game.players objectAtIndex:3] books].count];
 }
 
 - (void)updateUI {

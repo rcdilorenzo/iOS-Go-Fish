@@ -7,8 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "LDNGoFishGame.h"
 
 
 @interface LDNGoFishGameTests : SenTestCase
+@property (nonatomic, strong) LDNGoFishGame *defaultGame;
 
 @end

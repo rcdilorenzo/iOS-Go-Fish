@@ -14,41 +14,45 @@
 @interface LDNGoFishGame()
 @property (nonatomic, strong) NSMutableArray *players;
 @property (nonatomic, strong) LDNDeckOfCards *deck;
-@property (nonatomic, strong) id currentPlayer;
 @property (nonatomic, strong) NSMutableArray* gameMessages;
 @end
 
 @implementation LDNGoFishGame
 
-- (void)setupWithoutPlayerNames
+- (id)initWithoutPlayerNames
 {
     NSArray *playerNames = [NSMutableArray arrayWithObjects:@"John", @"Jay", @"Doug", @"Ken", nil];
-    [self setupWithPlayers:playerNames];
+    return [self initWithPlayers:playerNames];
 }
 
-- (void)setupWithLivePlayer:(NSString *)playerName {
+- (id)initWithLivePlayer:(NSString *)playerName {
     NSArray *playerNames = [NSMutableArray arrayWithObjects:playerName, @"Rack", @"Shack", @"Benny", nil];
-    [self setupWithPlayers:playerNames];
+    return [self initWithPlayers:playerNames];
 }
 
-- (void)setupWithPlayers:(NSArray *)playerNames {
-    self.players = [[NSMutableArray alloc] init];
-    NSUInteger count = 1;
-    for (NSString *playerName in playerNames) {
-        if (count == 1) {
-            [self.players addObject:[[LDNGoFishPlayer alloc] initWithName:playerName]];
-            self.currentPlayer = [self.players objectAtIndex:0];
-        } else {
-            [self.players addObject:[[LDNGoFishRobot alloc] initWithName:playerName]];
+- (id)initWithPlayers:(NSArray *)playerNames {
+    self = [super init];
+    if (self) {
+        self.players = [[NSMutableArray alloc] init];
+        self.winner = nil;
+        NSUInteger count = 1;
+        for (NSString *playerName in playerNames) {
+            if (count == 1) {
+                [self.players addObject:[[LDNGoFishPlayer alloc] initWithName:playerName]];
+                self.currentPlayer = [self.players objectAtIndex:0];
+            } else {
+                [self.players addObject:[[LDNGoFishRobot alloc] initWithName:playerName]];
+            }
+            [[self.players lastObject] setGame:self];
+            count = 2;
         }
-        [[self.players lastObject] setGame:self];
-        count = 2;
+        self.deck = [[LDNDeckOfCards alloc] init];
+        self.gameMessages = [[NSMutableArray alloc] init];
     }
-    self.deck = [[LDNDeckOfCards alloc] init];
+    return self;
 }
 
-- (void)setup {
-    self.gameMessages = [[NSMutableArray alloc] init];
+- (void)deal {
     for (int i = 0; i < 5; i++) {
         for (LDNGoFishPlayer *player in self.players) {
             [player drawFromDeck:self.deck];

@@ -10,7 +10,6 @@
 #import "LDNPlayingCard.h"
 
 @implementation LDNDeckOfCards
-@synthesize cards = _cards;
 
 - (id)init
 {

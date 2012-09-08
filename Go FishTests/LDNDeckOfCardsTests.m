@@ -28,4 +28,10 @@
     STAssertEquals([deck numberOfCards], (NSUInteger)51, @"The deck should have 51 cards after a card is drawn.");
 }
 
+- (void)testNumberOfCards {
+    LDNDeckOfCards *deck = [[LDNDeckOfCards alloc] init];
+    deck.cards = [[NSMutableArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5", nil];
+    STAssertEquals([deck numberOfCards], (NSUInteger)5, @"Number of cards method should return the count of the cards in the deck");
+}
+
 @end

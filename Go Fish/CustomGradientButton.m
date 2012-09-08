@@ -66,8 +66,8 @@
     CAGradientLayer *shineLayer = [CAGradientLayer layer];
     shineLayer.frame = self.layer.bounds;
     shineLayer.colors = [NSArray arrayWithObjects:
-                         (id)[UIColor colorWithRed:0.85f green:0.85f blue:0.85f alpha:0.9f].CGColor,
-                         (id)[UIColor colorWithRed:0.55f green:0.55f blue:0.55f alpha:0.9f].CGColor,
+                         (id)[UIColor colorWithRed:0.85f green:0.85f blue:0.85f alpha:1.0f].CGColor,
+                         (id)[UIColor colorWithRed:0.55f green:0.55f blue:0.55f alpha:1.0f].CGColor,
                          nil];
     shineLayer.locations = [NSArray arrayWithObjects:
                             [NSNumber numberWithFloat:0.0f],

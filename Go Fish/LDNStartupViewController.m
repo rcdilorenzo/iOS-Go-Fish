@@ -9,10 +9,12 @@
 #import "LDNStartupViewController.h"
 #import "LDNViewController.h"
 #import "CustomGradientButton.h"
+#import "CardAnimationViewController.h"
 
 @interface LDNStartupViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *playerNameField;
 @property (weak, nonatomic) IBOutlet CustomGradientButton *startButton;
+@property (strong, nonatomic) CardAnimationViewController *cardAnimator;
 
 @end
 
@@ -31,7 +33,9 @@
 
 - (void)viewDidLoad
 {
+    self.cardAnimator = [[CardAnimationViewController alloc] init];
     [super viewDidLoad];
+    [self.view insertSubview:self.cardAnimator.view atIndex:1];
 	// Do any additional setup after loading the view.
 }
 
@@ -47,15 +51,17 @@
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
+    } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
         return YES;
+    } else {
+        return NO;
     }
+
 }
 - (IBAction)startGame:(id)sender {
     LDNViewController *ldnVC = [self.storyboard instantiateViewControllerWithIdentifier:@"gameController"];
-    if (playerNameField.text != @"" && playerNameField.text.length != 0) {
-        ldnVC.game = [[LDNGoFishGame alloc] init];
-        [ldnVC.game setupWithLivePlayer:playerNameField.text]; 
+    if (playerNameField.text.length != 0) {
+        ldnVC.game = [[LDNGoFishGame alloc] initWithLivePlayer:playerNameField.text];
         [self presentModalViewController:ldnVC animated:YES];
     } else {
         [self.startButton setNormalState:self];
