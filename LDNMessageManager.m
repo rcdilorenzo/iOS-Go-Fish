@@ -68,7 +68,13 @@
 
 #pragma-mark
 #pragma-mark Messages
-- (void)addMessage:(id)message {
+
+- (void)displayMessage:(id)message {
+    [self addMessageToQueue:message];
+    [self displayMessages];
+}
+
+- (void)addMessageToQueue:(id)message {
     if ([message isKindOfClass:[NSString class]]) {
         message = [NSArray arrayWithObject:message];
     }
@@ -91,14 +97,56 @@
     }
 }
 
-- (UIView *)configureMessageView {
+- (void)displayArrayOfMessages:(NSArray *)messageArray {
+    UIView *messageView = [self createMessageView];
+
+    if (messageArray.count == 1) {
+        messageView.frame = CGRectMake(messageView.frame.origin.x, messageView.frame.origin.y, messageView.frame.size.width, (self.fontSize*messageArray.count)+(self.messagePadding*2));
+    } else {
+        messageView.frame = CGRectMake(messageView.frame.origin.x, messageView.frame.origin.y, messageView.frame.size.width, ((self.fontSize*1.2)*messageArray.count)+(self.messagePadding*2));
+    }
+    
+    [self createMessageLabels:messageArray forView:messageView];
+    [self animateMessageView:messageView];
+}
+
+- (UIView *)createMessageView {
     UIView *messageView = [[UIView alloc] initWithFrame:self.frame];
     messageView.backgroundColor = self.backgroundColor;
     messageView.layer.cornerRadius = self.backgroundRadius;
     return messageView;
 }
 
-- (UILabel *)createMessage:(NSString *)message frame:(CGRect)labelFrame {
+- (void)animateMessageView:(UIView *)messageView {
+    messageView.alpha = 0;
+    [self.superview addSubview:messageView];
+    [UIView animateWithDuration:0.75 animations:^{messageView.alpha = 1.0;} completion:^(BOOL finished){
+        [UIView animateWithDuration:0.75
+                              delay:self.messageDuration-1.5
+                            options:UIViewAnimationCurveEaseOut
+                         animations:^{messageView.alpha = 0;}
+                         completion:^(BOOL finished) {
+                             [self messageFinished];
+                             [messageView removeFromSuperview];
+                             [self displayNextMessage];
+                         }];
+    }];
+}
+
+- (void)createMessageLabels:(NSArray *)messageLines forView:(UIView *)view {
+    CGFloat YPosition = self.messagePadding;
+    for (NSString *lineOfText in messageLines) {
+        CGRect frame = CGRectMake(self.messagePadding,
+                                  YPosition,
+                                  view.frame.size.width-(self.messagePadding*2),
+                                  self.fontSize);
+        [view addSubview:[self createMessageLabel:lineOfText
+                                            frame:frame]];
+        YPosition += (self.fontSize*1.2);
+    }
+}
+
+- (UILabel *)createMessageLabel:(NSString *)message frame:(CGRect)labelFrame {
     UILabel *messageLabel = [[UILabel alloc] initWithFrame:labelFrame];
     messageLabel.adjustsFontSizeToFitWidth = YES;
     messageLabel.text = message;
@@ -108,49 +156,17 @@
     return messageLabel;
 }
 
-- (void)displayArrayOfMessages:(NSArray *)messageArray {
-    UIView *messageView = [self configureMessageView];
-
-    if (messageArray.count == 1) {
-        messageView.frame = CGRectMake(messageView.frame.origin.x, messageView.frame.origin.y, messageView.frame.size.width, (self.fontSize*messageArray.count)+(self.messagePadding*2));
-    } else {
-        messageView.frame = CGRectMake(messageView.frame.origin.x, messageView.frame.origin.y, messageView.frame.size.width, ((self.fontSize*1.2)*messageArray.count)+(self.messagePadding*2));
-    }
-    
-    CGFloat YPosition = self.messagePadding;
-    for (NSString *message in messageArray) {
-        CGRect frame = CGRectMake(self.messagePadding,
-                                  YPosition,
-                                  messageView.frame.size.width-(self.messagePadding*2),
-                                  self.fontSize);
-        [messageView addSubview:[self createMessage:message
-                                               frame:frame]];
-        YPosition += (self.fontSize*1.2);
-    }
-    messageView.alpha = 0;
-    [self.superview addSubview:messageView];
-    [UIView animateWithDuration:0.75 animations:^{messageView.alpha = 1.0;} completion:^(BOOL finished){
-        [UIView animateWithDuration:0.75
-                              delay:self.messageDuration-1.5
-                            options:UIViewAnimationCurveEaseOut
-                         animations:^{messageView.alpha = 0;}
-                         completion:^(BOOL finished) {
-                             [self messageFinished:messageArray];
-                             [messageView removeFromSuperview];
-                             [self.queue removeObject:messageArray];
-                             [self displayNextMessage];
-                         }];
-    }];
-}
-
 
 #pragma-mark
 #pragma-mark Notifications
-- (void)messageFinished:(id)message {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Message Finished" object:message];
+- (void)messageFinished {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Message Finished" object:[self.queue objectAtIndex:0]];
+    [self.queue removeObjectAtIndex:0];
 }
 
 - (void)allMessagesFinished {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"All Messages Finished" object:nil];
+    if (self.queue.count == 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"All Messages Finished" object:nil];
+    }
 }
 @end

@@ -114,6 +114,9 @@
 		1C36008815F65A1D000E59B4 /* Go Fish Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007415F65A0A000E59B4 /* Go Fish Icon-72.png */; };
 		1C36008915F65A20000E59B4 /* Go Fish Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007515F65A0A000E59B4 /* Go Fish Icon-72@2x.png */; };
 		1C46585415BF389D002791ED /* LDNGoFishRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46585315BF389D002791ED /* LDNGoFishRobot.m */; };
+		1C96F77D15FC2D11001B4779 /* LDNMessageManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96F77C15FC2D11001B4779 /* LDNMessageManagerTests.m */; };
+		1C96F78115FC360E001B4779 /* NSObject+PeformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96F78015FC360E001B4779 /* NSObject+PeformBlock.m */; };
+		1C96F78215FC360E001B4779 /* NSObject+PeformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96F78015FC360E001B4779 /* NSObject+PeformBlock.m */; };
 		1CA3959415C1B7230036283E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA3959215C1B7040036283E /* SenTestingKit.framework */; };
 		1CA9C2D815C380EE0044E5C5 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */; };
 		1CA9C2D915C380EE0044E5C5 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */; };
@@ -319,6 +322,10 @@
 		1C36007C15F65A0B000E59B4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = ../iTunesArtwork; sourceTree = "<group>"; };
 		1C46585215BF389D002791ED /* LDNGoFishRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishRobot.h; sourceTree = "<group>"; };
 		1C46585315BF389D002791ED /* LDNGoFishRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishRobot.m; sourceTree = "<group>"; };
+		1C96F77B15FC2D10001B4779 /* LDNMessageManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNMessageManagerTests.h; sourceTree = "<group>"; };
+		1C96F77C15FC2D11001B4779 /* LDNMessageManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNMessageManagerTests.m; sourceTree = "<group>"; };
+		1C96F77F15FC360E001B4779 /* NSObject+PeformBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PeformBlock.h"; sourceTree = "<group>"; };
+		1C96F78015FC360E001B4779 /* NSObject+PeformBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PeformBlock.m"; sourceTree = "<group>"; };
 		1CA3959215C1B7040036283E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1CA9C2D615C380EE0044E5C5 /* CustomGradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGradientButton.h; sourceTree = "<group>"; };
 		1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGradientButton.m; sourceTree = "<group>"; };
@@ -464,6 +471,8 @@
 				1CF6138715BED7F300014D78 /* LDNGoFishPlayerTests.m */,
 				1C36004C15F62781000E59B4 /* NSArrayExtensionsTests.h */,
 				1C36004D15F62781000E59B4 /* NSArrayExtensionsTests.m */,
+				1C96F77B15FC2D10001B4779 /* LDNMessageManagerTests.h */,
+				1C96F77C15FC2D11001B4779 /* LDNMessageManagerTests.m */,
 			);
 			path = "Go FishTests";
 			sourceTree = "<group>";
@@ -566,6 +575,8 @@
 			children = (
 				1C36004715F62574000E59B4 /* NSArray+Extensions.h */,
 				1C36004815F62574000E59B4 /* NSArray+Extensions.m */,
+				1C96F77F15FC360E001B4779 /* NSObject+PeformBlock.h */,
+				1C96F78015FC360E001B4779 /* NSObject+PeformBlock.m */,
 			);
 			name = "Class Categories/Extensions";
 			sourceTree = "<group>";
@@ -917,6 +928,7 @@
 				1CC1FB5F15F97955009587A0 /* CardAnimationViewController.m in Sources */,
 				1CFAFD8015FA51D90041EF66 /* LDNCardImage.m in Sources */,
 				1CFAFD8615FBC0E80041EF66 /* LDNMessageManager.m in Sources */,
+				1C96F78115FC360E001B4779 /* NSObject+PeformBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,6 +947,8 @@
 				1CF6138815BED7F300014D78 /* LDNGoFishPlayerTests.m in Sources */,
 				1C25772515C054100069F3D0 /* LDNStartupViewController.m in Sources */,
 				1C36004E15F62781000E59B4 /* NSArrayExtensionsTests.m in Sources */,
+				1C96F77D15FC2D11001B4779 /* LDNMessageManagerTests.m in Sources */,
+				1C96F78215FC360E001B4779 /* NSObject+PeformBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

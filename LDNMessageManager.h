@@ -27,7 +27,8 @@
 - (id)initWithSuperview:(UIView *)superview;
 - (id)initWithSuperview:(UIView *)superview position:(CGPoint)position width:(CGFloat)width;
 - (id)initWithSuperview:(UIView *)superview position:(CGPoint)position width:(CGFloat)width color:(UIColor *)backgroundColor;
-- (void)addMessage:(id)message;
+- (void)displayMessage:(id)message;
+- (void)addMessageToQueue:(id)message;
 - (void)displayMessages;
 
 @end
