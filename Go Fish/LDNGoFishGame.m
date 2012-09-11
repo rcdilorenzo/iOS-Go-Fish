@@ -91,11 +91,14 @@
 
 - (void)addGameMessage:(NSString *)message {
     [self.gameMessages addObject:message];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Updated Messages" object:self.gameMessages];
 }
 
 - (void)clearGameMessages {
     self.gameMessages = [[NSMutableArray alloc] init];
+}
+
+- (NSArray *)getGameMessages {
+    return self.gameMessages;
 }
 
 @end

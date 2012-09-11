@@ -12,6 +12,7 @@
 @interface LDNCardImage : NSObject
 
 @property (nonatomic, strong) LDNPlayingCard *card;
+@property (nonatomic, strong) UIImageView *view;
 
 - (id)initWithCard:(LDNPlayingCard *)card;
 - (id)drawFromPosition:(CGPoint)location view:(UIView *)view size:(CGFloat)size;

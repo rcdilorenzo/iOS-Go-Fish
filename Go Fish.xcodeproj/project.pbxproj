@@ -169,6 +169,10 @@
 		95ee3b69da73241a5ed5d6a3 /* LDNPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */; };
 		9a5c77706fa0745439c49c60 /* c6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576AC15C041340069F3D0 /* c6.png */; };
 		9e5da4c75f962559f858e2a5 /* sk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576DD15C041380069F3D0 /* sk.png */; };
+		AA26261715FECB750083ACFF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26261615FECB750083ACFF /* Constants.m */; };
+		AA26261815FECB810083ACFF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26261615FECB750083ACFF /* Constants.m */; };
+		AA26261B15FECBC50083ACFF /* LDNGoFishPlayerUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26261A15FECBC50083ACFF /* LDNGoFishPlayerUI.m */; };
+		AA26261C15FECBC50083ACFF /* LDNGoFishPlayerUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26261A15FECBC50083ACFF /* LDNGoFishPlayerUI.m */; };
 		a0bdb34cf7b5f7eb9122ff9a /* backs_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576A615C041330069F3D0 /* backs_blue.png */; };
 		a22d13ca131a7a1ae7d0ccb8 /* dk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C015C041350069F3D0 /* dk.png */; };
 		a28b9432dcbb5722aad1ebdb /* calabash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09ee0f7a2a8443e5a32d138b /* calabash.framework */; };
@@ -344,6 +348,10 @@
 		1CFAFD7F15FA51D90041EF66 /* LDNCardImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNCardImage.m; sourceTree = "<group>"; };
 		1CFAFD8415FBC0E70041EF66 /* LDNMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDNMessageManager.h; path = ../LDNMessageManager.h; sourceTree = "<group>"; };
 		1CFAFD8515FBC0E70041EF66 /* LDNMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDNMessageManager.m; path = ../LDNMessageManager.m; sourceTree = "<group>"; };
+		AA26261515FECB750083ACFF /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		AA26261615FECB750083ACFF /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		AA26261915FECBC50083ACFF /* LDNGoFishPlayerUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishPlayerUI.h; sourceTree = "<group>"; };
+		AA26261A15FECBC50083ACFF /* LDNGoFishPlayerUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishPlayerUI.m; sourceTree = "<group>"; };
 		e9a7b125588893ff8055094f /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -389,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				1C1FC7AA15BDC785009393A1 /* Go Fish */,
+				1C1FC7AB15BDC785009393A1 /* Supporting Files */,
 				1C1FC7CB15BDC785009393A1 /* Go FishTests */,
 				1C1FC7A315BDC785009393A1 /* Frameworks */,
 				1C1FC7A115BDC785009393A1 /* Products */,
@@ -430,16 +439,15 @@
 				1C1FC7F415BDDC1D009393A1 /* UI */,
 				1C1FC7BC15BDC785009393A1 /* LDNViewController.h */,
 				1C1FC7BD15BDC785009393A1 /* LDNViewController.m */,
-				1CFAFD8415FBC0E70041EF66 /* LDNMessageManager.h */,
-				1CFAFD8515FBC0E70041EF66 /* LDNMessageManager.m */,
-				1CC1FB5C15F9734A009587A0 /* Deck of Cards Animation */,
 				1C25772215C054100069F3D0 /* LDNStartupViewController.h */,
 				1C25772315C054100069F3D0 /* LDNStartupViewController.m */,
 				1CA9C2D615C380EE0044E5C5 /* CustomGradientButton.h */,
 				1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */,
-				1C1FC7AB15BDC785009393A1 /* Supporting Files */,
+				1CC1FB5C15F9734A009587A0 /* Deck of Cards Animation */,
+				AA4A356615FECEF700DE78E3 /* Messages */,
 				1CF6138915BED9A500014D78 /* Game */,
 				1CF6138A15BED9B000014D78 /* Player */,
+				AA4A356415FECEEF00DE78E3 /* PlayerUI */,
 				1CF6138B15BED9BB00014D78 /* Cards */,
 				1C36004615F6252C000E59B4 /* Class Categories/Extensions */,
 			);
@@ -455,6 +463,7 @@
 				1C1FC7B215BDC785009393A1 /* Go Fish-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = "Go Fish";
 			sourceTree = "<group>";
 		};
 		1C1FC7CB15BDC785009393A1 /* Go FishTests */ = {
@@ -573,6 +582,8 @@
 		1C36004615F6252C000E59B4 /* Class Categories/Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AA26261515FECB750083ACFF /* Constants.h */,
+				AA26261615FECB750083ACFF /* Constants.m */,
 				1C36004715F62574000E59B4 /* NSArray+Extensions.h */,
 				1C36004815F62574000E59B4 /* NSArray+Extensions.m */,
 				1C96F77F15FC360E001B4779 /* NSObject+PeformBlock.h */,
@@ -639,6 +650,24 @@
 				1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */,
 			);
 			name = Cards;
+			sourceTree = "<group>";
+		};
+		AA4A356415FECEEF00DE78E3 /* PlayerUI */ = {
+			isa = PBXGroup;
+			children = (
+				AA26261915FECBC50083ACFF /* LDNGoFishPlayerUI.h */,
+				AA26261A15FECBC50083ACFF /* LDNGoFishPlayerUI.m */,
+			);
+			name = PlayerUI;
+			sourceTree = "<group>";
+		};
+		AA4A356615FECEF700DE78E3 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				1CFAFD8415FBC0E70041EF66 /* LDNMessageManager.h */,
+				1CFAFD8515FBC0E70041EF66 /* LDNMessageManager.m */,
+			);
+			name = Messages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -929,6 +958,8 @@
 				1CFAFD8015FA51D90041EF66 /* LDNCardImage.m in Sources */,
 				1CFAFD8615FBC0E80041EF66 /* LDNMessageManager.m in Sources */,
 				1C96F78115FC360E001B4779 /* NSObject+PeformBlock.m in Sources */,
+				AA26261815FECB810083ACFF /* Constants.m in Sources */,
+				AA26261B15FECBC50083ACFF /* LDNGoFishPlayerUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,6 +980,8 @@
 				1C36004E15F62781000E59B4 /* NSArrayExtensionsTests.m in Sources */,
 				1C96F77D15FC2D11001B4779 /* LDNMessageManagerTests.m in Sources */,
 				1C96F78215FC360E001B4779 /* NSObject+PeformBlock.m in Sources */,
+				AA26261715FECB750083ACFF /* Constants.m in Sources */,
+				AA26261C15FECBC50083ACFF /* LDNGoFishPlayerUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

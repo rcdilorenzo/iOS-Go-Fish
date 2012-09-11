@@ -9,16 +9,16 @@
 #import "LDNMessageManagerTests.h"
 #import "LDNMessageManager.h"
 #import "NSArray+Extensions.h"
-#import "NSObject+PeformBlock.h"
 
 @interface LDNMessageManager (Test)
 @property (nonatomic, strong) UIView *superview;
 @property (nonatomic, strong) NSMutableArray *queue;
-@property (nonatomic) CGPoint position;
 @property (nonatomic) CGFloat width;
 
 - (void)messageFinished;
 - (void)allMessagesFinished;
+- (void)createDefaults;
+- (void)adjustFrameOfView:(UIView *)view numberOfLinesInMessage:(NSUInteger)count;
 @end
 
 @interface LDNMessageManagerTests ()
@@ -42,8 +42,10 @@
 }
 
 - (void)testInitWithSuperViewPositionWidth {
-    STAssertEquals(self.messageManager.position.x, (CGFloat)150, @"Position's x value should be set to specified value");
-    STAssertEquals(self.messageManager.position.y, (CGFloat)100, @"Position's y value should be set to specified value");
+    STAssertEquals(self.messageManager.portraitPosition.x, (CGFloat)150, @"Position's x value should be set to specified value");
+    STAssertEquals(self.messageManager.portraitPosition.y, (CGFloat)100, @"Position's y value should be set to specified value");
+    STAssertEquals(self.messageManager.landscapePosition.x, (CGFloat)100, @"Position's x value should be set to specified value");
+    STAssertEquals(self.messageManager.landscapePosition.y, (CGFloat)150, @"Position's y value should be set to specified value");
     STAssertEquals(self.messageManager.width, (CGFloat)300, @"Width should be set to specified value");
 }
 
@@ -83,6 +85,26 @@
     STAssertEquals(self.notifications.count, (NSUInteger)3, @"3 notifications should have been posted");
     STAssertEquals(self.messageManager.queue.count, (NSUInteger)0, @"Message Queue should be emptied");
 }
-#pragma TODO Add Tests for Defaults/Properties
+
+- (void)testCreatingDefaults {
+    [self.messageManager createDefaults];
+    STAssertEqualObjects(self.messageManager.backgroundColor, [UIColor colorWithRed:0.00f green:0.35f blue:0.02f alpha:1.00f], @"Background color default is a darker green");
+    STAssertEquals(self.messageManager.fontSize, (CGFloat)20, @"Font size default is 20");
+    STAssertEqualObjects(self.messageManager.fontName, @"AmericanTypewriter-Bold", @"Font name default is Bold American Typewriter");
+    STAssertEqualObjects(self.messageManager.textColor, [UIColor whiteColor], @"Text color default is white");
+    STAssertEquals(self.messageManager.messagePadding, (CGFloat)20, @"Message padding default is 20");
+    STAssertEquals(self.messageManager.messageDuration, (CGFloat)5.0, @"Message duration default is 5.0");
+    STAssertEquals(self.messageManager.backgroundRadius, (CGFloat)7, @"Background radius default is 7");
+}
+
+- (void)testFrameAdjustment {
+    self.messageManager.fontSize = 12;
+    self.messageManager.messagePadding = 40;
+    UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+    [self.messageManager adjustFrameOfView:testView numberOfLinesInMessage:3];
+    
+    // Height should be (12*1.2)*3+(40*2) => (14.4)*3+(80) => 43.2+80 => 123.2
+    STAssertEquals(testView.frame.size.height, (CGFloat)123.2, @"Frame height should be set based on the number of messages, the font size, and the message padding");
+}
 
 @end

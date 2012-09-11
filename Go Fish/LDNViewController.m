@@ -10,24 +10,22 @@
 #import "LDNPlayingCard.h"
 #import "LDNGoFishGame.h"
 #import "LDNCardImage.h"
+#import "LDNMessageManager.h"
+#import "LDNGoFishPlayerUI.h"
+#import "Constants.h"
 
 @interface LDNViewController ()
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
-@property (weak, nonatomic) IBOutlet UILabel *livePlayerName;
-@property (weak, nonatomic) IBOutlet UIView *livePlayerCardsView;
-@property (weak, nonatomic) IBOutlet UILabel *playerTwoLabel;
-@property (weak, nonatomic) IBOutlet UIView *playerTwoCardsView;
-@property (weak, nonatomic) IBOutlet UILabel *playerThreeLabel;
-@property (weak, nonatomic) IBOutlet UIView *playerThreeCardsView;
-@property (weak, nonatomic) IBOutlet UILabel *playerFourLabel;
-@property (weak, nonatomic) IBOutlet UIView *playerFourCardsView;
 @property (weak, nonatomic) IBOutlet UIView *livePlayerTurnView;
-
 @property (strong, nonatomic) NSMutableDictionary *livePlayerDecision;
 @property (weak, nonatomic) IBOutlet UIPickerView *livePlayerPicker;
 @property (strong, nonatomic) NSTimer *gamePlayTimer;
-@property (weak, nonatomic) IBOutlet UIView *gameMessageView;
+@property (strong, nonatomic) LDNMessageManager *messageManager;
 
+@property (strong, nonatomic) LDNGoFishPlayerUI *playerOne;
+@property (strong, nonatomic) LDNGoFishPlayerUI *playerTwo;
+@property (strong, nonatomic) LDNGoFishPlayerUI *playerThree;
+@property (strong, nonatomic) LDNGoFishPlayerUI *playerFour;
 @end
 
 @implementation LDNViewController
@@ -37,20 +35,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.messageManager = [[LDNMessageManager alloc] initWithSuperview:self.view position:CGPointMake(200, 400) width:380];
+    self.messageManager.landscapePosition = CGPointMake(322, 295);
     [self.game deal];
+    [self setUpPlayers];
     self.livePlayerDecision = [[NSMutableDictionary alloc] initWithCapacity:2];
     [self setDefaultLivePlayerDecision];
-    [self updatePlayerNamesAndScores];
     [self.livePlayerTurnView setAlpha:0];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [self updateUI];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    self.gameMessageView.frame = CGRectMake(self.gameMessageView.frame.origin.x, self.gameMessageView.frame.origin.y, self.gameMessageView.frame.size.width, 25*self.game.gameMessages.count+35);
+    self.messageManager.frame = CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height/2-250, 400, 0);
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
@@ -75,12 +71,12 @@
                          [self takePlayerTurn:nil];
                      }];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGameMessage:) name:@"Updated Messages" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePlayerTurn:) name:@"All Messages Finished" object:nil];
 }
 
 - (void)newGameMessage:(id)gameMessages {
     if ([[gameMessages object] count] > 1) {
-        NSLog(@"Messages: %@", [gameMessages object]);
-        [self writeGameMessages:[gameMessages object]];
+        [self.messageManager displayMessage:[gameMessages object]];
         [self.game clearGameMessages];
     }
 }
@@ -95,11 +91,9 @@
     if (self.game.currentPlayer == [self.game.players objectAtIndex:0]) {
         [self.livePlayerPicker reloadComponent:1];
         [UIView animateWithDuration:0.5 animations:^{[self.livePlayerTurnView setAlpha:1.0];}];
-    } else {
+    } else if (sender != @"livePlayerTurnFinished") {
         [self.game.currentPlayer takeTurn];
-        self.gamePlayTimer = [NSTimer scheduledTimerWithTimeInterval:5.5 target:self selector:@selector(takePlayerTurn:) userInfo:nil repeats:YES];
     }
-    [self updateUI];
     self.navigationBar.topItem.title = [NSString stringWithFormat:@"Go Fish: %u Cards Remaining", [self.game.deck numberOfCards]];
 }
 
@@ -109,126 +103,28 @@
     [self.game.currentPlayer takeTurn];
     [UIView animateWithDuration:0.5
                      animations:^{[self.livePlayerTurnView setAlpha:0.0];}
-                     completion:^(BOOL finished) {[self takePlayerTurn:nil];}];
+                     completion:^(BOOL finished) {[self takePlayerTurn:@"livePlayerTurnFinished"];}];
 }
 
 - (void)endGame {
-    [self.livePlayerCardsView removeFromSuperview];
-    [self.playerTwoCardsView removeFromSuperview];
-    [self.playerThreeCardsView removeFromSuperview];
-    [self.playerFourCardsView removeFromSuperview];
-    
-    [self.livePlayerName removeFromSuperview];
-    [self.playerTwoLabel removeFromSuperview];
-    [self.playerThreeLabel removeFromSuperview];
-    [self.playerFourLabel removeFromSuperview];
     self.navigationBar.topItem.title = @"Go Fish: Game Ended";
 }
 
-#pragma-mark
-#pragma-mark Game Messages
-- (void)writeGameMessages:(NSMutableArray *)messages {
-    NSMutableArray *messageLabels = [[NSMutableArray alloc] init];
-    
-    // Adjust frame based on the amount of messages
-    self.gameMessageView.frame = CGRectMake(self.gameMessageView.frame.origin.x, self.gameMessageView.frame.origin.y, self.gameMessageView.frame.size.width, 25*messages.count+35);
-    
-    for (int i=1; i<=messages.count; i++) {
-        CGRect frame = CGRectMake(20, 25*i-5, self.gameMessageView.frame.size.width-40, 20);
-        [messageLabels addObject:[self drawGameMessage:[messages objectAtIndex:i-1] frame:frame]];
-    }
-    [UIView animateWithDuration:1.0 animations:^{self.gameMessageView.alpha = 1.0;} completion:^(BOOL finished){
-        [UIView animateWithDuration:1.5 delay:3.5 options:UIViewAnimationCurveEaseOut animations:^{self.gameMessageView.alpha = 0;} completion:^(BOOL finished){
-            for (int i=0; i<messageLabels.count; i++) {
-                [[messageLabels objectAtIndex:i] removeFromSuperview];
-            }
-            [self.game clearGameMessages];
-        }];
-    }];
+- (void)setUpPlayers {
+    self.playerOne = [[LDNGoFishPlayerUI alloc] initWithPlayer:[self.game.players objectAtIndex:0] superview:self.view position:CGPointMake(124, 874) orientation:UIOrientationHorizontal];
+    [self.playerOne draw];
+    self.playerOne.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin;
+    self.playerTwo = [[LDNGoFishPlayerUI alloc] initWithPlayer:[self.game.players objectAtIndex:1] superview:self.view position:CGPointMake(60, 284) orientation:UIOrientationVertical];
+    [self.playerTwo draw];
+    self.playerTwo.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleTopMargin;
+    self.playerThree = [[LDNGoFishPlayerUI alloc] initWithPlayer:[self.game.players objectAtIndex:2] superview:self.view position:CGPointMake(125, 62) orientation:UIOrientationHorizontal];
+    [self.playerThree draw];
+    self.playerThree.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleWidth;
+    self.playerFour = [[LDNGoFishPlayerUI alloc] initWithPlayer:[self.game.players objectAtIndex:3] superview:self.view position:CGPointMake(600, 284) orientation:UIOrientationVertical];
+    [self.playerFour draw];
+    self.playerFour.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleLeftMargin;
 }
 
-- (UILabel *)drawGameMessage:(NSString *)message frame:(CGRect)frame {
-    UILabel *gameMessage = [[UILabel alloc] initWithFrame:frame];
-    gameMessage.adjustsFontSizeToFitWidth = YES;
-    gameMessage.text = message;
-    gameMessage.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:20];
-    gameMessage.backgroundColor = [UIColor clearColor];
-    gameMessage.textColor = [UIColor colorWithRed:0.00f green:0.35f blue:0.02f alpha:1.00f];
-    [self.gameMessageView addSubview:gameMessage];
-    return gameMessage;
-}
-
-#pragma-mark
-#pragma-mark Update Cards
-- (void)removeAllSubviewsFrom:(UIView *)view {
-    NSArray *subviews = [view subviews];
-    for (UIView *subview in subviews) {
-        [subview removeFromSuperview];
-    }
-}
-
-- (void)updateLivePlayerCards {
-    [self removeAllSubviewsFrom:self.livePlayerCardsView];
-    // NSMutableArray *livePlayerCards = [[self.game.players objectAtIndex:0] cards];
-    // CGFloat xOffset = (704/2) - ((([livePlayerCards count]*40)+18)/2);
-    CGPoint position = CGPointMake(0, 10);
-    
-    for (LDNPlayingCard *card in [[self.game.players objectAtIndex:0] cards]) {
-        LDNCardImage *cardImage = [[LDNCardImage alloc] initWithCard:card];
-        [cardImage drawFromPosition:position view:self.livePlayerCardsView size:0.8];
-        position.x += 40;
-    }
-}
-
-- (void)updatePlayerTwoCards {
-    [self removeAllSubviewsFrom:self.playerTwoCardsView];
-    CGPoint position = CGPointMake(30, 0);
-    for (LDNPlayingCard *card in [[self.game.players objectAtIndex:1] cards]) {
-        // [card drawFromPosition:position view:self.playerTwoCardsView size:0.8];
-        LDNCardImage *cardImage = [[LDNCardImage alloc] initWithCard:card];
-        [cardImage drawCardBackFromPosition:position view:self.playerTwoCardsView size:0.8];
-        position.y += 30;
-    }
-}
-
-- (void)updatePlayerThreeCards {
-    [self removeAllSubviewsFrom:self.playerThreeCardsView];
-    // NSMutableArray *playerThreeCards = [[self.game.players objectAtIndex:2] cards];
-    // CGFloat xOffset = (581/2) - ((([playerThreeCards count]*40)+18)/2);
-    CGPoint position = CGPointMake(0, 10);
-    for (LDNPlayingCard *card in [[self.game.players objectAtIndex:2] cards]) {
-        // [card drawFromPosition:position view:self.playerThreeCardsView size:0.8];
-        LDNCardImage *cardImage = [[LDNCardImage alloc] initWithCard:card];
-        [cardImage drawCardBackFromPosition:position view:self.playerThreeCardsView size:0.8];
-        position.x += 40;
-    }
-}
-
-- (void)updatePlayerFourCards {
-    [self removeAllSubviewsFrom:self.playerFourCardsView];
-    CGPoint position = CGPointMake(30, 0);
-    for (LDNPlayingCard *card in [[self.game.players objectAtIndex:3] cards]) {
-        // [card drawFromPosition:position view:self.playerFourCardsView size:0.8];
-        LDNCardImage *cardImage = [[LDNCardImage alloc] initWithCard:card];
-        [cardImage drawCardBackFromPosition:position view:self.playerFourCardsView size:0.8];
-        position.y += 30;
-    }
-}
-
-- (void)updatePlayerNamesAndScores {
-    self.livePlayerName.text = [NSString stringWithFormat:@"%@ - %u Books", [[self.game.players objectAtIndex:0] name], [[self.game.players objectAtIndex:0] books].count];
-    self.playerTwoLabel.text = [NSString stringWithFormat:@"%@ - %u", [[self.game.players objectAtIndex:1] name], [[self.game.players objectAtIndex:1] books].count];
-    self.playerThreeLabel.text = [NSString stringWithFormat:@"%@ - %u Books", [[self.game.players objectAtIndex:2] name], [[self.game.players objectAtIndex:2] books].count];
-    self.playerFourLabel.text = [NSString stringWithFormat:@"%@ - %u", [[self.game.players objectAtIndex:3] name], [[self.game.players objectAtIndex:3] books].count];
-}
-
-- (void)updateUI {
-    [self updatePlayerNamesAndScores];
-    [self updateLivePlayerCards];
-    [self updatePlayerTwoCards];
-    [self updatePlayerThreeCards];
-    [self updatePlayerFourCards];
-}
 
 #pragma-mark
 #pragma-mark Picker View
@@ -270,4 +166,7 @@
     return 200;
 }
 
+- (void)viewDidUnload {
+    [super viewDidUnload];
+}
 @end

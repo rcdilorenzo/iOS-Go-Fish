@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="RNv-ht-EqE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="RNv-ht-EqE">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
@@ -18,18 +18,6 @@
                                 <rect key="frame" x="0.0" y="44" width="1024" height="704"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" id="Igf-vb-uqj">
-                                <rect key="frame" x="188" y="621" width="649" height="113"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Live Player" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="gll-RY-COo">
-                                <rect key="frame" x="188" y="594" width="249" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" id="aoJ-Mn-gWE">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -37,42 +25,6 @@
                                     <navigationItem title="Go Fish" id="XdY-ZQ-ch6"/>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" id="Inc-g4-knl">
-                                <rect key="frame" x="845" y="259" width="121" height="374"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="P4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="jup-T8-Ne7">
-                                <rect key="frame" x="871" y="230" width="95" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" id="cO7-CI-VDk">
-                                <rect key="frame" x="188" y="82" width="649" height="104"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="e0l-qh-Ieb">
-                                <rect key="frame" x="59" y="259" width="121" height="374"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="P2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DDj-M8-FU2">
-                                <rect key="frame" x="80" y="230" width="92" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="P3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="LZd-bs-wvn">
-                                <rect key="frame" x="188" y="60" width="162" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="card-table.png" id="Hve-U5-BKp">
                                 <rect key="frame" x="180" y="194" width="664" height="404"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,11 +83,6 @@
                                     <action selector="startGame:" destination="2" eventType="touchUpInside" id="Otq-ib-SC6"/>
                                 </connections>
                             </button>
-                            <view alpha="0.0" contentMode="scaleToFill" id="F8z-N7-ymv">
-                                <rect key="frame" x="284" y="271" width="457" height="213"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.48533033288043481" blue="0.10119499074748696" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -143,18 +90,9 @@
                     <navigationItem key="navigationItem" id="cac-Lp-tWp"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="gameMessageView" destination="F8z-N7-ymv" id="9Ry-Vz-bge"/>
-                        <outlet property="livePlayerCardsView" destination="Igf-vb-uqj" id="Tfy-G5-iQC"/>
-                        <outlet property="livePlayerName" destination="gll-RY-COo" id="WZG-YX-6Fm"/>
                         <outlet property="livePlayerPicker" destination="fPR-Zf-aaw" id="XRB-uk-Fdy"/>
                         <outlet property="livePlayerTurnView" destination="F2E-7h-wUl" id="Cnk-tc-prZ"/>
                         <outlet property="navigationBar" destination="aoJ-Mn-gWE" id="HBi-9E-zFU"/>
-                        <outlet property="playerFourCardsView" destination="Inc-g4-knl" id="ige-Z2-GFH"/>
-                        <outlet property="playerFourLabel" destination="jup-T8-Ne7" id="MZD-FJ-o6x"/>
-                        <outlet property="playerThreeCardsView" destination="cO7-CI-VDk" id="Dom-d6-TYm"/>
-                        <outlet property="playerThreeLabel" destination="LZd-bs-wvn" id="WAL-s4-1Hy"/>
-                        <outlet property="playerTwoCardsView" destination="e0l-qh-Ieb" id="LcO-hS-DXm"/>
-                        <outlet property="playerTwoLabel" destination="DDj-M8-FU2" id="NTk-va-Jkj"/>
                         <outlet property="turnPicker" destination="fPR-Zf-aaw" id="haO-4D-XwB"/>
                     </connections>
                 </viewController>
@@ -254,18 +192,9 @@
             <relationships>
                 <relationship kind="action" name="startGame:"/>
                 <relationship kind="action" name="takeLivePlayerTurn:"/>
-                <relationship kind="outlet" name="gameMessageView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="livePlayerCardsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="livePlayerName" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="livePlayerPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="livePlayerTurnView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="playerFourCardsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerFourLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerThreeCardsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerThreeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerTwoCardsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerTwoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="turnPicker" candidateClass="UIPickerView"/>
             </relationships>
         </class>

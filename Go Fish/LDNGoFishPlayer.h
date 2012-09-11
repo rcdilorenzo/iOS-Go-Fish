@@ -36,6 +36,7 @@
 - (void)setCurrentPlayerWith:(id)player;
 - (LDNGoFishPlayer *)getCurrentPlayerFromGame;
 - (void)addGameMessage:(NSString *)message;
+- (NSArray *)getGameMessages;
 - (void)clearGameMessages;
 - (BOOL)end;
 

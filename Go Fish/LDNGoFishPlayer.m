@@ -29,6 +29,7 @@
     [self.game addGameMessage:[NSString stringWithFormat:@"%@ requests %@\'s from %@", self.name, aRank, aPlayer.name]];
     NSArray *cardsRequested = [aPlayer giveCardsOfRank:aRank];
     if (cardsRequested.count != 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Player Hand Has Changed" object:aPlayer];
         [self.game addGameMessage:[NSString stringWithFormat:@"%@ gives %u card(s) of the rank %@", aPlayer.name, cardsRequested.count, aRank]];
         for (LDNPlayingCard *card in cardsRequested) {
             [self.cards addObject:card];
@@ -84,12 +85,13 @@
     [self createDecisionFromOpponents:[self.game opponents:self] currentPlayer:self];
     [self askPlayerForCardsOfRank:self.choosenRank player:self.choosenPlayer];
     [self checkForBooks];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Updated Messages" object:[self.game getGameMessages]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Player Hand Has Changed" object:self];
 }
 
-- (BOOL)createDecisionFromOpponents:(NSArray *)opponents
+- (void)createDecisionFromOpponents:(NSArray *)opponents
                           currentPlayer:(LDNGoFishPlayer *)currentPlayer {
-    // empty for this parent class of LDNGoFishRobot
-    return NO;
+    // template method for use in subclass: LDNGoFishRobot
 }
 
 @end

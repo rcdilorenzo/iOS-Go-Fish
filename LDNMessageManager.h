@@ -20,6 +20,8 @@
 @property (nonatomic) CGFloat messagePadding;
 @property (nonatomic) CGFloat messageDuration;
 @property (nonatomic) CGFloat backgroundRadius;
+@property (nonatomic) CGPoint landscapePosition;
+@property (nonatomic) CGPoint portraitPosition;
 @property (nonatomic, strong) NSString *fontName;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIColor *backgroundColor;

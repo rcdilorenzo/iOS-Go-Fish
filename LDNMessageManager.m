@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSMutableArray *queue;
 @property (nonatomic) CGPoint position;
 @property (nonatomic) CGFloat width;
+@property (nonatomic, strong) UIView *messageView;
 
 @end
 
@@ -25,13 +26,17 @@
     if (self) {
         self.superview = superview;
         self.queue = [[NSMutableArray alloc] init];
+        [self createDefaults];
+        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     }
     return self;
 }
 
 - (id)initWithSuperview:(UIView *)superview position:(CGPoint)position width:(CGFloat)width {
-    [self createDefaults];
+    // Position must be specified for the ***portrait*** orientation
     self.position = position;
+    self.portraitPosition = position;
     self.width = width;
     return [self initWithSuperview:superview];
 }
@@ -42,26 +47,16 @@
 }
 
 - (void)createDefaults {
-    if (!self.backgroundColor) {
-        self.backgroundColor = [UIColor colorWithRed:0.00f green:0.35f blue:0.02f alpha:1.00f];
-    }
-    if (!self.fontSize) {
-        self.fontSize = 20;
-    }
-    if (!self.fontName) {
-        self.fontName = @"AmericanTypewriter-Bold";
-    }
-    if (!self.textColor) {
-        self.textColor = [UIColor whiteColor];
-    }
-    if (!self.messagePadding) {
-        self.messagePadding = 20;
-    }
-    if (!self.messageDuration) {
-        self.messageDuration = 5.0;
-    }
-    if (!self.backgroundRadius) {
-        self.backgroundRadius = 7;
+    if (!self.backgroundColor)   { self.backgroundColor = [UIColor colorWithRed:0.00f green:0.35f blue:0.02f alpha:1.00f]; }
+    if (!self.fontSize)          { self.fontSize = 20;                         }
+    if (!self.fontName)          { self.fontName = @"AmericanTypewriter-Bold"; }
+    if (!self.textColor)         { self.textColor = [UIColor whiteColor];      }
+    if (!self.messagePadding)    { self.messagePadding = 20;                   }
+    if (!self.messageDuration)   { self.messageDuration = 5.0;                 }
+    if (!self.backgroundRadius)  { self.backgroundRadius = 7;                  }
+    
+    if (self.landscapePosition.x == 0 && self.landscapePosition.y == 0) {
+        self.landscapePosition = CGPointMake(self.position.y, self.position.x);
     }
 }
 
@@ -71,7 +66,9 @@
 
 - (void)displayMessage:(id)message {
     [self addMessageToQueue:message];
-    [self displayMessages];
+    if (self.queue.count == 1) {
+        [self displayMessages];
+    }
 }
 
 - (void)addMessageToQueue:(id)message {
@@ -98,23 +95,38 @@
 }
 
 - (void)displayArrayOfMessages:(NSArray *)messageArray {
-    UIView *messageView = [self createMessageView];
+    self.messageView = [self createMessageView];
+    // messageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
 
-    if (messageArray.count == 1) {
-        messageView.frame = CGRectMake(messageView.frame.origin.x, messageView.frame.origin.y, messageView.frame.size.width, (self.fontSize*messageArray.count)+(self.messagePadding*2));
-    } else {
-        messageView.frame = CGRectMake(messageView.frame.origin.x, messageView.frame.origin.y, messageView.frame.size.width, ((self.fontSize*1.2)*messageArray.count)+(self.messagePadding*2));
-    }
     
-    [self createMessageLabels:messageArray forView:messageView];
-    [self animateMessageView:messageView];
+    [self adjustFrameOfView:self.messageView
+     numberOfLinesInMessage:messageArray.count];
+    [self createMessageLabels:messageArray forView:self.messageView];
+    [self animateMessageView:self.messageView];
 }
 
+- (void)orientationChanged:(id)sender {
+    self.position = self.portraitPosition;
+    if (self.superview.bounds.size.width > self.superview.bounds.size.height) {self.position = self.landscapePosition;}
+    self.messageView.frame = CGRectMake(self.position.x, self.position.y, self.messageView.frame.size.width, self.messageView.frame.size.height);
+    NSLog(@"Orientation Change... new position: %@", NSStringFromCGPoint(self.position));
+}
+
+- (void)adjustFrameOfView:(UIView *)view numberOfLinesInMessage:(NSUInteger)count {
+    [self orientationChanged:nil];
+    if (count == 1) {
+        view.frame = CGRectMake(self.position.x, self.position.y, self.width, (self.fontSize*count)+(self.messagePadding*2));
+    } else {
+        view.frame = CGRectMake(self.position.x, self.position.y, self.width, ((self.fontSize*1.2)*count)+(self.messagePadding*2));
+    }
+}
+
+
 - (UIView *)createMessageView {
-    UIView *messageView = [[UIView alloc] initWithFrame:self.frame];
-    messageView.backgroundColor = self.backgroundColor;
-    messageView.layer.cornerRadius = self.backgroundRadius;
-    return messageView;
+    UIView *view = [[UIView alloc] initWithFrame:self.frame];
+    view.backgroundColor = self.backgroundColor;
+    view.layer.cornerRadius = self.backgroundRadius;
+    return view;
 }
 
 - (void)animateMessageView:(UIView *)messageView {
