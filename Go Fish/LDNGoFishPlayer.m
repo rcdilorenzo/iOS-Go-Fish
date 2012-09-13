@@ -24,6 +24,15 @@
     return self;
 }
 
+- (NSUInteger)getPlayerScore {
+    return self.books.count;
+}
+
+- (void)sortCards {
+    NSArray *descriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"value" ascending:YES]];
+    self.cards = [NSMutableArray arrayWithArray:[self.cards sortedArrayUsingDescriptors:descriptors]];
+}
+
 - (NSArray *)askPlayerForCardsOfRank:(NSString *)aRank
                               player:(LDNGoFishPlayer *)aPlayer {
     [self.game addGameMessage:[NSString stringWithFormat:@"%@ requests %@\'s from %@", self.name, aRank, aPlayer.name]];
@@ -85,7 +94,8 @@
     [self createDecisionFromOpponents:[self.game opponents:self] currentPlayer:self];
     [self askPlayerForCardsOfRank:self.choosenRank player:self.choosenPlayer];
     [self checkForBooks];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Updated Messages" object:[self.game getGameMessages]];
+    [self sortCards];
+    [self.game turnFinished];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Player Hand Has Changed" object:self];
 }
 

@@ -15,6 +15,5 @@
 @property (nonatomic) NSUInteger value;
 
 - (id)initWithRank:(NSString *)rank suit:(NSString *)suit;
-- (id)initWithRank:(NSString *)rank suit:(NSString *)suit value:(NSUInteger)value;
 
 @end

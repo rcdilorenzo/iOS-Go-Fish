@@ -10,6 +10,7 @@
 #import "LDNGoFishPlayer.h"
 #import "LDNDeckOfCards.h"
 #import "LDNGoFishRobot.h"
+#import "NSArray+Extensions.h"
 
 @interface LDNGoFishGame()
 @property (nonatomic, strong) NSMutableArray *players;
@@ -34,7 +35,6 @@
     self = [super init];
     if (self) {
         self.players = [[NSMutableArray alloc] init];
-        self.winner = nil;
         NSUInteger count = 1;
         for (NSString *playerName in playerNames) {
             if (count == 1) {
@@ -56,8 +56,22 @@
     for (int i = 0; i < 5; i++) {
         for (LDNGoFishPlayer *player in self.players) {
             [player drawFromDeck:self.deck];
+            [player sortCards];
         }
     }
+}
+
+- (id)getGameWinner {
+    if ([self end]) {
+        NSArray *sortedArray = [self.players sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"getPlayerScore" ascending:NO]]];
+        NSMutableArray *winners = [[NSMutableArray alloc] init];
+        for (LDNGoFishPlayer *player in sortedArray) {
+            if (player.score == [[sortedArray objectAtIndex:0] getPlayerScore]) {
+                [winners addObject:player];
+            }
+        }
+        if (winners.count == 1) {return [winners objectAtIndex:0];} else {return winners;}
+    } else { return @"Game not ended"; }
 }
 
 - (NSArray *)opponents:(LDNGoFishPlayer *)player {
@@ -97,8 +111,8 @@
     self.gameMessages = [[NSMutableArray alloc] init];
 }
 
-- (NSArray *)getGameMessages {
-    return self.gameMessages;
+- (void)turnFinished {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Updated Messages" object:self.gameMessages];
 }
 
 @end

@@ -16,7 +16,7 @@
 @property (nonatomic, strong, readonly) LDNDeckOfCards *deck;
 @property (nonatomic, strong) id currentPlayer;
 @property (nonatomic, strong, readonly) NSMutableArray* gameMessages;
-@property (nonatomic, strong) id winner;
+@property (nonatomic, strong, readonly, getter = getGameWinner) id winner;
 
 - (id)initWithPlayers:(NSArray *)playerNames;
 - (id)initWithoutPlayerNames;

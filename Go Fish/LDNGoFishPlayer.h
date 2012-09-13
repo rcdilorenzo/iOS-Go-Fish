@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSMutableArray *cards;
 @property (nonatomic, strong) NSMutableArray *books;
+@property (nonatomic, getter = getPlayerScore) NSUInteger score;
 @property (nonatomic, weak) id <GameInteraction> game;
 @property (nonatomic, strong) NSString *choosenRank;
 @property (nonatomic, strong) LDNGoFishPlayer *choosenPlayer;
@@ -27,6 +28,7 @@
 - (void)checkForBooks;
 - (LDNPlayingCard *)drawFromDeck:(LDNDeckOfCards *)deck;
 - (void)takeTurn;
+- (void)sortCards;
 
 @end
 
@@ -36,7 +38,7 @@
 - (void)setCurrentPlayerWith:(id)player;
 - (LDNGoFishPlayer *)getCurrentPlayerFromGame;
 - (void)addGameMessage:(NSString *)message;
-- (NSArray *)getGameMessages;
+- (void)turnFinished;
 - (void)clearGameMessages;
 - (BOOL)end;
 

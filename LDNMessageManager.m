@@ -109,7 +109,6 @@
     self.position = self.portraitPosition;
     if (self.superview.bounds.size.width > self.superview.bounds.size.height) {self.position = self.landscapePosition;}
     self.messageView.frame = CGRectMake(self.position.x, self.position.y, self.messageView.frame.size.width, self.messageView.frame.size.height);
-    NSLog(@"Orientation Change... new position: %@", NSStringFromCGPoint(self.position));
 }
 
 - (void)adjustFrameOfView:(UIView *)view numberOfLinesInMessage:(NSUInteger)count {

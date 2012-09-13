@@ -19,14 +19,11 @@
         NSArray *ranks = [NSArray arrayWithObjects:@"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"Jack", @"Queen", @"King", @"Ace", nil];
         NSArray *suits = [NSArray arrayWithObjects:@"Clubs", @"Diamonds", @"Spades", @"Hearts", nil];
         
-        NSUInteger count = 2;
         for (NSString *rank in ranks) {
             for (NSString *suit in suits) {
                 [self.cards addObject:[[LDNPlayingCard alloc] initWithRank:rank 
-                                                                      suit:suit
-                                                                     value:count]];
+                                                                      suit:suit]];
             }
-            count += 1;
         }
     }
     

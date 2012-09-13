@@ -47,7 +47,6 @@
     [game deal];
     STAssertEquals([[game.players objectAtIndex:0] cards].count, (NSUInteger)5, @"Each player must be dealt 5 cards.");
     STAssertEquals(game.deck.numberOfCards, (NSUInteger)42, @"Deck of cards should have 42 cards after dealing 5 cards to two players.");
-    NSLog(@"Player 1 is a %@", [[game.players objectAtIndex:0] class]);
     STAssertEquals(game.currentPlayer, [game.players objectAtIndex:0], @"Current player should be set to the first player.");
 }
 
@@ -105,8 +104,8 @@
 }
 
 
-/*
-- (void)testGameWinner {
+
+ - (void)testGameWinner {
     LDNGoFishGame *game = [[LDNGoFishGame alloc] initWithoutPlayerNames];
     [[[game.players objectAtIndex:3] books] addObject:[NSMutableArray arrayWithObjects:[[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"],
                                                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Spades"],
@@ -121,8 +120,8 @@
                                                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Clubs"],
                                                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Diamonds"], nil]];
     game.deck.cards = [[NSMutableArray alloc] init];
-    STAssertEquals(game.winner, [game.players objectAtIndex:3], @"Winner should be player 4");
-    
+    STAssertEqualObjects(game.winner, [game.players objectAtIndex:3], @"Winner should be player 4");
+     
     game = [[LDNGoFishGame alloc] initWithoutPlayerNames];
     [[[game.players objectAtIndex:0] books] addObject:[NSMutableArray arrayWithObjects:[[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"],
                                                        [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Spades"],
@@ -133,8 +132,8 @@
                                                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Clubs"],
                                                        [[LDNPlayingCard alloc] initWithRank:@"5" suit:@"Diamonds"], nil]];
     game.deck.cards = [[NSMutableArray alloc] init];
-    
-    STAssertEqualObjects(game.winner, ([NSMutableArray arrayWithObjects:[game.players objectAtIndex:0], [game.players objectAtIndex:2], nil]), @"Winner should be player one and three");
+     NSMutableArray *tiedWinners = [NSMutableArray arrayWithObjects:[game.players objectAtIndex:0], [game.players objectAtIndex:2], nil];
+    STAssertEqualObjects(game.winner, tiedWinners, @"Winner should be player one and three");
 }
-*/
+
 @end

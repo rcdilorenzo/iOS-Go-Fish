@@ -8,6 +8,7 @@
 
 #import "NSArrayExtensionsTests.h"
 #import "NSArray+Extensions.h"
+#import "LDNGoFishPlayer.h"
 
 @implementation NSArrayExtensionsTests
 
@@ -17,6 +18,15 @@
     
     NSMutableArray *myMutableArray = [[NSMutableArray alloc] initWithObjects:@"This Object", @"That Object", nil];
     STAssertTrue([myMutableArray containsString:@"That Object"], @"Mutable Array should contain this string.");
+}
+
+- (void)testUniqueArrayCreation {
+    NSArray *arrayOfPlayers = [NSArray arrayWithObjects:
+                               [[LDNGoFishPlayer alloc] initWithName:@"John"],
+                               [[LDNGoFishPlayer alloc] initWithName:@"Jane"],
+                               [[LDNGoFishPlayer alloc] initWithName:@"John"], nil];
+    STAssertEqualObjects([[[arrayOfPlayers uniqueArrayWithKey:@"name"] objectAtIndex:0] name], @"John", @"First item's name in the array should be John");
+    STAssertEqualObjects([[[arrayOfPlayers uniqueArrayWithKey:@"name"] lastObject] name], @"Jane", @"Last item's name in the array should be Jane");
 }
 
 @end

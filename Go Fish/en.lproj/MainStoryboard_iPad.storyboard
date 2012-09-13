@@ -87,9 +87,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cac-Lp-tWp"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="backgroundView" destination="Hve-U5-BKp" id="3FY-So-uO8"/>
                         <outlet property="livePlayerPicker" destination="fPR-Zf-aaw" id="XRB-uk-Fdy"/>
                         <outlet property="livePlayerTurnView" destination="F2E-7h-wUl" id="Cnk-tc-prZ"/>
                         <outlet property="navigationBar" destination="aoJ-Mn-gWE" id="HBi-9E-zFU"/>
@@ -192,6 +192,7 @@
             <relationships>
                 <relationship kind="action" name="startGame:"/>
                 <relationship kind="action" name="takeLivePlayerTurn:"/>
+                <relationship kind="outlet" name="backgroundView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="livePlayerPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="livePlayerTurnView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>

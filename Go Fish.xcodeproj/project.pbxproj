@@ -114,13 +114,13 @@
 		1C36008815F65A1D000E59B4 /* Go Fish Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007415F65A0A000E59B4 /* Go Fish Icon-72.png */; };
 		1C36008915F65A20000E59B4 /* Go Fish Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C36007515F65A0A000E59B4 /* Go Fish Icon-72@2x.png */; };
 		1C46585415BF389D002791ED /* LDNGoFishRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46585315BF389D002791ED /* LDNGoFishRobot.m */; };
+		1C76DBE61600E8F60056AAB4 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C76DBE31600E8E60056AAB4 /* GameKit.framework */; };
 		1C96F77D15FC2D11001B4779 /* LDNMessageManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96F77C15FC2D11001B4779 /* LDNMessageManagerTests.m */; };
 		1C96F78115FC360E001B4779 /* NSObject+PeformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96F78015FC360E001B4779 /* NSObject+PeformBlock.m */; };
 		1C96F78215FC360E001B4779 /* NSObject+PeformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96F78015FC360E001B4779 /* NSObject+PeformBlock.m */; };
 		1CA3959415C1B7230036283E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA3959215C1B7040036283E /* SenTestingKit.framework */; };
 		1CA9C2D815C380EE0044E5C5 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */; };
 		1CA9C2D915C380EE0044E5C5 /* CustomGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA9C2D715C380EE0044E5C5 /* CustomGradientButton.m */; };
-		1CBBE69615C36C980031D7E9 /* LDNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7BD15BDC785009393A1 /* LDNViewController.m */; };
 		1CBBE69715C36D6E0031D7E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBBE69415C36C320031D7E9 /* QuartzCore.framework */; };
 		1CBBE69815C36D7E0031D7E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBBE69415C36C320031D7E9 /* QuartzCore.framework */; };
 		1CC1FB4315F66618009587A0 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CC1FB4215F66618009587A0 /* Default-Landscape~ipad.png */; };
@@ -169,10 +169,12 @@
 		95ee3b69da73241a5ed5d6a3 /* LDNPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1FC7F615BDE17D009393A1 /* LDNPlayingCard.m */; };
 		9a5c77706fa0745439c49c60 /* c6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576AC15C041340069F3D0 /* c6.png */; };
 		9e5da4c75f962559f858e2a5 /* sk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576DD15C041380069F3D0 /* sk.png */; };
+		AA21936D160119B1005C67B4 /* LDNGoFishPlayerViewiPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = AA21936A16010EED005C67B4 /* LDNGoFishPlayerViewiPhone.m */; };
 		AA26261715FECB750083ACFF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26261615FECB750083ACFF /* Constants.m */; };
 		AA26261815FECB810083ACFF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26261615FECB750083ACFF /* Constants.m */; };
-		AA26261B15FECBC50083ACFF /* LDNGoFishPlayerUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26261A15FECBC50083ACFF /* LDNGoFishPlayerUI.m */; };
-		AA26261C15FECBC50083ACFF /* LDNGoFishPlayerUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26261A15FECBC50083ACFF /* LDNGoFishPlayerUI.m */; };
+		AA26261B15FECBC50083ACFF /* LDNGoFishPlayerViewiPad.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26261A15FECBC50083ACFF /* LDNGoFishPlayerViewiPad.m */; };
+		AA26261C15FECBC50083ACFF /* LDNGoFishPlayerViewiPad.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26261A15FECBC50083ACFF /* LDNGoFishPlayerViewiPad.m */; };
+		AAA8860E1600D91100D4274D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA8860B1600D8F200D4274D /* MessageUI.framework */; };
 		a0bdb34cf7b5f7eb9122ff9a /* backs_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576A615C041330069F3D0 /* backs_blue.png */; };
 		a22d13ca131a7a1ae7d0ccb8 /* dk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2576C015C041350069F3D0 /* dk.png */; };
 		a28b9432dcbb5722aad1ebdb /* calabash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09ee0f7a2a8443e5a32d138b /* calabash.framework */; };
@@ -326,6 +328,7 @@
 		1C36007C15F65A0B000E59B4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = ../iTunesArtwork; sourceTree = "<group>"; };
 		1C46585215BF389D002791ED /* LDNGoFishRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishRobot.h; sourceTree = "<group>"; };
 		1C46585315BF389D002791ED /* LDNGoFishRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishRobot.m; sourceTree = "<group>"; };
+		1C76DBE31600E8E60056AAB4 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		1C96F77B15FC2D10001B4779 /* LDNMessageManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNMessageManagerTests.h; sourceTree = "<group>"; };
 		1C96F77C15FC2D11001B4779 /* LDNMessageManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNMessageManagerTests.m; sourceTree = "<group>"; };
 		1C96F77F15FC360E001B4779 /* NSObject+PeformBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PeformBlock.h"; sourceTree = "<group>"; };
@@ -348,10 +351,13 @@
 		1CFAFD7F15FA51D90041EF66 /* LDNCardImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNCardImage.m; sourceTree = "<group>"; };
 		1CFAFD8415FBC0E70041EF66 /* LDNMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDNMessageManager.h; path = ../LDNMessageManager.h; sourceTree = "<group>"; };
 		1CFAFD8515FBC0E70041EF66 /* LDNMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDNMessageManager.m; path = ../LDNMessageManager.m; sourceTree = "<group>"; };
+		AA21936916010EED005C67B4 /* LDNGoFishPlayerViewiPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishPlayerViewiPhone.h; sourceTree = "<group>"; };
+		AA21936A16010EED005C67B4 /* LDNGoFishPlayerViewiPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishPlayerViewiPhone.m; sourceTree = "<group>"; };
 		AA26261515FECB750083ACFF /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		AA26261615FECB750083ACFF /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		AA26261915FECBC50083ACFF /* LDNGoFishPlayerUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishPlayerUI.h; sourceTree = "<group>"; };
-		AA26261A15FECBC50083ACFF /* LDNGoFishPlayerUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishPlayerUI.m; sourceTree = "<group>"; };
+		AA26261915FECBC50083ACFF /* LDNGoFishPlayerViewiPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNGoFishPlayerViewiPad.h; sourceTree = "<group>"; };
+		AA26261A15FECBC50083ACFF /* LDNGoFishPlayerViewiPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNGoFishPlayerViewiPad.m; sourceTree = "<group>"; };
+		AAA8860B1600D8F200D4274D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		e9a7b125588893ff8055094f /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -360,6 +366,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C76DBE61600E8F60056AAB4 /* GameKit.framework in Frameworks */,
+				AAA8860E1600D91100D4274D /* MessageUI.framework in Frameworks */,
 				1CBBE69815C36D7E0031D7E9 /* QuartzCore.framework in Frameworks */,
 				1C1FC7A515BDC785009393A1 /* UIKit.framework in Frameworks */,
 				1C1FC7A715BDC785009393A1 /* Foundation.framework in Frameworks */,
@@ -417,6 +425,8 @@
 		1C1FC7A315BDC785009393A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C76DBE31600E8E60056AAB4 /* GameKit.framework */,
+				AAA8860B1600D8F200D4274D /* MessageUI.framework */,
 				1C1FC7A615BDC785009393A1 /* Foundation.framework */,
 				1C1FC7A415BDC785009393A1 /* UIKit.framework */,
 				1CBBE69415C36C320031D7E9 /* QuartzCore.framework */,
@@ -655,8 +665,10 @@
 		AA4A356415FECEEF00DE78E3 /* PlayerUI */ = {
 			isa = PBXGroup;
 			children = (
-				AA26261915FECBC50083ACFF /* LDNGoFishPlayerUI.h */,
-				AA26261A15FECBC50083ACFF /* LDNGoFishPlayerUI.m */,
+				AA26261915FECBC50083ACFF /* LDNGoFishPlayerViewiPad.h */,
+				AA26261A15FECBC50083ACFF /* LDNGoFishPlayerViewiPad.m */,
+				AA21936916010EED005C67B4 /* LDNGoFishPlayerViewiPhone.h */,
+				AA21936A16010EED005C67B4 /* LDNGoFishPlayerViewiPhone.m */,
 			);
 			name = PlayerUI;
 			sourceTree = "<group>";
@@ -959,7 +971,8 @@
 				1CFAFD8615FBC0E80041EF66 /* LDNMessageManager.m in Sources */,
 				1C96F78115FC360E001B4779 /* NSObject+PeformBlock.m in Sources */,
 				AA26261815FECB810083ACFF /* Constants.m in Sources */,
-				AA26261B15FECBC50083ACFF /* LDNGoFishPlayerUI.m in Sources */,
+				AA26261B15FECBC50083ACFF /* LDNGoFishPlayerViewiPad.m in Sources */,
+				AA21936D160119B1005C67B4 /* LDNGoFishPlayerViewiPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -967,7 +980,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CBBE69615C36C980031D7E9 /* LDNViewController.m in Sources */,
 				1C1FC7E215BDC869009393A1 /* LDNGoFishGameTests.m in Sources */,
 				1C1FC7E615BDCA82009393A1 /* LDNGoFishGame.m in Sources */,
 				1C1FC7EA15BDD245009393A1 /* LDNGoFishPlayer.m in Sources */,
@@ -981,7 +993,7 @@
 				1C96F77D15FC2D11001B4779 /* LDNMessageManagerTests.m in Sources */,
 				1C96F78215FC360E001B4779 /* NSObject+PeformBlock.m in Sources */,
 				AA26261715FECB750083ACFF /* Constants.m in Sources */,
-				AA26261C15FECBC50083ACFF /* LDNGoFishPlayerUI.m in Sources */,
+				AA26261C15FECBC50083ACFF /* LDNGoFishPlayerViewiPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1162,10 +1174,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
 				INFOPLIST_FILE = "Go FishTests/Go FishTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Volumes/OCMock 2.0.1/iOS\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -1184,10 +1193,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Go Fish/Go Fish-Prefix.pch";
 				INFOPLIST_FILE = "Go FishTests/Go FishTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Volumes/OCMock 2.0.1/iOS\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

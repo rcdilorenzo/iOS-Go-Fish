@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "LDNGoFishGame.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface LDNViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface LDNViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 @property (strong, nonatomic) LDNGoFishGame *game;
 @property (weak, nonatomic) IBOutlet UIPickerView *turnPicker;
 

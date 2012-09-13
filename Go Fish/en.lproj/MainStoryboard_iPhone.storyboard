@@ -1,24 +1,213 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1906" systemVersion="11A511" targetRuntime="iOS.CocoaTouch" nextObjectID="6" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Ofy-Nw-nNS">
     <dependencies>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="902"/>
+        <deployment defaultVersion="1296" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
+        <!--Startup View Controller-->
+        <scene sceneID="exW-aZ-eNg">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fs7-Wh-tWX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Ofy-Nw-nNS" customClass="LDNStartupViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VHU-8y-5ES">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.jpeg" id="ueb-7L-AnN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="kk2-rf-wUW">
+                                <rect key="frame" x="9" y="63" width="287" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.87058823529999996" green="0.71372549019999998" blue="0.52941176469999995" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B4B-lZ-fTZ" customClass="CustomGradientButton">
+                                <rect key="frame" x="113" y="145" width="76" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startGame:" destination="Ofy-Nw-nNS" eventType="touchUpInside" id="M3i-gH-rn4"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player Name" minimumFontSize="17" clearButtonMode="whileEditing" id="ow8-LK-yYR">
+                                <rect key="frame" x="20" y="106" width="263" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ofy-Nw-nNS" id="Oex-0b-y3L"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Create Go Fish Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="KNn-pk-xdq">
+                                <rect key="frame" x="20" y="70" width="276" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.4431372549" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" id="lVP-ZG-5ss">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Create Go Fish Game" id="6r9-fK-y9X"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="playerNameField" destination="ow8-LK-yYR" id="dZq-ee-wKH"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-40" y="194"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <viewController id="2" customClass="LDNViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameController" id="2" customClass="LDNViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.jpeg" id="a35-9l-sJO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="card-table.png" id="9TM-Ol-hL0">
+                                <rect key="frame" x="79" y="81" width="163" height="282"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="84G-YM-nAP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="uhU-ou-hCW">
+                                <rect key="frame" x="0.0" y="186" width="320" height="274"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" id="9zq-dQ-XLh">
+                                        <rect key="frame" x="0.0" y="58" width="320" height="216"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="2" id="7aJ-lx-D5C"/>
+                                            <outlet property="delegate" destination="2" id="CO2-xj-UGq"/>
+                                        </connections>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="DIf-3l-Dt7">
+                                        <rect key="frame" x="88" y="0.0" width="144" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0015944214922463719" green="0.42754448784722221" blue="0.027790829951336818" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="18"/>
+                                        <state key="normal" title="Take Turn">
+                                            <color key="titleColor" red="0.0" green="0.26781165080000002" blue="0.05584072474" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="takeLivePlayerTurn:" destination="2" eventType="touchUpInside" id="8dh-Lv-ptf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" id="y5r-La-gpd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Go Fish" id="gI7-cl-Rsl"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="h6J-W4-YTH">
+                                <rect key="frame" x="86" y="187" width="147" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.56683084240000003" blue="0.1181884543" alpha="0.31" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="18"/>
+                                <state key="normal" title="Begin Game">
+                                    <color key="titleColor" red="0.0" green="0.26781165080000002" blue="0.05584072474" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startGame:" destination="2" eventType="touchUpInside" id="iCJ-xx-gwZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="VWQ-rK-mvL" id="Jif-sq-mBu"/>
+                            <outletCollection property="gestureRecognizers" destination="RMx-HK-B20" id="Gay-aH-vOP"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="84G-YM-nAP" id="CP4-iR-3hC"/>
+                        <outlet property="livePlayerTurnView" destination="uhU-ou-hCW" id="jN0-45-4eO"/>
+                        <outlet property="navigationBar" destination="y5r-La-gpd" id="cl6-7b-7nV"/>
+                        <outlet property="pickerView" destination="9zq-dQ-XLh" id="gaU-yQ-mOv"/>
+                    </connections>
                 </viewController>
+                <swipeGestureRecognizer direction="up" id="RMx-HK-B20">
+                    <connections>
+                        <action selector="showPickerView:" destination="2" id="UUm-4l-0or"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="VWQ-rK-mvL">
+                    <connections>
+                        <action selector="hidePickerView:" destination="2" id="zpr-2g-59n"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="background.jpeg" width="900" height="675"/>
+        <image name="card-table.png" width="1024" height="768"/>
+    </resources>
+    <classes>
+        <class className="CustomGradientButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomGradientButton.h"/>
+        </class>
+        <class className="LDNStartupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LDNStartupViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startGame:"/>
+                <relationship kind="outlet" name="playerNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="startButton" candidateClass="CustomGradientButton"/>
+            </relationships>
+        </class>
+        <class className="LDNViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LDNViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="hidePickerView:"/>
+                <relationship kind="action" name="showPickerView:"/>
+                <relationship kind="action" name="startGame:"/>
+                <relationship kind="action" name="takeLivePlayerTurn:"/>
+                <relationship kind="outlet" name="backgroundView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="livePlayerPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="livePlayerTurnView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="turnPicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

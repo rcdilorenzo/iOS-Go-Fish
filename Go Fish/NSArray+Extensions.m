@@ -21,4 +21,16 @@
     
 }
 
+- (NSArray *)uniqueArrayWithKey:(NSString *) key {
+    NSMutableSet *tempValues = [[NSMutableSet alloc] init];
+    NSMutableArray *uniqueArray = [NSMutableArray array];
+    for(id obj in self) {
+        if(! [tempValues containsObject:[obj valueForKey:key]]) {
+            [tempValues addObject:[obj valueForKey:key]];
+            [uniqueArray addObject:obj];
+        }
+    }
+    return uniqueArray;
+}
+
 @end

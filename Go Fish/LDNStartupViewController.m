@@ -20,8 +20,6 @@
 @end
 
 @implementation LDNStartupViewController
-@synthesize playerNameField;
-@synthesize startButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +38,10 @@
 	// Do any additional setup after loading the view.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self.playerNameField resignFirstResponder];
+}
+
 - (void)viewDidUnload
 {
     [self setPlayerNameField:nil];
@@ -51,8 +53,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+        return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    }
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
         return YES;
     } else {
         return NO;
@@ -61,8 +64,9 @@
 }
 - (IBAction)startGame:(id)sender {
     LDNViewController *ldnVC = [self.storyboard instantiateViewControllerWithIdentifier:@"gameController"];
-    if (playerNameField.text.length != 0) {
-        ldnVC.game = [[LDNGoFishGame alloc] initWithLivePlayer:playerNameField.text];
+    if (self.playerNameField.text.length != 0) {
+        ldnVC.game = [[LDNGoFishGame alloc] initWithLivePlayer:self.playerNameField.text];
+        self.playerNameField.text = @"";
         [self presentModalViewController:ldnVC animated:YES];
     } else {
         [self.startButton setNormalState:self];
@@ -73,9 +77,8 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self startGame:textField];
+    [textField resignFirstResponder];
     return YES;
 }
-
 
 @end

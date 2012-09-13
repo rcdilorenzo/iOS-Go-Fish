@@ -11,5 +11,6 @@
 @interface NSArray (Extensions)
 
 - (BOOL)containsString:(NSString *)string;
+- (NSArray *)uniqueArrayWithKey:(NSString *)key;
 
 @end

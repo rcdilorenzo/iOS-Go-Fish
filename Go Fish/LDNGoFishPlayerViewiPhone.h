@@ -14,13 +14,11 @@
 #import <Foundation/Foundation.h>
 #import "LDNGoFishPlayer.h"
 
-@interface LDNGoFishPlayerUI : NSObject
+@interface LDNGoFishPlayerViewiPhone : UIView
 
 @property (nonatomic, strong) LDNGoFishPlayer *player;
-@property (nonatomic, strong) UIView *view;
 @property (nonatomic) CGPoint position;
 
-- (id)initWithPlayer:(id)player superview:(UIView *)superview position:(CGPoint)point orientation:(NSString *)orientation;
-- (void)draw;
+- (id)initWithPlayer:(LDNGoFishPlayer *)player position:(CGPoint)point orientation:(NSString *)orientation;
 
 @end

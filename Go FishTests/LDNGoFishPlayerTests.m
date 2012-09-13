@@ -120,9 +120,24 @@
     NSArray *expectedReturnedCards = [NSArray arrayWithObjects:[[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Hearts"], [[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Clubs"],[[LDNPlayingCard alloc] initWithRank:@"3" suit:@"Diamonds"], nil];
     STAssertEquals(returnedCards.count, expectedReturnedCards.count, @"The number of cards returned should be 3");
     for (int count=0; count < expectedReturnedCards.count; count++) {
-        STAssertEquals([[returnedCards objectAtIndex:count] rank], [[expectedReturnedCards objectAtIndex:count] rank], @"Ranks returned should equal 3t");
+        STAssertEquals([[returnedCards objectAtIndex:count] rank], [[expectedReturnedCards objectAtIndex:count] rank], @"Ranks returned should equal 3");
         STAssertEquals([[returnedCards objectAtIndex:count] suit], [[expectedReturnedCards objectAtIndex:count] suit], @"Suits returned should equal the expected suit");
     }
+}
+
+- (void)testSortingCards {
+    self.playerOne.cards = [[NSMutableArray alloc] initWithObjects:
+                            [[LDNPlayingCard alloc] initWithRank:@"Jack"
+                                                            suit:@"Spades"],
+                            [[LDNPlayingCard alloc] initWithRank:@"5"
+                                                            suit:@"Hearts"],
+                            [[LDNPlayingCard alloc] initWithRank:@"Ace"
+                                                            suit:@"Spades"],
+                            [[LDNPlayingCard alloc] initWithRank:@"2"
+                                                            suit:@"Diamonds"], nil];
+    [self.playerOne sortCards];
+    STAssertEqualObjects([[self.playerOne.cards objectAtIndex:0] rank], @"2", @"The card with the rank of 2 should be first in the player's hand");
+    STAssertEqualObjects([[self.playerOne.cards lastObject] rank], @"Ace", @"The card with the rank of Ace should be last in the player's hand");
 }
 
 @end

@@ -17,8 +17,6 @@
 @property (nonatomic) int count;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) int numberOfDecks;
-@property (weak, nonatomic) IBOutlet UITextField *numberOfDecksField;
-@property (weak, nonatomic) IBOutlet UIButton *startAnimationButton;
 @property (strong, nonatomic) NSMutableArray *cardImageSpeeds;
 @property (strong, nonatomic) NSTimer *refreshSpeedsTimer;
 
@@ -30,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startAnimation:)];
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startAnimation)];
     tapRecognizer.numberOfTapsRequired = 1;
     tapRecognizer.numberOfTouchesRequired = 1;
     self.view.gestureRecognizers = [NSArray arrayWithObject:tapRecognizer];
@@ -39,7 +37,7 @@
     self.arrayOfCardImageViews = [[NSMutableArray alloc] initWithCapacity:52];
     self.cardImageSpeeds = [[NSMutableArray alloc] init];
     [self configureAccelerometer];
-    [self startAnimation:nil];
+    [self startAnimation];
     [self createCardSpeeds];
     self.refreshSpeedsTimer = [NSTimer scheduledTimerWithTimeInterval:4.5 target:self selector:@selector(changeSpeeds) userInfo:nil repeats:YES];
 }
@@ -51,18 +49,14 @@
 
 - (void)createCardSpeeds {
     for (int i=0; i<self.arrayOfCardImageViews.count; i++) {
-        [self.cardImageSpeeds addObject:[NSNumber numberWithInt:(arc4random() % 100 + 25)]];
+        [self.cardImageSpeeds addObject:[NSNumber numberWithInt:(arc4random() % 1000)/10+25]];
     }
 }
 
-- (IBAction)startAnimation:(id)sender {
+- (void)startAnimation {
     if (self.arrayOfCardImageViews.count/52 <= 8) {
         [[UIAccelerometer sharedAccelerometer] setDelegate:nil];
-        if ([self.numberOfDecksField.text intValue]) {
-            self.numberOfDecks = [self.numberOfDecksField.text intValue];
-        } else {
-            self.numberOfDecks = 1;
-        }
+        self.numberOfDecks = 1;
         
         self.count = 52*self.numberOfDecks-1;
         self.timer = [[NSTimer alloc] init];
@@ -83,10 +77,6 @@
         
         [self createCardSpeeds];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
-        
-        [self.startAnimationButton setAlpha:0];
-        [self.numberOfDecksField resignFirstResponder];
-        [self.numberOfDecksField setAlpha:0];
     }
 }
 
@@ -157,22 +147,16 @@ UIAccelerationValue accelX, accelY, accelZ;
     accelX = (acceleration.x * kFilteringFactor) + (accelX * (1.0 - kFilteringFactor));
     accelY = (acceleration.y * kFilteringFactor) + (accelY * (1.0 - kFilteringFactor));
     accelZ = (acceleration.z * kFilteringFactor) + (accelZ * (1.0 - kFilteringFactor));
-
-    for (int count=0; count < self.arrayOfCardImageViews.count; count++) {
-        [self moveCard:[self.arrayOfCardImageViews objectAtIndex:count] offset:CGPointMake(accelY*[[self.cardImageSpeeds objectAtIndex:count] intValue], accelX*[[self.cardImageSpeeds objectAtIndex:count] intValue]) rotation:accelY*5 atIndex:count];
-    }
-}
-
-- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    if ( event.subtype == UIEventSubtypeMotionShake )
-    {
-        // Put in code here to handle shake
-        [self startAnimation:self.startAnimationButton];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        for (int count=0; count < self.arrayOfCardImageViews.count; count++) {
+            [self moveCard:[self.arrayOfCardImageViews objectAtIndex:count] offset:CGPointMake(accelX*[[self.cardImageSpeeds objectAtIndex:count] intValue], accelY*(-1)*[[self.cardImageSpeeds objectAtIndex:count] intValue]) rotation:accelY*5 atIndex:count];
+        }
+    } else {
+        for (int count=0; count < self.arrayOfCardImageViews.count; count++) {
+            [self moveCard:[self.arrayOfCardImageViews objectAtIndex:count] offset:CGPointMake(accelY*[[self.cardImageSpeeds objectAtIndex:count] intValue], accelX*[[self.cardImageSpeeds objectAtIndex:count] intValue]) rotation:accelY*5 atIndex:count];
+        }
     }
     
-    if ( [super respondsToSelector:@selector(motionEnded:withEvent:)] )
-        [super motionEnded:motion withEvent:event];
 }
 
 - (BOOL)canBecomeFirstResponder
@@ -180,8 +164,6 @@ UIAccelerationValue accelX, accelY, accelZ;
 
 - (void)viewDidUnload
 {
-    [self setNumberOfDecksField:nil];
-    [self setStartAnimationButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
