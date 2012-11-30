@@ -48,6 +48,7 @@
 
 - (id)drawFromPosition:(CGPoint)location view:(UIView *)view size:(CGFloat)size {
     UIImage *cardImage = [UIImage imageNamed:[self cardImageName]];
+    cardImage.accessibilityLabel = @"Card";
     self.view = [[UIImageView alloc] initWithFrame:CGRectMake(location.x, location.y+10, cardImage.size.width*size, cardImage.size.height*size)];
     [self.view setImage:cardImage];
     [self.view setAlpha:0];

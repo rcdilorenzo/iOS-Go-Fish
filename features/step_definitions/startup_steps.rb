@@ -6,10 +6,16 @@ Given /^I am on the Startup Screen$/ do
 end
 
 Then /^I should see cards on the screen$/ do
-  element_exists("imageView")
+  element_exists("Card")
 end
 
-Given /^I.*[created|started|create|start|made|making].*game.*"(\w+)".*$/ do |name|
+Then /^I see (\w+)'s game in its initial state$/ do |name|
+  macro %Q[I wait to see a navigation bar titled "Go Fish"]
+  macro %Q[I should see "#{name} - 0 Books"]
+  macro %Q[I should see cards on the screen]
+end
+
+Given /^I.*[created|started|create|start|made|make].*game.*"(\w+)".*$/ do |name|
   element_exists("view")
   sleep(STEP_PAUSE)
   macro %Q[I fill in "Player Name" with "#{name}"]
@@ -19,8 +25,9 @@ Given /^I.*[created|started|create|start|made|making].*game.*"(\w+)".*$/ do |nam
   macro %Q[I should see cards on the screen]
 end
 
-Then /I.*see.+default.*[robot|player].*/ do
-  macro %Q[I should see "Rack"]
-  macro %Q[I should see "Shack"]
-  macro %Q[I should see "Benny"]
+Then /I.*see.+default.*[robot|player].*names: (.*)$/ do |player_names|
+  player_name_array = player_names.split(", ")
+  player_name_array.each do |player_name|
+    macro %Q[I should see "#{player_name}"]
+  end
 end
