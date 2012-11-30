@@ -144,7 +144,9 @@
                      completion:^(BOOL finished){
                          [self takePlayerTurn:nil];
                      }];
-    [self toggleNavigationBarIfNeeded];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        [self toggleNavigationBarIfNeeded];
+    }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGameMessage:) name:@"Updated Messages" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePlayerTurn:) name:@"All Messages Finished" object:nil];
 }

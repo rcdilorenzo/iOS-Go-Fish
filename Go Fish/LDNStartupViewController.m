@@ -11,11 +11,15 @@
 #import "CustomGradientButton.h"
 #import "CardAnimationViewController.h"
 #import "LDNMessageManager.h"
+#import "LDNLoginController.h"
 
 @interface LDNStartupViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *playerNameField;
 @property (weak, nonatomic) IBOutlet CustomGradientButton *startButton;
 @property (strong, nonatomic) CardAnimationViewController *cardAnimator;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (strong, nonatomic) UIBarButtonItem *loginButton;
+@property (strong, nonatomic) UIPopoverController *loginPopover;
 
 @end
 
@@ -32,6 +36,11 @@
 
 - (void)viewDidLoad
 {
+    self.loginButton = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleBordered target:self action:@selector(showLoginPopover:)];
+    LDNLoginController *loginVC = [[LDNLoginController alloc] init];
+    self.loginPopover = [[UIPopoverController alloc] initWithContentViewController:loginVC];
+    loginVC.parentPopover = self.loginPopover;
+    self.navigationBar.topItem.leftBarButtonItem = self.loginButton;
     self.cardAnimator = [[CardAnimationViewController alloc] init];
     [super viewDidLoad];
     [self.view insertSubview:self.cardAnimator.view atIndex:1];
@@ -46,6 +55,7 @@
 {
     [self setPlayerNameField:nil];
     [self setStartButton:nil];
+    [self setNavigationBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -62,6 +72,13 @@
     }
 
 }
+
+- (void)showLoginPopover:(id)sender {
+    self.loginPopover.popoverContentSize = CGSizeMake(320, 160);
+    [self.loginPopover presentPopoverFromBarButtonItem:self.loginButton permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    NSLog(@"Subviews of popover: %@", self.loginPopover.contentViewController.view.subviews);
+}
+
 - (IBAction)startGame:(id)sender {
     LDNViewController *ldnVC = [self.storyboard instantiateViewControllerWithIdentifier:@"gameController"];
     if (self.playerNameField.text.length != 0) {

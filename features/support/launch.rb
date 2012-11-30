@@ -32,6 +32,7 @@ require 'sim_launcher'
 
 # APP_BUNDLE_PATH = "~/Library/Developer/Xcode/DerivedData/??/Build/Products/Calabash-iphonesimulator/??.app"
 #
+APP_BUNDLE_PATH="/Users/christiandilorenzo/Library/Developer/Xcode/DerivedData/Go_Fish-gxdphjhmgnidawbtijnuzqqdavub/Build/Products/Debug-iphonesimulator/Go Fish-cal.app"
 
 def reset_app_jail(sdk, app_path)
   app = File.basename(app_path)

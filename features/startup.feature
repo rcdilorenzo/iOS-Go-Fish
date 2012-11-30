@@ -7,10 +7,10 @@ Feature: Starting a game
 
 Scenario: Startup of App
     Given I am on the Startup Screen
-    Then I fill in "Name" with "Christian"
+    Then I fill in "Player Name" with "Christian"
     And I touch "Start"
     Then I wait to see a navigation bar titled "Go Fish"
-    Then I should see "Christian"
+    Then I should see "Christian - 0 Books"
     Then I should see cards on the screen
 
   Scenario: Game Created
