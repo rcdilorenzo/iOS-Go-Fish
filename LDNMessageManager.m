@@ -73,7 +73,7 @@
 
 - (void)addMessageToQueue:(id)message {
     if ([message isKindOfClass:[NSString class]]) {
-        message = [NSArray arrayWithObject:message];
+        message = @[message];
     }
     [self.queue addObject:message];
 }
@@ -88,7 +88,7 @@
 
 - (void)displayNextMessage {
     if (self.queue.count != 0) {
-        [self displayArrayOfMessages:[self.queue objectAtIndex:0]];
+        [self displayArrayOfMessages:(self.queue)[0]];
     } else {
         [self allMessagesFinished];
     }
@@ -171,7 +171,7 @@
 #pragma-mark
 #pragma-mark Notifications
 - (void)messageFinished {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Message Finished" object:[self.queue objectAtIndex:0]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Message Finished" object:(self.queue)[0]];
     [self.queue removeObjectAtIndex:0];
 }
 

@@ -39,7 +39,7 @@
         for (NSString *playerName in playerNames) {
             if (count == 1) {
                 [self.players addObject:[[LDNGoFishPlayer alloc] initWithName:playerName]];
-                self.currentPlayer = [self.players objectAtIndex:0];
+                self.currentPlayer = (self.players)[0];
             } else {
                 [self.players addObject:[[LDNGoFishRobot alloc] initWithName:playerName]];
             }
@@ -63,14 +63,14 @@
 
 - (id)getGameWinner {
     if ([self end]) {
-        NSArray *sortedArray = [self.players sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"getPlayerScore" ascending:NO]]];
+        NSArray *sortedArray = [self.players sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"getPlayerScore" ascending:NO]]];
         NSMutableArray *winners = [[NSMutableArray alloc] init];
         for (LDNGoFishPlayer *player in sortedArray) {
-            if (player.score == [[sortedArray objectAtIndex:0] getPlayerScore]) {
+            if (player.score == [sortedArray[0] getPlayerScore]) {
                 [winners addObject:player];
             }
         }
-        if (winners.count == 1) {return [winners objectAtIndex:0];} else {return winners;}
+        if (winners.count == 1) {return winners[0];} else {return winners;}
     } else { return @"Game not ended"; }
 }
 

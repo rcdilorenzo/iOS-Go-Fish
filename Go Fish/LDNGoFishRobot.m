@@ -19,7 +19,7 @@
 - (BOOL)createDecisionFromOpponents:(NSArray *)opponents
                           currentPlayer:(LDNGoFishPlayer *)currentPlayer {
     NSUInteger randomIndex = arc4random() % opponents.count;
-    self.choosenPlayer = [opponents objectAtIndex:randomIndex];
+    self.choosenPlayer = opponents[randomIndex];
     NSMutableArray *cardRanks = [[NSMutableArray alloc] init];
     for (LDNPlayingCard *card in self.cards) {
         [cardRanks addObject:card.rank];

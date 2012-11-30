@@ -16,8 +16,8 @@
     self = [super init];
     if (self) {
         _cards = [[NSMutableArray alloc] initWithCapacity:52];
-        NSArray *ranks = [NSArray arrayWithObjects:@"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"Jack", @"Queen", @"King", @"Ace", nil];
-        NSArray *suits = [NSArray arrayWithObjects:@"Clubs", @"Diamonds", @"Spades", @"Hearts", nil];
+        NSArray *ranks = @[@"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"Jack", @"Queen", @"King", @"Ace"];
+        NSArray *suits = @[@"Clubs", @"Diamonds", @"Spades", @"Hearts"];
         
         for (NSString *rank in ranks) {
             for (NSString *suit in suits) {
@@ -36,7 +36,7 @@
 
 - (LDNPlayingCard *)draw {
     NSUInteger randomIndex = arc4random() % self.cards.count;
-    LDNPlayingCard *selectedCard = [self.cards objectAtIndex:randomIndex];
+    LDNPlayingCard *selectedCard = (self.cards)[randomIndex];
     [self.cards removeObject:selectedCard];
     return selectedCard;
 }

@@ -44,14 +44,10 @@
     highlightedLayer.borderColor = [UIColor blackColor].CGColor;
     CAGradientLayer *highlightedShineLayer = [CAGradientLayer layer];
     highlightedShineLayer.frame = self.layer.bounds;
-    highlightedShineLayer.colors = [NSArray arrayWithObjects:
-                                    (id)[UIColor colorWithRed:0.20f green:0.20f blue:1.0f alpha:1.0f].CGColor,
-                                    (id)[UIColor colorWithRed:0.09f green:0.00f blue:0.65f alpha:1.0f].CGColor,
-                                    nil];
-    highlightedShineLayer.locations = [NSArray arrayWithObjects:
-                                       [NSNumber numberWithFloat:0.0f],
-                                       [NSNumber numberWithFloat:1.0f],
-                                       nil];
+    highlightedShineLayer.colors = @[(id)[UIColor colorWithRed:0.20f green:0.20f blue:1.0f alpha:1.0f].CGColor,
+                                    (id)[UIColor colorWithRed:0.09f green:0.00f blue:0.65f alpha:1.0f].CGColor];
+    highlightedShineLayer.locations = @[@0.0f,
+                                       @1.0f];
     [self.layer insertSublayer:highlightedShineLayer below:self.titleLabel.layer];
     [self setNeedsDisplay];
 }
@@ -65,14 +61,10 @@
     layer.borderColor = [UIColor grayColor].CGColor;
     CAGradientLayer *shineLayer = [CAGradientLayer layer];
     shineLayer.frame = self.layer.bounds;
-    shineLayer.colors = [NSArray arrayWithObjects:
-                         (id)[UIColor colorWithRed:0.85f green:0.85f blue:0.85f alpha:1.0f].CGColor,
-                         (id)[UIColor colorWithRed:0.55f green:0.55f blue:0.55f alpha:1.0f].CGColor,
-                         nil];
-    shineLayer.locations = [NSArray arrayWithObjects:
-                            [NSNumber numberWithFloat:0.0f],
-                            [NSNumber numberWithFloat:1.0f],
-                            nil];
+    shineLayer.colors = @[(id)[UIColor colorWithRed:0.85f green:0.85f blue:0.85f alpha:1.0f].CGColor,
+                         (id)[UIColor colorWithRed:0.55f green:0.55f blue:0.55f alpha:1.0f].CGColor];
+    shineLayer.locations = @[@0.0f,
+                            @1.0f];
     [self.layer insertSublayer:shineLayer below:self.titleLabel.layer];
     [self setNeedsDisplay];
 }

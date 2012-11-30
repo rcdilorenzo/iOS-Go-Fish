@@ -31,7 +31,7 @@
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startAnimation)];
     tapRecognizer.numberOfTapsRequired = 1;
     tapRecognizer.numberOfTouchesRequired = 1;
-    self.view.gestureRecognizers = [NSArray arrayWithObject:tapRecognizer];
+    self.view.gestureRecognizers = @[tapRecognizer];
     
     [self becomeFirstResponder];
     self.arrayOfCardImageViews = [[NSMutableArray alloc] initWithCapacity:52];
@@ -85,7 +85,7 @@
         self.timer = nil;
         [[UIAccelerometer sharedAccelerometer] setDelegate:self];
     } else {
-       [self animateCardImageView:[self.arrayOfCardImageViews objectAtIndex:(self.count+(self.arrayOfCardImageViews.count-52))]];
+       [self animateCardImageView:(self.arrayOfCardImageViews)[(self.count+(self.arrayOfCardImageViews.count-52))]];
         self.count--;
     }
 }
@@ -149,11 +149,11 @@ UIAccelerationValue accelX, accelY, accelZ;
     accelZ = (acceleration.z * kFilteringFactor) + (accelZ * (1.0 - kFilteringFactor));
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         for (int count=0; count < self.arrayOfCardImageViews.count; count++) {
-            [self moveCard:[self.arrayOfCardImageViews objectAtIndex:count] offset:CGPointMake(accelX*[[self.cardImageSpeeds objectAtIndex:count] intValue], accelY*(-1)*[[self.cardImageSpeeds objectAtIndex:count] intValue]) rotation:accelY*5 atIndex:count];
+            [self moveCard:(self.arrayOfCardImageViews)[count] offset:CGPointMake(accelX*[(self.cardImageSpeeds)[count] intValue], accelY*(-1)*[(self.cardImageSpeeds)[count] intValue]) rotation:accelY*5 atIndex:count];
         }
     } else {
         for (int count=0; count < self.arrayOfCardImageViews.count; count++) {
-            [self moveCard:[self.arrayOfCardImageViews objectAtIndex:count] offset:CGPointMake(accelY*[[self.cardImageSpeeds objectAtIndex:count] intValue], accelX*[[self.cardImageSpeeds objectAtIndex:count] intValue]) rotation:accelY*5 atIndex:count];
+            [self moveCard:(self.arrayOfCardImageViews)[count] offset:CGPointMake(accelY*[(self.cardImageSpeeds)[count] intValue], accelX*[(self.cardImageSpeeds)[count] intValue]) rotation:accelY*5 atIndex:count];
         }
     }
     

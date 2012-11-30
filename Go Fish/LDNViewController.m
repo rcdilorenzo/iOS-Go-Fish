@@ -82,15 +82,15 @@
 - (void)setUpIPhonePlayerViews {
    
     CGPoint pointArray[] = {CGPointMake(35, 370), CGPointMake(5, 90), CGPointMake(35, 5), CGPointMake(250, 90)};
-    NSArray *orientationArray = [NSArray arrayWithObjects:UIOrientationHorizontal, UIOrientationVertical, UIOrientationHorizontal, UIOrientationVertical, nil];
+    NSArray *orientationArray = @[UIOrientationHorizontal, UIOrientationVertical, UIOrientationHorizontal, UIOrientationVertical];
     int autoresizingArray[] = {UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin,
         UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleTopMargin,
         UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleWidth,
         UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin};
     for (int count=0; count<self.game.players.count; count++) {
-        LDNGoFishPlayerViewiPhone *playerView = [[LDNGoFishPlayerViewiPhone alloc] initWithPlayer:[self.game.players objectAtIndex:count]
+        LDNGoFishPlayerViewiPhone *playerView = [[LDNGoFishPlayerViewiPhone alloc] initWithPlayer:(self.game.players)[count]
                                                                                          position:pointArray[count]
-                                                                                      orientation:[orientationArray objectAtIndex:count]];
+                                                                                      orientation:orientationArray[count]];
         playerView.autoresizingMask = autoresizingArray[count];
         [self.view insertSubview:playerView belowSubview:self.backgroundView];
     }
@@ -114,15 +114,15 @@
 
 - (void)setUpIPadPlayerViews {
     CGPoint pointArray[] = {CGPointMake(125, 874), CGPointMake(60, 284), CGPointMake(125, 62), CGPointMake(600, 284)};
-    NSArray *orientationArray = [NSArray arrayWithObjects:UIOrientationHorizontal, UIOrientationVertical, UIOrientationHorizontal, UIOrientationVertical, nil];
+    NSArray *orientationArray = @[UIOrientationHorizontal, UIOrientationVertical, UIOrientationHorizontal, UIOrientationVertical];
     int autoresizingArray[] = {UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin,
         UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleTopMargin,
         UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleWidth,
         UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleLeftMargin};
     for (int count=0; count<self.game.players.count; count++) {
-        LDNGoFishPlayerViewiPad *playerView = [[LDNGoFishPlayerViewiPad alloc] initWithPlayer:[self.game.players objectAtIndex:count]
+        LDNGoFishPlayerViewiPad *playerView = [[LDNGoFishPlayerViewiPad alloc] initWithPlayer:(self.game.players)[count]
                                                                                      position:pointArray[count]
-                                                                                  orientation:[orientationArray objectAtIndex:count]];
+                                                                                  orientation:orientationArray[count]];
         playerView.autoresizingMask = autoresizingArray[count];
         [self.view addSubview:playerView];
     }
@@ -131,8 +131,8 @@
 #pragma-mark
 #pragma-mark Game Events
 - (void)setDefaultLivePlayerDecision {
-    [self.livePlayerDecision setValue:[self.game.players objectAtIndex:1] forKey:@"player"];
-    [self.livePlayerDecision setValue:[[[[self.game.players objectAtIndex:0] cards] objectAtIndex:0] rank] forKey:@"rank"];
+    [self.livePlayerDecision setValue:(self.game.players)[1] forKey:@"player"];
+    [self.livePlayerDecision setValue:[[(self.game.players)[0] cards][0] rank] forKey:@"rank"];
 }
 
 - (IBAction)startGame:(id)sender {
@@ -166,7 +166,7 @@
         [self toggleNavigationBarIfNeeded];
         return;
     }
-    if (self.game.currentPlayer == [self.game.players objectAtIndex:0]) {
+    if (self.game.currentPlayer == (self.game.players)[0]) {
         [self.livePlayerPicker reloadComponent:0];
         [UIView animateWithDuration:0.5 animations:^{[self.livePlayerTurnView setAlpha:1.0];}];
         [self.livePlayerPicker setNeedsDisplay];
@@ -214,7 +214,7 @@
 - (void)createNavigationBarItems {
     UIBarButtonItem *newGameButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newGame)];
     self.shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(presentShareSheet)];
-    self.navigationBar.topItem.rightBarButtonItems = [NSArray arrayWithObjects:newGameButton, self.shareButton, nil];
+    self.navigationBar.topItem.rightBarButtonItems = @[newGameButton, self.shareButton];
 }
 
 - (void)presentShareSheet {
@@ -239,24 +239,24 @@
     if (component == 0) {
         return 3;
     } else {
-        return [[[[self.game.players objectAtIndex:0] cards] uniqueArrayWithKey:@"value"] count];
+        return [[[(self.game.players)[0] cards] uniqueArrayWithKey:@"value"] count];
     }
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (component == 0) {
-        return [[self.game.players objectAtIndex:(row+1)] name];
+        return [(self.game.players)[(row+1)] name];
     } else if (component == 1) {
-        return [[[[[self.game.players objectAtIndex:0] cards] uniqueArrayWithKey:@"value"] objectAtIndex:row] rank];
+        return [[[(self.game.players)[0] cards] uniqueArrayWithKey:@"value"][row] rank];
     }
     return nil;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     if (component == 0) {
-        [self.livePlayerDecision setObject:[self.game.players objectAtIndex:(row+1)] forKey:@"player"];
+        (self.livePlayerDecision)[@"player"] = (self.game.players)[(row+1)];
     } else if (component == 1) {
-        [self.livePlayerDecision setObject:[[[[[self.game.players objectAtIndex:0] cards] uniqueArrayWithKey:@"value"] objectAtIndex:row] rank] forKey:@"rank"];
+        (self.livePlayerDecision)[@"rank"] = [[[(self.game.players)[0] cards] uniqueArrayWithKey:@"value"][row] rank];
     }
 }
 
@@ -291,7 +291,7 @@
     if (buttonIndex == 0 && [MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
         mailVC.mailComposeDelegate = self;
-        [mailVC setSubject:[NSString stringWithFormat:@"%@\'s Go Fish Game Results", [[self.game.players objectAtIndex:0] name]]];
+        [mailVC setSubject:[NSString stringWithFormat:@"%@\'s Go Fish Game Results", [(self.game.players)[0] name]]];
         NSMutableString *messageBody = [NSMutableString stringWithString:@"<b>Go Fish Game Results:</b><br />"];
         for (LDNGoFishPlayer *player in self.game.players) {
             [messageBody appendFormat:@"%@: %u Books<br />", player.name, player.score];

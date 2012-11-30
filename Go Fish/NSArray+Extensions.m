@@ -13,7 +13,7 @@
 - (BOOL)containsString:(NSString *)string {
     BOOL containsObject = NO;
     for (int i=0; i<self.count; i++) {
-        if ([[self objectAtIndex:i] isEqualToString:string]) {
+        if ([self[i] isEqualToString:string]) {
             containsObject = YES;
         }
     }

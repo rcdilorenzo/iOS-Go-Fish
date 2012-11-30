@@ -29,7 +29,7 @@
 }
 
 - (void)sortCards {
-    NSArray *descriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"value" ascending:YES]];
+    NSArray *descriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"value" ascending:YES]];
     self.cards = [NSMutableArray arrayWithArray:[self.cards sortedArrayUsingDescriptors:descriptors]];
 }
 
@@ -72,7 +72,7 @@
 
 - (LDNPlayingCard *)drawFromDeck:(LDNDeckOfCards *)deck {
     NSUInteger randomIndex = arc4random() % deck.cards.count;
-    LDNPlayingCard *selectedCard = [deck.cards objectAtIndex:randomIndex];
+    LDNPlayingCard *selectedCard = (deck.cards)[randomIndex];
     [deck.cards removeObject:selectedCard];
     [self.cards addObject:selectedCard];
     [self checkForBooks];
@@ -80,7 +80,7 @@
 }
 
 - (void)checkForBooks {
-    NSArray *ranks = [NSArray arrayWithObjects:@"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"Jack", @"Queen", @"King", @"Ace", nil];
+    NSArray *ranks = @[@"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"Jack", @"Queen", @"King", @"Ace"];
     for (NSString *rank in ranks) {
         if ([[self cardsOfRank:rank] count] == 4) {
             [self.game addGameMessage:[NSString stringWithFormat:@"New Book of %@\'s!", rank]];
